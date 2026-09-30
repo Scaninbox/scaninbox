@@ -254,6 +254,14 @@ b,strong{font-weight:600}
 .brand{display:flex;align-items:baseline;gap:.5rem;text-decoration:none;color:var(--ink)}
 .brand__name{font-family:var(--sans);font-weight:700;font-size:1.0625rem;letter-spacing:-.015em}
 .brand__by{font-family:var(--mono);font-size:.6875rem;color:var(--ink-3);letter-spacing:.02em}
+/* Below this the two together don't fit next to the language/contrast
+   controls, and "by inbox.eu" used to wrap mid-phrase instead — "by" stuck
+   to the name, "inbox.eu" alone on the next line. A full second line reads
+   better than a broken one. */
+@media (max-width:460px){
+  .brand{flex-direction:column;align-items:flex-start;gap:.05rem}
+  .brand__by{white-space:nowrap}
+}
 .nav{display:none;gap:1.5rem;align-items:center;margin-inline-start:auto}
 .nav a{font-family:var(--sans);font-size:var(--fs-sm);color:var(--ink-2);text-decoration:none}
 .nav a:hover{color:var(--ink);text-decoration:underline}
