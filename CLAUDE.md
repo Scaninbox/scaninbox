@@ -240,6 +240,14 @@ similar:
   many rows show up depends on the printer image's height at that
   particular width — that's deliberate, not a bug, if you see 2 or 4 rows
   on different screens.
+- **What actually sets the printer image's height is `.sheet{min-height:
+  19rem}`** (12rem below 28rem, in its own `@container (max-width:27.99rem)`
+  block) — `.bed` and `.mfp` have no height of their own, they just wrap it.
+  This used to be `.bed{aspect-ratio:2.1}` instead, a flatter ratio that
+  capped the whole figure — and, through the stretch above, the inbox list —
+  to 2–3 rows even on a wide screen. Found by comparing against Mauris's
+  fork, which still has the original `min-height` values from before that
+  drift; removing the aspect-ratio and copying his two numbers fixed it.
 
 To check both states: widen the browser window/the figure's container above
 and below 28rem (447px) and watch whether `.wire` switches from a

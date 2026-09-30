@@ -407,7 +407,7 @@ b,strong{font-weight:600}
   content:"";position:absolute;left:50%;transform:translateX(-50%);bottom:2px;
   width:22%;height:2px;border-radius:1px;background:var(--device-rule);
 }
-.bed{position:relative;overflow:hidden;aspect-ratio:2.1;display:flex;border:1px solid var(--device-rule);background:var(--device-2);padding:.7rem}
+.bed{position:relative;overflow:hidden;display:flex;border:1px solid var(--device-rule);background:var(--device-2);padding:.7rem}
 .bed__guide{position:absolute;inset:0;pointer-events:none;font-family:var(--mono);font-size:.5625rem;letter-spacing:.11em;color:rgba(255,255,255,.28)}
 .bed__guide span{position:absolute}
 .bed__guide span:nth-child(1){top:.3rem;left:.4rem}
@@ -450,6 +450,12 @@ b,strong{font-weight:600}
 /* --- the page on the glass --- */
 .sheet{
   position:relative;flex:1;background:#FCFCFA;padding:.7rem .8rem;
+  /* This is what actually gives the machine its height — .bed and .mfp have
+     none of their own, so a short sheet makes a short (and, stretched to
+     match, a short inbox too). 19rem is tall enough that the inbox next to
+     it — stretched to match in the wide, side-by-side layout — shows most
+     of its rows instead of just the first two or three. */
+  min-height:19rem;
   display:flex;flex-direction:column;gap:.42rem;
   box-shadow:0 5px 14px -7px rgba(0,0,0,.6);
   animation:feed var(--cycle) ease-in-out infinite;
@@ -688,6 +694,11 @@ b,strong{font-weight:600}
   0%,59%{transform:translateX(-110%)}
   74%,100%{transform:translateX(110%)}
 }
+
+/* Narrow (stacked) layout: 19rem would make the machine alone taller than
+   the whole figure needs to be, since here nothing stretches the inbox to
+   match it. Shorter, but still tall enough to not look clipped. */
+@container (max-width:27.99rem){ .sheet{min-height:12rem} }
 
 /* Wide enough for three columns: the machine and the inbox stand side by
    side, the wire between them a short bridge rather than a full-width row.
