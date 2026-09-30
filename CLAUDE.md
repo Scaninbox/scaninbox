@@ -255,8 +255,9 @@ full-width bar to a narrow gutter between printer and inbox.
 
 ## Other deliberate decisions that don't need "fixing"
 
-- **`noindex, nofollow`** is there on purpose, while the page is under
-  review.
+- **No `noindex`** any more: it was removed on purpose for the launch, so
+  the page is indexed. Do not add it back to `index.html`; PR previews are
+  already kept out of search engines by Netlify.
 - **The `price_bands` table stays**, even though the form no longer asks
   about price — those are first-iteration answers. `leads.js` only shows it
   when there's something to show.
