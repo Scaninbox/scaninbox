@@ -1,371 +1,400 @@
-# ScanInbox — landing lapa
+# ScanInbox — landing page
 
-Produkta idejas validācijas lapa **ScanInbox** — inbox.eu pakalpojumam, kas
-skenētos dokumentus nogādā tieši e-pastā, izmantojot inbox.eu SMTP.
+A product-idea validation page for **ScanInbox** — an inbox.eu service that
+delivers scanned documents straight to e-mail, using inbox.eu SMTP.
 
-Lapas vienīgais mērķis ir noskaidrot, **vai produkts ir vajadzīgs**: tā
-paskaidro ideju un savāc priekšreģistrācijas pieteikumus. Forma prasa **tikai
-e-pastu**; segmentu, ierīču skaitu un zīmolu jautā turpat kartītē pēc tam,
-kad pieteikums jau ir saglabāts — trīs jautājumi, katrs ar vienu pieskārienu
-uz vienu no spiežamajām pogām (nav ne «Tālāk» pogas, ne brīvā teksta lauka),
-un katra atbilde aiziet uz serveri uzreiz, tāpēc pusceļā pamesta aptauja tik
-un tā kaut ko pasaka.
+The page's only goal is to find out **whether the product is needed**: it
+explains the idea and collects pre-registration sign-ups. The form asks
+**only for an e-mail address**; segment, device count, and brand are asked
+right in the same card afterwards, once the sign-up is already saved — three
+questions, each a single tap on one of the pressable chips (no "Next"
+button, no free-text field), and each answer goes to the server right away,
+so a survey abandoned halfway still says something.
 
-### Otrā iterācija
+### Second iteration
 
-Kas mainījies pēc 8. septembra pārskatīšanas ar komandu:
+What changed after the September 8 review with the team:
 
-- **Animācija** hero sadaļā izstāsta visu ceļu uz viena pulksteņa
-  (`--cycle`): nospiežas SCAN taustiņš, lampa pārskrien lapu un **dokuments
-  parādās zem tās**, vēstule aizlido pa vadu uz adresi, un skenējums nolaižas
-  iesūtnes saraksta augšgalā. Adrese vadā seko tam, ko cilvēks raksta formā,
-  un, tiklīdz tā ir derīga, stāsts sākas no jauna — lai cilvēks redz vēstuli
-  aizlidojam uz **savu** adresi. Ārpus ekrāna animācija stāv; atgriežoties tā
-  sākas no nulles, nevis no vidus.
-- **Izmestas** sadaļas «Salīdzinājums» un «Kas iekļauts» — pirmā bija gara un
-  neko nepārdeva, otrā tagad dzīvo cenas kartītē un BUJ.
-- **Pievienota** sadaļa «Kurš no šiem esi tu» — četri lietojuma stāsti, starp
-  tiem Microsoft 365 gadījums, kas ir asākais pieprasījuma iemesls.
-- **Laika atskaite** — ~5 min uzstādīšana, < 1 min līdz pastkastei, uz katra
-  soļa savs laiks.
-- **Uzstādīšana** ir pārņemta 1:1 no kolēģa lapas: ievads par to, kā cilvēki
-  līdz šai problēmai nonāk, tad četri soļi vertikālā sarakstā (ikona kolonnā,
-  numurs virsrakstā, laiks ieaudzēts tekstā, nevis atsevišķā nozīmītē). Tās
-  pašas klases un tās pašas CSS vērtības. (Bultiņu josla un «Ģenerētā
-  konfigurācija» piemēra tabula, kas te bija agrāk, ir noņemta — cits kolēģis,
-  kas no mūsu lapas atzaroja savu versiju, to izmeta, un mēs sekojām.)
-- **Cena** ir skaitlis: 10 € gadā par ierīci, pirmajiem 50 — gads bez maksas.
-- **BUJ** ir akordeons ar 14 jautājumiem, no kuriem daļa ir tehniska un tur
-  ir SEO dēļ. Divi aizgūti no kolēģu lapām: «Kas ir ScanInbox?» ievadam un
-  «Vai ar to var skenēt arī viesis?».
-- **21 valoda**: latviešu, angļu, itāļu, franču, vācu, bulgāru, čehu, dāņu,
-  grieķu, holandiešu, horvātu, lietuviešu, poļu, portugāļu, rumāņu, slovāku,
-  slovēņu, somu, spāņu, ungāru un zviedru — tāda pati izvēle, kāda ir kolēģa
-  nimda5 lapā.
+- **The animation** in the hero section tells the whole story on one clock
+  (`--cycle`): the SCAN key presses in, the lamp sweeps the page and **the
+  document appears beneath it**, the letter flies down the wire to the
+  address, and the scan lands at the top of the inbox list. The address on
+  the wire follows what the person types in the form, and as soon as it's
+  valid, the story restarts — so the person sees the letter fly to **their
+  own** address. Off-screen the animation stops; coming back it starts from
+  zero, not from the middle.
+- **Removed** the "Comparison" and "What's included" sections — the first
+  was long and sold nothing, the second now lives in the price card and the
+  FAQ.
+- **Added** the "Which one are you" section — four use-case stories,
+  including the Microsoft 365 case, which is the sharpest reason for demand.
+- **Time accounting** — ~5 min setup, < 1 min to the mailbox, each step with
+  its own time.
+- **Setup** is taken 1:1 from a colleague's page: an intro about how people
+  arrive at this problem, then four steps in a vertical list (icon in its
+  own column, number in the heading, time worked into the text rather than
+  a separate badge). Same classes and the same CSS values. (The arrow strip
+  and the "Generated configuration" example table that used to sit here
+  have been removed — another colleague, who forked our page, dropped it,
+  and we followed.)
+- **Price** is a number: €10/year per device, first 50 — a free year.
+- **FAQ** is an accordion with 14 questions, some of which are technical and
+  there for SEO. Two are borrowed from colleagues' pages: "What is
+  ScanInbox?" for the intro and "Can a visitor scan too?".
+- **21 languages**: Latvian, English, Italian, French, German, Bulgarian,
+  Czech, Danish, Greek, Dutch, Croatian, Lithuanian, Polish, Portuguese,
+  Romanian, Slovak, Slovenian, Finnish, Spanish, Hungarian, and Swedish —
+  the same choice as a colleague's nimda5 page.
 
-## Publicētā lapa
+## The published page
 
 <https://ingmarsj.github.io/scaninbox/>
 
-Katrai valodai ir sava adrese, un tur ved reklāmas kampaņas:
+Each language has its own address, and that's what ad campaigns link to:
 
 | | |
 | --- | --- |
-| <https://ingmarsj.github.io/scaninbox/lv/> | latviski |
-| <https://ingmarsj.github.io/scaninbox/en/> | angliski |
-| <https://ingmarsj.github.io/scaninbox/it/> | itāliski |
-| <https://ingmarsj.github.io/scaninbox/fr/> | franciski |
-| <https://ingmarsj.github.io/scaninbox/de/> | vāciski |
+| <https://ingmarsj.github.io/scaninbox/lv/> | Latvian |
+| <https://ingmarsj.github.io/scaninbox/en/> | English |
+| <https://ingmarsj.github.io/scaninbox/it/> | Italian |
+| <https://ingmarsj.github.io/scaninbox/fr/> | French |
+| <https://ingmarsj.github.io/scaninbox/de/> | German |
 
-Sakne pāradresē uz valodu pēc sīkdatnes, laika joslas vai pārlūka. Lapa, kas
-jau nosaukta savā valodā, nekad netiek pāradresēta prom no tā, kas prasīts.
-Vecais `?lang=` joprojām strādā, lai jau izsūtītās saites nepārtrūktu.
+...plus 16 more (`/bg/ /cs/ /da/ /el/ /es/ /fi/ /hr/ /hu/ /lt/ /nl/ /pl/
+/pt/ /ro/ /sk/ /sl/ /sv/`) — 22 pages in total.
 
-Šo saiti var sūtīt kolēģiem pārskatīšanai. Ņem vērā divas lietas:
+The root redirects to a language based on cookie, time zone, or browser.
+A page already named for its own language is never redirected away from
+what was asked for. The old `?lang=` still works, so links already sent out
+don't break.
 
-- **Forma tur neko nesaglabā**, kamēr nav uzstādīts `SCANINBOX_API` — sīkāk
-  zemāk, «Priekšskatījuma režīms». Reālu pieteikumu vākšanai vajag vietu, kur
-  darbojas `server.js`.
-- **Lapa ir publiski sasniedzama** ikvienam, kam ir saite. Piekļuves kontrole
-  Pages lapām ir tikai GitHub Enterprise Cloud. Meklētājos tā nenonāk, jo
-  `index.html` nes `noindex, nofollow` — to noņem pirms palaišanas.
+This link can be sent to colleagues for review. Keep two things in mind:
 
-Publicē CI darbplūsma no `main` zara: `.github/build-site.js` no viena
-`index.html` saliek 22 lapas — sakni un 21 valodu.
+- **The form saves nothing there** while `SCANINBOX_API` isn't set — more
+  below, under "Preview mode". Collecting real sign-ups needs somewhere for
+  `server.js` to run.
+- **The page is publicly reachable** by anyone with the link. Access control
+  for Pages sites is GitHub Enterprise Cloud only. It won't end up in search
+  engines, since `index.html` carries `noindex, nofollow` — remove that
+  before launch.
 
-> Pages avots ir jāieslēdz **vienu reizi** ar roku: Settings → Pages →
-> Source: **GitHub Actions**. Darbplūsma to nevar izdarīt pati — noklusējuma
-> `GITHUB_TOKEN` drīkst publicēt uz Pages, bet ne izveidot vietni.
+A CI workflow publishes from the `main` branch: `.github/build-site.js`
+assembles 22 pages — the root plus 21 languages — from one `index.html`.
 
-### Priekšskatījuma režīms
+> The Pages source has to be switched on **once**, by hand: Settings →
+> Pages → Source: **GitHub Actions**. The workflow can't do this itself —
+> the default `GITHUB_TOKEN` may publish to Pages, but not create the site.
 
-Pages ir statisks hostings, tāpēc tur API nav. Lapa to pamana pati: ja
-`/api/leads` atbild ar 404, forma **iziet cauri līdz galam** — parāda
-apstiprinājumu un papildjautājumus —, bet neko nesūta un rindā zem formas
-godīgi saka «Šī ir priekšskatījuma versija — adrese netika saglabāta».
-Papildjautājumu atbildes tādā režīmā nekur neaiziet.
+### Preview mode
 
-Tas attiecas **tikai** uz 404 un 405. Pārtrūcis savienojums joprojām ir kļūda
-ar iespēju mēģināt vēlreiz — citādi cilvēks vilcienā ar sliktu signālu
-dabūtu «paldies» un pazustu.
+Pages is static hosting, so there's no API there. The page notices this
+itself: if `/api/leads` responds with 404, the form **runs all the way
+through** — showing the confirmation and the follow-up questions — but
+sends nothing, and the line under the form honestly says "This is a preview
+version — the address wasn't saved." Follow-up answers go nowhere in that
+mode either.
 
-Tiklīdz ir īsts API un `SCANINBOX_API` ir uzstādīts, lapa saglabā, un
-priekšskatījuma rinda pazūd pati.
+This applies **only** to 404 and 405. A dropped connection is still an
+error with a chance to retry — otherwise someone on a train with a bad
+signal would get a "thank you" and vanish.
 
-## Prasības
+As soon as there's a real API and `SCANINBOX_API` is set, the page saves,
+and the preview line disappears on its own.
 
-Node.js 22.5 vai jaunāks. Nekas cits. **Nav npm atkarību** — SQLite nāk no
-Node iebūvētā `node:sqlite` moduļa.
+## Requirements
+
+Node.js 22.5 or newer. Nothing else. **No npm dependencies** — SQLite comes
+from Node's built-in `node:sqlite` module.
 
 ```powershell
-node --version    # v24.19.0 vai jaunāka
+node --version    # v24.19.0 or newer
 ```
 
-## Palaišana
+## Running it
 
 ```powershell
 node server.js
 ```
 
-Tad atver <http://localhost:8123/>. Cits ports: `node server.js --port 9000`.
+Then open <http://localhost:8123/>. A different port: `node server.js
+--port 9000`.
 
-Serveris pasniedz lapu un pieņem pieteikumus. Datubāze tiek izveidota
-automātiski pirmajā startā (`data/scaninbox.db`), un shēma tiek piemērota
-katrā startā — tā ir idempotenta, tāpēc migrācijas nav vajadzīgas.
+The server serves the page and accepts sign-ups. The database is created
+automatically on first start (`data/scaninbox.db`), and the schema is
+applied on every start — it's idempotent, so no migrations are needed.
 
-## Saturs
+## Contents
 
-| Fails | Nozīme |
+| File | Purpose |
 | --- | --- |
-| `index.html` | Visa lapa — HTML, CSS un JS vienā failā. Vienīgais avots. |
-| `server.js` | Statiskā lapa + pieteikumu API. Bez atkarībām. |
-| `db/schema.sql` | Datubāzes shēma, uzmeklēšanas tabulas un skati. |
-| `leads.js` | Pieteikumu atskaite terminālī. |
-| `test/` | Testi. `node --test`. |
-| `build-artifact.ps1` | Ģenerē `dist/artifact.html` priekšskatīšanai kā Claude Artifact. |
-| `.github/build-site.js` | Saliek `_site`: sakne plus pa lapai katrai valodai. |
-| `i18n/` | Tulkojumi. `lv.json` ir ģenerēts, pārējie četri — avots. |
-| `tools/i18n.js` | Tekstu izvilkšana, iemontēšana un parītātes pārbaude. |
-| `CLAUDE.md` | Konteksts Claude Code sesijai: lēmumi, iemesli, slazdi. |
-| `data/` | SQLite datubāze. **Nav git repozitorijā** — tie ir dati, ne kods. |
+| `index.html` | The whole page — HTML, CSS, and JS in one file. The single source. |
+| `server.js` | The static page + the sign-up API. No dependencies. |
+| `db/schema.sql` | The database schema, lookup tables, and views. |
+| `leads.js` | A sign-up report in the terminal. |
+| `test/` | Tests. `node --test`. |
+| `build-artifact.ps1` | Generates `dist/artifact.html` for preview as a Claude Artifact. |
+| `.github/build-site.js` | Assembles `_site`: the root plus one page per language. |
+| `i18n/` | Translations. `lv.json` is generated, the other 20 are the source. |
+| `tools/i18n.js` | Text extraction, merging, and parity checking. |
+| `CLAUDE.md` | Context for the Claude Code session: decisions, reasons, traps. |
+| `data/` | The SQLite database. **Not in the git repository** — that's data, not code. |
 
-## Pieteikumu apskate
+## Viewing sign-ups
 
-Ātrākais ceļš, bez servera un bez pilnvaras:
+The fastest way, no server and no token needed:
 
 ```powershell
-node leads.js           # kopsavilkums: valodas, segmenti, zīmoli
-node leads.js --list    # visi pieteikumi
-node leads.js --csv     # eksports
+node leads.js           # summary: languages, segments, brands
+node leads.js --list    # every sign-up
+node leads.js --csv     # export
 ```
 
 ## API
 
-| Metode | Ceļš | Piekļuve |
+| Method | Path | Access |
 | --- | --- | --- |
-| `POST` | `/api/leads` | atvērts — šeit sūta forma |
-| `GET` | `/api/health` | atvērts |
-| `GET` | `/api/leads` | pilnvara |
-| `GET` | `/api/leads.csv` | pilnvara |
-| `GET` | `/api/stats` | pilnvara |
+| `POST` | `/api/leads` | open — this is what the form sends to |
+| `GET` | `/api/health` | open |
+| `GET` | `/api/leads` | token |
+| `GET` | `/api/leads.csv` | token |
+| `GET` | `/api/stats` | token |
 
-Lasīšanas galapunkti ir **slēgti, kamēr nav uzstādīta pilnvara**. Tā ir
-apzināta noklusējuma vērtība: pieteikumi ir personas dati, un tie nedrīkst būt
-publiski pieejami tikai tāpēc, ka serveris darbojas.
+Read endpoints are **locked until a token is set**. That's a deliberate
+default: sign-ups are personal data, and they must not be publicly
+reachable just because the server happens to be running.
 
 ```powershell
-$env:SCANINBOX_ADMIN_TOKEN = "kada-gara-nejauna-virkne"
+$env:SCANINBOX_ADMIN_TOKEN = "some-long-random-string"
 node server.js
 ```
 
 ```bash
-curl -H "Authorization: Bearer kada-gara-nejauna-virkne" http://localhost:8123/api/stats
+curl -H "Authorization: Bearer some-long-random-string" http://localhost:8123/api/stats
 ```
 
-### Vides mainīgie
+### Environment variables
 
-| Mainīgais | Nozīme |
+| Variable | Purpose |
 | --- | --- |
-| `SCANINBOX_DB` | datubāzes fails (noklusējums `./data/scaninbox.db`) |
-| `SCANINBOX_ADMIN_TOKEN` | atver lasīšanas galapunktus |
-| `SCANINBOX_ALLOW_ORIGIN` | CORS izcelsme, ja lapa hostēta atsevišķi |
-| `PORT` | ports |
+| `SCANINBOX_DB` | the database file (default `./data/scaninbox.db`) |
+| `SCANINBOX_ADMIN_TOKEN` | opens the read endpoints |
+| `SCANINBOX_ALLOW_ORIGIN` | CORS origin, if the page is hosted separately |
+| `PORT` | the port |
 
-## Datu modelis
+## Data model
 
-`leads` — viena rinda uz e-pastu. Atkārtots pieteikums ar to pašu adresi
-**atjauno atbildes**, nevis rada dublikātu; e-pasts tiek salīdzināts mazajos
-burtos.
+`leads` — one row per e-mail address. A repeat sign-up with the same address
+**updates the answers** rather than creating a duplicate; the e-mail is
+compared in lower case.
 
-Tā kā lapa pieraksta cilvēku ar e-pastu vien un pārējo jautā pēc tam, pa vienam
-jautājumam, uz serveri viens pieteikums aiziet kā **vairāki pieprasījumi** —
-pa vienam uz katru atbildi. Tāpēc atjaunošana
-izmanto `COALESCE`: iesniegums, kas nes mazāk atbilžu, jau saglabātās
-**nenodzēš**. Vienīgais izņēmums ir zīmolu saraksts — ja lauks vispār ir
-klāt, tas aizstāj kopu pilnībā, lai atzīmēto varētu arī noņemt.
+Since the page signs someone up with just an e-mail and asks the rest
+afterwards, one question at a time, one sign-up reaches the server as
+**several requests** — one per answer. That's why the update uses
+`COALESCE`: a submission carrying fewer answers must not **erase** ones
+already saved. The one exception is the brand list — if the field is
+present at all, it replaces the set entirely, so a marked one can also be
+removed.
 
-`lead_events` — audita pēdas. Katrs iesniegums saglabājas kā saņemtais JSON,
-tāpēc redzams, ja kāds maina atbildi, un abi soļi paliek atsevišķi.
+`lead_events` — an audit trail. Every submission is saved as the JSON it
+arrived as, so it's visible if someone changes an answer, and both steps
+stay separate.
 
-`lead_brands` — saite starp pieteikumu un zīmoliem. Cilvēkam mēdz būt vairāku
-ražotāju iekārtas, tāpēc tā ir tabula, nevis kolonna.
+`lead_brands` — the link between a sign-up and brands. A person can have
+devices from several manufacturers, so it's a table, not a column.
 
-`segments`, `device_bands`, `price_bands`, `brands` — uzmeklēšanas tabulas ar
-etiķetēm latviski un angliski. Serveris derīgos kodus lasa no datubāzes, nevis
-no otras kopijas JS pusē, un nezināmu kodu klusi izmet kā `NULL`.
+`segments`, `device_bands`, `price_bands`, `brands` — lookup tables with
+labels in Latvian and English. The server reads valid codes from the
+database, not from a second copy on the JS side, and silently drops an
+unknown code as `NULL`.
 
-Skati `v_leads`, `v_brand_demand`, `v_segment_demand`, `v_price_demand`,
-`v_device_models` atbild uz lēmuma jautājumiem tieši SQL līmenī. `leads.lang`
-ir tuvākais, kas mums ir, tirgum: katra kampaņa ved uz savu valodu, tāpēc
-valodu sadalījums pasaka, kur pieprasījums vispār ir.
+The `v_leads`, `v_brand_demand`, `v_segment_demand`, `v_price_demand`,
+`v_device_models` views answer decision questions right at the SQL level.
+`leads.lang` is the closest thing we have to a market signal: each campaign
+links to its own language, so the language breakdown says where demand
+actually is.
 
-> Cenas jautājumu forma vairs neuzdod, bet `price_bands` un kolonna paliek —
-> tur ir pirmās iterācijas atbildes. `leads.js` to tabulu parāda tikai tad, ja
-> kaut kas tur ir.
+> The form no longer asks the price question, but `price_bands` and its
+> column stay — those are first-iteration answers. `leads.js` only shows
+> that table when there's something in it.
 
-**Ja datubāze ir taisīta pirms otrās iterācijas, tā jāizveido no jauna.**
-`lang` kolonnas `CHECK` sarakstu SQLite ar `ALTER TABLE` nemaina, tāpēc vecā
-datubāze noraidītu `it`, `fr` un `de`. Izdzēs `data/scaninbox.db` un palaid
-serveri vēlreiz.
+**If the database was created before the second iteration, it needs to be
+rebuilt.** SQLite doesn't change the `lang` column's `CHECK` list via
+`ALTER TABLE`, so an old database would reject `it`, `fr`, and `de` (and
+now the 16 languages after those). Delete `data/scaninbox.db` and run the
+server again.
 
-### Ko datubāzē apzināti NAV
+### What's deliberately NOT in the database
 
-IP adreses un user-agent. Lapa lietotājam apsola glabāt tikai e-pastu un
-formas atbildes, tāpēc neko citu arī neglabājam. IP tiek izmantots tikai
-servera atmiņā ātruma ierobežošanai (30 iesniegumi 10 minūtēs — birojs sēž aiz
-vienas publiskās adreses, un viens pieteikums ir vairāki pieprasījumi) un nekur
-nenonāk.
+IP addresses and user agents. The page promises the user it stores only the
+e-mail and the form answers, so nothing else gets stored either. An IP is
+used only in server memory for rate limiting (30 submissions per 10
+minutes — an office sits behind one public address, and one sign-up is
+several requests) and goes nowhere else.
 
-## Kur nonāk pieteikumi
+## Where sign-ups end up
 
-**Tikai SQLite.** `index.html` skripta sākumā ir `LEADS_ENDPOINT`, pēc
-noklusējuma `/api/leads`. Rezerves glabātavas nav — ja lapa nevar sasniegt šo
-galapunktu, tā to **pasaka**, nevis klusi noliek datus kaut kur citur.
+**SQLite only.** At the top of `index.html`'s script is `LEADS_ENDPOINT`,
+`/api/leads` by default. There's no fallback storage — if the page can't
+reach that endpoint, it **says so**, rather than quietly putting the data
+somewhere else.
 
-Uz inbox.eu infrastruktūras norādi `LEADS_ENDPOINT` uz reālo API ceļu.
+On inbox.eu's infrastructure, point `LEADS_ENDPOINT` at the real API path.
 
-Praktiskās sekas: lapas kopija, kas tiek pasniegta no cita servera bez šī
-API (piemēram, Claude Artifact priekšskatījums), formā parāda «Šī ir
-priekšskatījuma kopija — pieteikumus tā nesaglabā». Tas ir apzināti: labāk
-skaidrs paziņojums nekā pieteikums, kas nonāk vietā, par kuru neviens nezina.
+Practical consequence: a copy of the page served from another server
+without this API (for example, a Claude Artifact preview) shows "This is a
+preview copy — it doesn't save sign-ups" in the form. That's deliberate:
+a clear notice beats a sign-up landing somewhere nobody knows about.
 
-## Testi
+## Tests
 
-Node iebūvētais testu dzinis, bez atkarībām:
+Node's built-in test runner, no dependencies:
 
 ```powershell
 node --test
 ```
 
-127 testi trīs failos:
+128 tests across three files:
 
-| Fails | Ko sedz |
+| File | Covers |
 | --- | --- |
-| `test/validate.test.js` | e-pasta pārbaude, piekrišana, kodu attīrīšana, garumu griesti, valodas, zīmolu saraksts |
-| `test/schema.test.js` | datubāzes ierobežojumi, kaskādes, skatu aritmētika, privātuma garantija |
-| `test/api.test.js` | HTTP statusi, divpakāpju pieteikums, dublikātu apvienošana, pilnvaras vārti, ātruma limits, ceļu aizsardzība |
+| `test/validate.test.js` | e-mail validation, consent, code sanitising, length limits, languages, brand list |
+| `test/schema.test.js` | database constraints, cascades, view arithmetic, privacy guarantee |
+| `test/api.test.js` | HTTP statuses, two-stage sign-up, duplicate merging, token gate, rate limit, path protection |
 
-Katrs tests strādā ar savu pagaidu datubāzi, tāpēc `data/scaninbox.db`
-netiek aiztikta. Serveris tiek celts uz brīva porta, tāpēc testus var palaist,
-kamēr `node server.js` darbojas.
+Each test runs against its own temporary database, so `data/scaninbox.db`
+is never touched. The server is started on a free port, so tests can run
+while `node server.js` is also running.
 
-Divi testi ir tur, lai apsargātu apzinātus lēmumus, nevis lai pārbaudītu kodu:
-viens neļauj shēmā parādīties `ip` vai `user_agent` kolonnai, otrs pārbauda, ka
-lapa sūta datus tikai uz vienu galapunktu.
+Two tests exist to guard deliberate decisions, not to check code: one
+doesn't let an `ip` or `user_agent` column appear in the schema, the other
+checks that the page sends data to exactly one endpoint.
 
-Bash čaulā var norādīt failus tieši: `node --test test/*.test.js`.
+In a Bash shell, files can be named directly: `node --test test/*.test.js`.
 
-## Pirms publiskas palaišanas
+## Before a public launch
 
-- [ ] Uzlikt `SCANINBOX_ADMIN_TOKEN` ar garu nejaušu virkni
-- [ ] Novietot serveri aiz HTTPS (SQLite fails ārpus web saknes)
-- [ ] Pārbaudīt SMTP piemēra vērtības sadaļā «Ierīces piekļuves dati»
-- [ ] Pārskatīt Microsoft SMTP AUTH datumus BUJ 03 un lietojuma stāstā «Microsoft
-      365 bloķē» — Microsoft grafiku jau ir pārcēlis trīs reizes
-- [ ] **Publicēt privātuma paziņojumu un saistīt to pie piekrišanas rūtiņas.**
-      Lapa pie formas tagad pasaka, ko glabā un cik ilgi, bet VDAR 13. pants
-      prasa arī nosaukt pārzini, tiesības un kontaktu. Bez tā palaist nedrīkst.
-- [ ] Apstiprināt, ka 10 € gadā par ierīci ir **ar PVN**. Lapa tā raksta, jo
-      sadaļa «Mājās» uzrunā arī privātpersonas; ja cena ir bez PVN, jālabo
-      `price.unit`, `m4` un `hero.offer` visās valodās
-- [ ] Iedot reālu kontaktadresi. BUJ tagad saka «atbildi uz mūsu vēstuli»,
-      nevis «raksti mums», jo adreses lapā nav
-- [ ] Uztaisīt `og:image` (1200×630) un pievienot to galvenē — pārējie
-      dalīšanās tagi jau ir
-- [ ] Aizvietot `scaninbox.eu` adreses piemērus ar reālajām
-- [ ] Izlasīt visas 21 valodu ar dzīvām acīm — mašīntulkojums ir sākums, ne
-      gals, un 16 no tām nekad nav lasījis cilvēks, kas runā šajā valodā
-- [ ] Apstiprināt cenu 10 € gadā par ierīci un «pirmajiem 50» piedāvājumu
-- [ ] Noņemt `noindex, nofollow` no `index.html`
-- [ ] Iestatīt `data/` dublēšanu
-- [ ] Pievienot analītiku, ja gribam mērīt konversiju
+- [ ] Set `SCANINBOX_ADMIN_TOKEN` to a long random string
+- [ ] Put the server behind HTTPS (the SQLite file outside the web root)
+- [ ] Check the sample SMTP values in the "Device credentials" section
+- [ ] Re-check the Microsoft SMTP AUTH dates in FAQ 03 and the "Microsoft
+      365 blocks it" use-case story — Microsoft has already pushed its
+      timeline back three times
+- [ ] **Publish a privacy notice and link it from the consent checkbox.**
+      The page already tells the person what it stores and for how long,
+      next to the form, but GDPR Article 13 also requires naming the
+      controller, rights, and a contact. Must not launch without this.
+- [ ] Confirm that €10/year per device is **VAT included**. The page says
+      so because the "At home" section also addresses private individuals;
+      if the price is ex-VAT, fix `price.unit`, `m4`, and `hero.offer` in
+      every language
+- [ ] Provide a real contact address. The FAQ currently says "reply to our
+      e-mail" rather than "write to us", because there's no address on the
+      page
+- [ ] Make an `og:image` (1200×630) and add it to the head — the other
+      sharing tags are already there
+- [ ] Replace the `scaninbox.eu` address examples with real ones
+- [ ] Read all 21 languages with human eyes — machine translation is a
+      start, not an end, and 16 of them have never been read by anyone who
+      speaks that language
+- [ ] Confirm the €10/year-per-device price and the "first 50" offer
+- [ ] Remove `noindex, nofollow` from `index.html`
+- [ ] Set up backups for `data/`
+- [ ] Add analytics, if we want to measure conversion
 
-## Lapas uzbūve
+## How the page is built
 
-Latviešu teksts ir ierakstīts pašā HTML uz elementiem ar `data-i18n="atslēga"`.
-Pārējās četras valodas dzīvo `window.SCANINBOX_I18N` vārdnīcā tā paša faila
-augšgalā, starp `<!-- I18N:BEGIN -->` un `<!-- I18N:END -->`. Latviešu tur nav
-otrreiz — to JS paņem no DOM pirmajā palaišanā. Praktiskās sekas:
+Latvian text is written directly into the HTML, on elements with
+`data-i18n="key"`. The other languages live in a `window.SCANINBOX_I18N`
+dictionary near the top of the same file, between `<!-- I18N:BEGIN -->` and
+`<!-- I18N:END -->`. Latvian isn't duplicated there — JS reads it from the
+DOM on first load. Practical consequences:
 
-- Lapa lasāma latviski arī tad, ja JavaScript nestrādā.
-- Ja kādai valodai atslēga pietrūkst, tā vieta paliek latviski, nevis tukša.
-- Teksta labojums latviski jāizdara HTML **un** visās četrās vārdnīcās.
+- The page reads correctly in Latvian even if JavaScript doesn't run.
+- If a language is missing a key, that spot stays in Latvian rather than
+  going blank.
+- A Latvian text fix has to be made in the HTML **and** in every other
+  language's dictionary.
 
-Izņēmums ir formas paziņojumi («Sūta…», «Ievadi derīgu e-pasta adresi»): tiem
-nav sava elementa, uz kura sēdēt, tāpēc latviešu oriģināli ir `MSG_LV` kartē
-skripta iekšā, bet pārējās valodas — tajā pašā vārdnīcā ar `msg.` priedēkli.
-Otras tulkojumu glabātavas nav.
+The exception is form status messages ("Sending…", "Enter a valid e-mail
+address"): they have no element of their own to sit on, so the Latvian
+originals live in a `MSG_LV` map inside the script, and the other languages
+sit in the same dictionary with an `msg.` prefix. There's no second
+translation store.
 
-Mainot tekstu:
+Changing text:
 
 ```powershell
-node tools/i18n.js extract      # atjauno i18n/lv.json no lapas
-git diff i18n/lv.json           # redzi, kuras atslēgas jātulko
-# izlabo tās pašas atslēgas i18n/en|it|fr|de.json
-node tools/i18n.js merge        # ieliek vārdnīcas atpakaļ lapā
+node tools/i18n.js extract      # refreshes i18n/lv.json from the page
+git diff i18n/lv.json           # see which keys need translating
+# fix the same keys in i18n/<lang>.json for each language
+node tools/i18n.js merge        # puts the dictionaries back into the page
 ```
 
-`i18n/lv.json` ir **ģenerēts** — to raksta `extract`, nevis cilvēks. Ja tulkojums
-aizmirstas, `merge` par to pasaka, tests krīt, un lapā tā vieta paliek latviski,
-nevis tukša.
+`i18n/lv.json` is **generated** — `extract` writes it, not a person. If a
+translation is missed, `merge` says so, the test fails, and that spot in
+the page stays in Latvian rather than going blank.
 
-Valodu izvēlas šādā secībā:
+The language is chosen in this order:
 
-1. **adrese** — `/de/`, `/it/` un tā tālāk. Saite uz `/de/` ir solījums par
-   to, ko cilvēks ieraudzīs, tāpēc to nepārspēj ne sīkdatne, ne nekas cits;
-2. `?lang=` parametrs — to nes vecās, jau izsūtītās saites;
-3. paša cilvēka izvēle no slēdža, **sīkdatnē** `scaninbox_lang` (gads, ceļš
-   ierobežots ar pašas lapas sakni, `SameSite=Lax`). Kad tā ir, pārlūkam
-   vairs neprasa;
-4. **pārlūka valoda** — cilvēks, kura dators runā vāciski, lasa vāciski
-   neatkarīgi no tā, kur viņš tobrīd atrodas;
-5. **atrašanās vieta** — laika josla (`Europe/Rome` → itāļu, `Europe/Paris` →
-   franču, `Europe/Berlin` un `Europe/Vienna` → vācu, `Europe/Riga` →
-   latviešu). Tā ir tikai rezerve valodām, kuru mums nav: spāņu pārlūkam Romā
-   itāļu der labāk nekā angļu. Valstīs, kur der vairākas mūsu valodas —
-   Šveice, Beļģija, Luksemburga — izšķir pārlūka valoda;
-6. angļu.
+1. **Address** — `/de/`, `/it/`, and so on. A link to `/de/` is a promise
+   about what the person will see, so nothing outranks it — not the
+   cookie, not anything else;
+2. the `?lang=` parameter — carried by old links already sent out;
+3. the person's own choice from the switcher, in the `scaninbox_lang`
+   **cookie** (a year, path scoped to the page's own root, `SameSite=Lax`).
+   Once that's set, the browser is never asked again;
+4. **browser language** — someone whose computer speaks German reads
+   German regardless of where they currently are;
+5. **location** — time zone (`Europe/Rome` → Italian, `Europe/Paris` →
+   French, `Europe/Berlin`/`Europe/Vienna` → German, `Europe/Riga` →
+   Latvian, and a representative zone for each of the other 16 languages).
+   This is only a fallback for languages we don't otherwise have a signal
+   for: a Spanish browser in Rome is better served by Italian than English.
+   In countries where several of our languages fit — Switzerland, Belgium,
+   Luxembourg — browser language decides;
+6. English.
 
-Secība starp 4. un 5. punktu ir reklāmas dēļ: laika josla pirms pārlūka
-nozīmētu, ka **Latvijā visi dabū latviešu valodu**, arī tie, kuru pārlūks to
-nekad nav prasījis, un vācietis bez `?lang=` saitē dabūtu nejaušu valodu, nevis
-vācu.
+The order between steps 4 and 5 is for advertising: time zone before
+browser would mean **everyone in Latvia gets Latvian**, including people
+whose browser never asked for it, and a German with no `?lang=` in the link
+would get a random language instead of German.
 
-Publicētajā versijā katrai valodai ir sava lapa, un tās saliek
-`.github/build-site.js`. Slēdzis tad nevis maina tekstu uz vietas, bet
-pārved uz citu adresi, un saknes lapa pāradresē pēc 3.–6. punkta. Lokālajā
-failā valodu ceļu nav, tāpēc tur slēdzis maina tekstu turpat un
-pāradresācijas nenotiek — viens fails, kas strādā abos režīmos.
+In the published version each language has its own page, assembled by
+`.github/build-site.js`. The switcher then doesn't change text in place —
+it navigates to a different address, and the root page redirects per steps
+3–6. The local file has no language path, so there the switcher changes
+text in place and no redirect happens — one file that works in both modes.
 
-Sīkdatne, nevis `localStorage`, jo tā ir nolasāma visos valodu ceļos un vēlāk
-arī servera pusē. Tā ir funkcionāla sīkdatne, ko uzstāda tikai pēc cilvēka
-paša izvēles, tāpēc piekrišanas logs tai nav vajadzīgs.
+A cookie, not `localStorage`, because it's readable across every language
+path and, later, on the server side too. It's a functional cookie, set only
+by the person's own choice, so it doesn't need a consent banner.
 
-Laika josla ir vienīgais atrašanās vietas signāls, ko lapa var nolasīt **bez
-atļaujas prasīšanas, bez pieprasījuma uz svešu serveri un neaiztiekot IP
-adresi** — pēdējais ir svarīgi, jo pie formas mēs apsolām IP neglabāt.
+Time zone is the only location signal the page can read **without asking
+for permission, without a request to a third-party server, and without
+touching the IP address** — that last part matters, since the form promises
+not to store IPs.
 
-Sīkdatnē nonāk **tikai** tā valoda, ko cilvēks izvēlējies pats. Ja tur liktu
-arī automātiski noteikto, pirmais minējums iesaldētos uz visiem laikiem un lapa
-vairs nekad nepaskatītos, kur cilvēks atrodas.
+**Only** the language the person actively chose goes into the cookie. If
+the auto-detected one went there too, the first guess would freeze forever
+and the page would never look at where the person actually is again.
 
-Krāsas un tipogrāfija nāk no CSS mainīgajiem `:root` blokā. Tumšais režīms
-pārdefinē tikai mainīgos, tāpēc jaunus komponentus var likt klāt, nedomājot
-par abām tēmām atsevišķi. `--led` ir lampas zaļais — signālkrāsa punktiem,
-ikonām un apmalēm; tekstam ir `--led-ink`, kas ir pietiekami tumšs, lai to
-varētu izlasīt.
+Colours and typography come from CSS variables in the `:root` block. Dark
+mode only redefines the variables, so new components can be added without
+thinking about the two themes separately. `--led` is the lamp's green — the
+signal colour for dots, icons, and borders; text uses `--led-ink`, which is
+dark enough to read.
 
-Hero animācija iet pa vienu pulksteni: `--cycle` mainīgais `:root` blokā ir
-visu keyframe animāciju garums, tāpēc takti nevar aizpeldēt viens no otra.
-Ārpus ekrāna animācija apstājas (`IntersectionObserver` uzliek `.is-idle`), un
-ar `prefers-reduced-motion` tā nemaz nesākas — tad redzams beigu stāvoklis.
+The hero animation runs on one clock: the `--cycle` variable in the `:root`
+block is the length of every keyframe animation, so the beats can't drift
+apart from each other. Off-screen the animation stops (`IntersectionObserver`
+adds `.is-idle`), and with `prefers-reduced-motion` it doesn't start at all
+— the end state is shown instead.
 
-Vizuālais reģistrs ir biroja tehnikas dokumentācija: blīvas specifikāciju
-tabulas, monospace vērtības, attēlu paraksti un viens tumšs «ierīces»
-panelis.
+The visual register is office-equipment documentation: dense spec tables,
+monospace values, figure captions, and one dark "device" panel.
 
-## Atruna
+## Disclaimer
 
-Pakalpojums vēl nav pieejams. Lapa nedrīkst radīt iespaidu, ka kaut ko var
-iegādāties — kājenē par to ir skaidra piezīme, kas jāsaglabā, kamēr produkts
-nav palaists.
+The service isn't available yet. The page must not create the impression
+that anything can be bought — the footer has a clear note about this, which
+must stay until the product actually launches.

@@ -4,35 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" id="metadesc" content="ScanInbox savieno tavu skeneri vai daudzfunkciju printeri ar e-pastu. Nospied «Skenēt» — dokuments jau ir tavā pastkastē. Uzstādīšana piecās minūtēs. Piesakies tagad: pirmie 50 saņem gadu bez maksas.">
-<!-- Nelaists produkts: lapu nedrīkst indeksēt, kamēr tā ir pārskatīšanai.
-     Noņem šo rindu pirms publiskās palaišanas. -->
+<!-- Unlaunched product: the page must not be indexed while it's under
+     review. Remove this line before the public launch. -->
 <meta name="robots" content="noindex, nofollow">
-<!-- Kur lapa sūta pieteikumus. Tukšs vai noņemts = tā pati izcelsme, kas lapa
-     (tā ir pareizi, kamēr lapu pasniedz server.js). Uz GitHub Pages servera
-     nav, tāpēc šeit jāieraksta reālā API adrese, piemēram
-     content="https://api.scaninbox.eu/api/leads" — un tajā serverī jāuzstāda
-     SCANINBOX_ALLOW_ORIGIN=https://ingmarsj.github.io -->
+<!-- Where the page sends sign-ups. Empty or removed = the same origin as the
+     page (that's correct while the page is served by server.js). There's no
+     server on GitHub Pages, so the real API address has to be written here,
+     e.g. content="https://api.scaninbox.eu/api/leads" — and that server needs
+     SCANINBOX_ALLOW_ORIGIN=https://ingmarsj.github.io set -->
 <meta name="scaninbox:api" content="">
-<!-- Publicējot CI ieliek <meta name="scaninbox:langpaths" content="1">, un
-     tikai tad saknes lapa pāradresē uz /lv/, /de/ un tā tālāk. Lokāli šī taga
-     nav, tāpēc nekādas pāradresācijas nav un ?lang= strādā kā līdz šim. -->
+<!-- On publish, CI adds <meta name="scaninbox:langpaths" content="1">, and
+     only then does the root page redirect to /lv/, /de/, and so on. Locally
+     this tag isn't there, so no redirect happens and ?lang= works as before. -->
 <script>
 (function () {
   if (!document.querySelector('meta[name="scaninbox:langpaths"]')) return;
   var LANGS = ["lv", "en", "it", "fr", "de", "bg", "cs", "da", "el", "es", "fi",
                "hr", "hu", "lt", "nl", "pl", "pt", "ro", "sk", "sl", "sv"];
   var path = location.pathname.replace(/index\.html$/, "");
-  /* Lapa, kas jau nosaukta savā valodā, paliek tur, kur prasīts. */
+  /* A page already named for its own language stays where it was asked for. */
   if (new RegExp("/(" + LANGS.join("|") + ")/$").test(path)) return;
   var q = new URLSearchParams(location.search).get("lang");
   if (q && LANGS.indexOf(q.toLowerCase()) > -1) return;
 
-  /* Reiz izvēlēta valoda uzvar visu pārējo — pārlūkam vairs neprasa. */
+  /* Once a language is chosen it beats everything else — the browser is never asked again. */
   var m = document.cookie.match(/(?:^|; )scaninbox_lang=([^;]*)/);
   var want = m ? decodeURIComponent(m[1]) : "";
 
-  /* Tad pārlūka valoda: cilvēks, kura dators runā vāciski, lasa vāciski
-     neatkarīgi no tā, kur viņš tobrīd atrodas. */
+  /* Then browser language: someone whose computer speaks German reads
+     German regardless of where they currently are. */
   if (LANGS.indexOf(want) === -1) {
     var prefs = navigator.languages || [navigator.language || ""];
     for (var i = 0; i < prefs.length && LANGS.indexOf(want) === -1; i++) {
@@ -41,8 +41,8 @@
     }
   }
 
-  /* Un tikai tad vieta — spāņu pārlūkam Romā itāļu valoda der labāk nekā
-     angļu. */
+  /* Only then location — a Spanish browser in Rome is better served by
+     Italian than by English. */
   if (LANGS.indexOf(want) === -1) {
     var TZ = { "Europe/Riga": "lv", "Europe/Rome": "it", "Europe/Vatican": "it",
                "Europe/San_Marino": "it", "Europe/Paris": "fr", "Europe/Monaco": "fr",
@@ -62,8 +62,8 @@
 </script>
 <!-- ARTIFACT:BEGIN -->
 <title>ScanInbox</title>
-<!-- Kā lapa izskatās, kad to ielīmē Slack, WhatsApp vai e-pastā. Saturu
-     uztur JS kopā ar pārējo tulkojumu. -->
+<!-- How the page looks when pasted into Slack, WhatsApp, or an e-mail. The
+     content is kept in sync by JS along with the rest of the translation. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="ScanInbox">
 <meta property="og:title" id="ogtitle" content="Nospied «Skenēt» uz printera. PDF jau ir tavā e-pastā.">
@@ -712,7 +712,7 @@ b,strong{font-weight:600}
 }
 
 /* ------------------------------------------------------------- metrics --- */
-/* Andreja lapas laika atskaite, pārlikta datu lapas reģistrā. */
+/* Andrejs's page's time accounting, carried over into this page's own register. */
 .metrics{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:var(--panel)}
 .metrics__in{display:grid;gap:0;grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (min-width:820px){ .metrics__in{grid-template-columns:repeat(4,minmax(0,1fr))} }
@@ -785,7 +785,7 @@ b,strong{font-weight:600}
 .panel__out svg{width:15px;height:15px;flex:none;margin-top:.22rem;fill:none;stroke:var(--led);stroke-width:2.3}
 
 /* ----------------------------------------------------------- the steps --- */
-/* Nimda "How it works" izkārtojums — kartītes ar ikonu, numuru un laiku. */
+/* nimda's "How it works" layout — cards with an icon, a number, and a time. */
 .how-it-works-intro{color:var(--ink-2);font-size:var(--fs-sm);margin:-.4rem 0 1.4rem;max-width:64ch}
 .steps{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
 .step{display:grid;gap:.15rem .9rem;grid-template-columns:2.4rem minmax(0,1fr);padding:.95rem 0;border-bottom:1px solid var(--rule)}
@@ -844,7 +844,7 @@ b,strong{font-weight:600}
 .assure svg{width:13px;height:13px;flex:none;margin-top:.28rem;fill:none;stroke:var(--led);stroke-width:2.4}
 
 /* ---------------------------------------------------------------- faq --- */
-/* <details> — accordion bez JS; atvērts paliek atvērts, pārējie netraucē. */
+/* <details> — an accordion with no JS; an open one stays open, the rest don't interfere. */
 .faq{border-top:2px solid var(--ink);counter-reset:faq}
 .faq details{counter-increment:faq}
 .faq details{border-bottom:1px solid var(--rule)}
@@ -1581,9 +1581,10 @@ b,strong{font-weight:600}
 </div>
 
 <!-- I18N:BEGIN -->
-<!-- Valodu vārdnīcas. Latviešu teksta šeit nav: tas ir pašā lapā, tāpēc
-     bez JavaScript lapa ir latviski un nekas nav ierakstīts divreiz.
-     ĢENERĒTS no i18n/*.json — raksti tur, tad node tools/i18n.js merge. -->
+<!-- Language dictionaries. Latvian text is not here: it lives in the
+     page itself, so without JavaScript the page is in Latvian and
+     nothing is written twice.
+     GENERATED from i18n/*.json — write there, then node tools/i18n.js merge. -->
 <script>
 window.SCANINBOX_I18N = {
  en: {
@@ -1606,8 +1607,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Invoice No. 2026/0412",
   "anim.date": "04/09/2026",
   "anim.pdf": "PDF 1.8 MB",
-  "anim.to": "office@inbox.eu",
   "anim.inbox": "Inbox",
+  "anim.to": "office@inbox.eu",
   "anim.from": "Scanner — Lobby",
   "anim.f1": "Invoice_2026-0412.pdf",
   "anim.now": "now",
@@ -1770,8 +1771,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Fattura n. 2026/0412",
   "anim.date": "04/09/2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "ufficio@inbox.eu",
   "anim.inbox": "Posta in arrivo",
+  "anim.to": "ufficio@inbox.eu",
   "anim.from": "Scanner — Ingresso",
   "anim.f1": "Fattura_2026-0412.pdf",
   "anim.now": "ora",
@@ -1934,8 +1935,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Facture n° 2026/0412",
   "anim.date": "04/09/2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "bureau@inbox.eu",
   "anim.inbox": "Boîte de réception",
+  "anim.to": "bureau@inbox.eu",
   "anim.from": "Scanner — Accueil",
   "anim.f1": "Facture_2026-0412.pdf",
   "anim.now": "à l’instant",
@@ -2098,8 +2099,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Rechnung Nr. 2026/0412",
   "anim.date": "04.09.2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "buero@inbox.eu",
   "anim.inbox": "Posteingang",
+  "anim.to": "buero@inbox.eu",
   "anim.from": "Scanner – Empfang",
   "anim.f1": "Rechnung_2026-0412.pdf",
   "anim.now": "gerade eben",
@@ -2262,8 +2263,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Фактура № 2026/0412",
   "anim.date": "04.09.2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "ofis@inbox.eu",
   "anim.inbox": "Входящи",
+  "anim.to": "ofis@inbox.eu",
   "anim.from": "Скенер — Рецепция",
   "anim.f1": "Faktura_2026-0412.pdf",
   "anim.now": "сега",
@@ -2426,8 +2427,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Faktura č. 2026/0412",
   "anim.date": "04.09.2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "kancelar@inbox.eu",
   "anim.inbox": "Doručená pošta",
+  "anim.to": "kancelar@inbox.eu",
   "anim.from": "Skener — Recepce",
   "anim.f1": "Faktura_2026-0412.pdf",
   "anim.now": "teď",
@@ -2590,8 +2591,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Faktura nr. 2026/0412",
   "anim.date": "04-09-2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "kontor@inbox.eu",
   "anim.inbox": "Indbakke",
+  "anim.to": "kontor@inbox.eu",
   "anim.from": "Scanner — Reception",
   "anim.f1": "Faktura_2026-0412.pdf",
   "anim.now": "nu",
@@ -2754,8 +2755,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Τιμολόγιο αρ. 2026/0412",
   "anim.date": "04/09/2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "grafeio@inbox.eu",
   "anim.inbox": "Εισερχόμενα",
+  "anim.to": "grafeio@inbox.eu",
   "anim.from": "Σαρωτής — Ρεσεψιόν",
   "anim.f1": "Timologio_2026-0412.pdf",
   "anim.now": "τώρα",
@@ -2918,8 +2919,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Factura n.º 2026/0412",
   "anim.date": "04/09/2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "oficina@inbox.eu",
   "anim.inbox": "Bandeja de entrada",
+  "anim.to": "oficina@inbox.eu",
   "anim.from": "Escáner — Recepción",
   "anim.f1": "Factura_2026-0412.pdf",
   "anim.now": "ahora",
@@ -3082,8 +3083,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Lasku nro 2026/0412",
   "anim.date": "04.09.2026",
   "anim.pdf": "PDF 1,8 Mt",
-  "anim.to": "toimisto@inbox.eu",
   "anim.inbox": "Saapuneet",
+  "anim.to": "toimisto@inbox.eu",
   "anim.from": "Skanneri — Vastaanotto",
   "anim.f1": "Lasku_2026-0412.pdf",
   "anim.now": "nyt",
@@ -3246,8 +3247,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Račun br. 2026/0412",
   "anim.date": "04.09.2026.",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "ured@inbox.eu",
   "anim.inbox": "Pristigla pošta",
+  "anim.to": "ured@inbox.eu",
   "anim.from": "Skener — Recepcija",
   "anim.f1": "Racun_2026-0412.pdf",
   "anim.now": "sada",
@@ -3410,8 +3411,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "2026/0412. sz. számla",
   "anim.date": "2026.09.04.",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "iroda@inbox.eu",
   "anim.inbox": "Beérkezett üzenetek",
+  "anim.to": "iroda@inbox.eu",
   "anim.from": "Szkenner — Recepció",
   "anim.f1": "Szamla_2026-0412.pdf",
   "anim.now": "most",
@@ -3574,8 +3575,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Sąskaita Nr. 2026/0412",
   "anim.date": "2026-09-04",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "biuras@inbox.eu",
   "anim.inbox": "Gauti laiškai",
+  "anim.to": "biuras@inbox.eu",
   "anim.from": "Skeneris — Registratūra",
   "anim.f1": "Saskaita_2026-0412.pdf",
   "anim.now": "dabar",
@@ -3738,8 +3739,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Factuur nr. 2026/0412",
   "anim.date": "04-09-2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "kantoor@inbox.eu",
   "anim.inbox": "Postvak IN",
+  "anim.to": "kantoor@inbox.eu",
   "anim.from": "Scanner — Receptie",
   "anim.f1": "Factuur_2026-0412.pdf",
   "anim.now": "nu",
@@ -3902,8 +3903,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Faktura nr 2026/0412",
   "anim.date": "04.09.2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "biuro@inbox.eu",
   "anim.inbox": "Skrzynka odbiorcza",
+  "anim.to": "biuro@inbox.eu",
   "anim.from": "Skaner — Recepcja",
   "anim.f1": "Faktura_2026-0412.pdf",
   "anim.now": "teraz",
@@ -4066,8 +4067,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Fatura n.º 2026/0412",
   "anim.date": "04/09/2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "escritorio@inbox.eu",
   "anim.inbox": "Caixa de entrada",
+  "anim.to": "escritorio@inbox.eu",
   "anim.from": "Scanner — Receção",
   "anim.f1": "Fatura_2026-0412.pdf",
   "anim.now": "agora",
@@ -4230,8 +4231,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Factura nr. 2026/0412",
   "anim.date": "04.09.2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "birou@inbox.eu",
   "anim.inbox": "Inbox",
+  "anim.to": "birou@inbox.eu",
   "anim.from": "Scaner — Recepție",
   "anim.f1": "Factura_2026-0412.pdf",
   "anim.now": "acum",
@@ -4394,8 +4395,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Faktúra č. 2026/0412",
   "anim.date": "04.09.2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "kancelaria@inbox.eu",
   "anim.inbox": "Doručená pošta",
+  "anim.to": "kancelaria@inbox.eu",
   "anim.from": "Skener — Recepcia",
   "anim.f1": "Faktura_2026-0412.pdf",
   "anim.now": "teraz",
@@ -4558,8 +4559,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Račun št. 2026/0412",
   "anim.date": "04.09.2026",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "pisarna@inbox.eu",
   "anim.inbox": "Prejeto",
+  "anim.to": "pisarna@inbox.eu",
   "anim.from": "Skener — Recepcija",
   "anim.f1": "Racun_2026-0412.pdf",
   "anim.now": "zdaj",
@@ -4722,8 +4723,8 @@ window.SCANINBOX_I18N = {
   "anim.doc": "Faktura nr 2026/0412",
   "anim.date": "2026-09-04",
   "anim.pdf": "PDF 1,8 MB",
-  "anim.to": "kontor@inbox.eu",
   "anim.inbox": "Inkorg",
+  "anim.to": "kontor@inbox.eu",
   "anim.from": "Skanner — Reception",
   "anim.f1": "Faktura_2026-0412.pdf",
   "anim.now": "nu",
@@ -4879,9 +4880,10 @@ window.SCANINBOX_I18N = {
      There is no second store and no fallback: a page served from anywhere
      that cannot reach this endpoint says so rather than quietly keeping the
      data somewhere else. */
-  /* Relatīvs ceļš der, kamēr lapu pasniedz pats server.js. Uz GitHub Pages
-     servera nav, tāpēc tur galapunktu norāda ar <meta name="scaninbox:api">
-     galvenē — viena rinda, un tā pati lapa sūta uz reālo API. */
+  /* A relative path works while the page is served by server.js itself. On
+     GitHub Pages there's no server, so the endpoint there is set with
+     <meta name="scaninbox:api"> in the head — one line, and the same page
+     sends to the real API. */
   var apiMeta = document.querySelector('meta[name="scaninbox:api"]');
   var LEADS_ENDPOINT = (apiMeta && apiMeta.getAttribute("content")) || "/api/leads";
 

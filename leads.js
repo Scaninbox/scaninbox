@@ -1,12 +1,12 @@
 'use strict';
 
 /**
- * ScanInbox — pieteikumu atskaite terminālī. Lasa datubāzi tieši, tāpēc
- * serverim nav jādarbojas un pilnvara nav vajadzīga.
+ * ScanInbox — a sign-up report in the terminal. Reads the database directly,
+ * so the server doesn't need to be running and no token is needed.
  *
- *   node leads.js            → kopsavilkums: valodas, segmenti, zīmoli, iekārtas
- *   node leads.js --list     → visi pieteikumi
- *   node leads.js --csv      → CSV uz stdout (pārvirzi uz failu)
+ *   node leads.js            → summary: languages, segments, brands, devices
+ *   node leads.js --list     → every sign-up
+ *   node leads.js --csv      → CSV to stdout (redirect to a file)
  */
 
 const fs = require('node:fs');
@@ -16,17 +16,17 @@ const { DatabaseSync } = require('node:sqlite');
 const DB_PATH = process.env.SCANINBOX_DB || path.join(__dirname, 'data', 'scaninbox.db');
 
 if (!fs.existsSync(DB_PATH)) {
-  console.error(`Datubāze nav atrasta: ${DB_PATH}`);
-  console.error('Palaid serveri vismaz vienu reizi: node server.js');
+  console.error(`Database not found: ${DB_PATH}`);
+  console.error('Run the server at least once: node server.js');
   process.exit(1);
 }
 
 const db = new DatabaseSync(DB_PATH, { readOnly: true });
 const total = db.prepare('SELECT COUNT(*) AS n FROM leads').get().n;
 
-/** Vienkārša teksta tabula ar līdzināšanu pēc platākās vērtības. */
+/** A simple text table, aligned to the widest value in each column. */
 function table(rows, cols) {
-  if (!rows.length) return '  (nav datu)';
+  if (!rows.length) return '  (no data)';
   const head = cols.map((c) => c.title);
   const body = rows.map((r) => cols.map((c) => (c.get(r) ?? '').toString()));
   const width = head.map((h, i) => Math.max(h.length, ...body.map((b) => b[i].length)));
@@ -50,82 +50,84 @@ if (process.argv.includes('--csv')) {
   process.exit(0);
 }
 
-console.log(`\nScanInbox — ${total} pieteikumi   (${DB_PATH})`);
+console.log(`\nScanInbox — ${total} sign-ups   (${DB_PATH})`);
 
 if (total === 0) {
-  console.log('\nVēl neviens nav pieteicies.\n');
+  console.log('\nNobody has signed up yet.\n');
   db.close();
   process.exit(0);
 }
 
 if (process.argv.includes('--list')) {
-  console.log('\nPIETEIKUMI\n');
+  console.log('\nSIGN-UPS\n');
   console.log(table(db.prepare('SELECT * FROM v_leads ORDER BY created_at DESC').all(), [
-    { title: 'DATUMS', get: (r) => r.created_at.slice(0, 10) },
-    { title: 'E-PASTS', get: (r) => r.email },
-    { title: 'VĀRDS', get: (r) => r.name || '—' },
-    { title: 'SEGMENTS', get: (r) => r.segment_lv || '—' },
-    { title: 'IERĪCES', get: (r) => r.device_band_lv || '—', right: true },
-    { title: 'ZĪMOLI', get: (r) => r.brands || '—' },
-    { title: 'MODELIS', get: (r) => r.device_model || '—' },
-    { title: 'VAL.', get: (r) => r.lang.toUpperCase() },
+    { title: 'DATE', get: (r) => r.created_at.slice(0, 10) },
+    { title: 'E-MAIL', get: (r) => r.email },
+    { title: 'NAME', get: (r) => r.name || '—' },
+    { title: 'SEGMENT', get: (r) => r.segment_lv || '—' },
+    { title: 'DEVICES', get: (r) => r.device_band_lv || '—', right: true },
+    { title: 'BRANDS', get: (r) => r.brands || '—' },
+    { title: 'MODEL', get: (r) => r.device_model || '—' },
+    { title: 'LANG', get: (r) => r.lang.toUpperCase() },
   ]));
   console.log('');
   db.close();
   process.exit(0);
 }
 
-/* Lapas valoda ir tuvākais, kas mums ir, tirgum: reklāmas kampaņa katrā valstī
-   ved uz savu valodu, tāpēc šī tabula atbild «kur pieprasījums vispār ir». */
-console.log('\nVALODAS\n');
+/* The page's language is the closest thing we have to a market signal: an ad
+   campaign in each country links to its own language, so this table answers
+   "where is demand actually coming from". */
+console.log('\nLANGUAGES\n');
 console.log(table(db.prepare(`
   SELECT lang, COUNT(*) AS leads,
          ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM leads), 1) AS pct
   FROM leads GROUP BY lang ORDER BY leads DESC`).all(), [
-  { title: 'VALODA', get: (r) => r.lang.toUpperCase() },
-  { title: 'CILVĒKI', get: (r) => r.leads, right: true },
+  { title: 'LANGUAGE', get: (r) => r.lang.toUpperCase() },
+  { title: 'PEOPLE', get: (r) => r.leads, right: true },
   { title: '%', get: (r) => r.pct, right: true },
 ]));
 
-console.log('\nSEGMENTI\n');
+console.log('\nSEGMENTS\n');
 console.log(table(db.prepare('SELECT * FROM v_segment_demand').all(), [
-  { title: 'SEGMENTS', get: (r) => r.label_lv },
-  { title: 'CILVĒKI', get: (r) => r.leads, right: true },
+  { title: 'SEGMENT', get: (r) => r.label_en },
+  { title: 'PEOPLE', get: (r) => r.leads, right: true },
   { title: 'BETA', get: (r) => r.beta_volunteers, right: true },
-  { title: 'IERĪCES (MIN)', get: (r) => r.min_devices, right: true },
+  { title: 'DEVICES (MIN)', get: (r) => r.min_devices, right: true },
 ]));
 
-/* Kuru ražotāju izvēlnes jāapraksta vispirms. Viens cilvēks var atzīmēt
-   vairākus zīmolus, tāpēc procenti ir no tiem, kas uz šo vispār atbildēja. */
+/* Which manufacturers' menus need documenting first. One person can tick
+   several brands, so the percentages are of those who answered this
+   question at all. */
 const answeredBrands = db.prepare('SELECT COUNT(DISTINCT lead_id) AS n FROM lead_brands').get().n;
-console.log(`\nZĪMOLI   (${answeredBrands} atbildes)\n`);
+console.log(`\nBRANDS   (${answeredBrands} responses)\n`);
 console.log(table(db.prepare('SELECT * FROM v_brand_demand WHERE leads > 0').all(), [
-  { title: 'ZĪMOLS', get: (r) => r.label_lv },
-  { title: 'CILVĒKI', get: (r) => r.leads, right: true },
+  { title: 'BRAND', get: (r) => r.label_en },
+  { title: 'PEOPLE', get: (r) => r.leads, right: true },
   { title: '%', get: (r) => (r.pct === null ? '—' : r.pct), right: true },
 ]));
 
-/* Cenu jautājumu forma vairs neuzdod — tabula paliek vecajiem pieteikumiem. */
+/* The form no longer asks the price question — the table stays for older sign-ups. */
 const priced = db.prepare('SELECT COUNT(*) AS n FROM leads WHERE price_band IS NOT NULL').get().n;
 if (priced) {
-  console.log('\nGATAVĪBA MAKSĀT   (vecie pieteikumi)\n');
+  console.log('\nWILLINGNESS TO PAY   (older sign-ups)\n');
   console.log(table(db.prepare('SELECT * FROM v_price_demand WHERE leads > 0').all(), [
-    { title: 'JOSLA', get: (r) => r.label_lv },
-    { title: 'CILVĒKI', get: (r) => r.leads, right: true },
+    { title: 'BAND', get: (r) => r.label_en },
+    { title: 'PEOPLE', get: (r) => r.leads, right: true },
     { title: '%', get: (r) => (r.pct === null ? '—' : r.pct), right: true },
   ]));
 }
 
 const models = db.prepare('SELECT * FROM v_device_models LIMIT 12').all();
 if (models.length) {
-  console.log('\nIEKĀRTAS, KO MINĒJUŠI\n');
+  console.log('\nDEVICES MENTIONED\n');
   console.log(table(models, [
-    { title: 'MODELIS', get: (r) => r.model },
-    { title: 'REIZES', get: (r) => r.mentions, right: true },
+    { title: 'MODEL', get: (r) => r.model },
+    { title: 'TIMES', get: (r) => r.mentions, right: true },
   ]));
 }
 
-console.log('\n  node leads.js --list   visi pieteikumi');
-console.log('  node leads.js --csv    eksports\n');
+console.log('\n  node leads.js --list   every sign-up');
+console.log('  node leads.js --csv    export\n');
 
 db.close();

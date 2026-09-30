@@ -1,24 +1,24 @@
 'use strict';
 
 /**
- * Saliek _site no viena index.html: sakne plus pa lapai katrai valodai.
+ * Assembles _site from one index.html: the root plus one page per language.
  *
  *   node .github/build-site.js
  *
- * Kāpēc kopijas, nevis viens fails ar ?lang=: katrai valodai vajag savu
- * adresi. Meklētājs indeksē adreses, nevis JavaScript stāvokli, un reklāmas
- * kampaņa aizved uz /de/, nevis uz lapu, kas pati minēs, kas tu esi.
+ * Why copies rather than one file with ?lang=: each language needs its own
+ * address. A search engine indexes addresses, not JavaScript state, and an
+ * ad campaign should link to /de/, not to a page that guesses who you are.
  *
- * Iznākums:
- *   _site/index.html      pāradresē uz valodu pēc sīkdatnes, laika joslas vai
- *                         pārlūka; citādi identisks
- *   _site/<lang>/         pati lapa tajā valodā, bez pāradresācijas
+ * Output:
+ *   _site/index.html      redirects to a language by cookie, time zone, or
+ *                         browser; otherwise identical
+ *   _site/<lang>/         the page itself in that language, no redirect
  *
- * Vides mainīgie:
- *   SCANINBOX_API   pilna API adrese. Ja nav, publicētā lapa strādā kā
- *                   priekšskatījums — forma iziet cauri, bet neko nesaglabā,
- *                   un tā to arī pasaka.
- *   SITE_URL        lapas sakne canonical un hreflang saitēm.
+ * Environment variables:
+ *   SCANINBOX_API   the full API address. If unset, the published page runs
+ *                   as a preview — the form goes through but saves nothing,
+ *                   and says so.
+ *   SITE_URL        the page's root, for canonical and hreflang links.
  */
 
 const fs = require('node:fs');
@@ -41,9 +41,9 @@ const SITE = (process.env.SITE_URL || '').replace(/\/+$/, '');
 const src = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
 const API_TAG = /<meta name="scaninbox:api" content="[^"]*">/;
-if (!API_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:api"> nav atrasts');
+if (!API_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:api"> not found');
 
-/** Saites uz to pašu lapu pārējās valodās, plus kanoniskā adrese. */
+/** Links to the same page in every other language, plus the canonical address. */
 function alternates(lang) {
   if (!SITE) return '';
   const rows = LANGS.map(
@@ -55,14 +55,14 @@ function alternates(lang) {
 }
 
 /**
- * @param {string} lang  valoda vai '' saknei
+ * @param {string} lang  the language, or '' for the root
  */
 function build(lang) {
   let html = src.replace(API_TAG, `<meta name="scaninbox:api" content="${API}">`);
 
-  /* Šis marķieris ieslēdz gan saknes pāradresāciju, gan to, ka valodas slēdzis
-     pārvieto uz citu adresi, nevis maina tekstu uz vietas. Lokālajā failā tā
-     nav, tāpēc lokāli nekas no tā nenotiek. */
+  /* This marker switches on both the root redirect and the language switcher
+     navigating to a different address rather than swapping text in place.
+     The local file doesn't have it, so locally none of that happens. */
   let head = '<meta name="scaninbox:langpaths" content="1">\n';
   if (lang) {
     head += `<meta name="scaninbox:lang" content="${lang}">\n`;
@@ -72,8 +72,8 @@ function build(lang) {
 
   html = html.replace('<meta name="scaninbox:api"', head + '<meta name="scaninbox:api"');
 
-  /* Valodas lapa jau zina savu valodu, tāpēc <html lang> ir pareizs arī tad,
-     ja JavaScript nenostrādā. */
+  /* A language page already knows its own language, so <html lang> is
+     correct even if JavaScript doesn't run. */
   if (lang) html = html.replace('<html lang="lv">', `<html lang="${lang}">`);
 
   const dir = lang ? path.join(OUT, lang) : OUT;
@@ -86,5 +86,5 @@ fs.rmSync(OUT, { recursive: true, force: true });
 const written = ['', ...LANGS].map(build);
 
 console.log(written.join('\n'));
-console.log(API ? `API: ${API}` : 'API nav uzstādīts — publicētā lapa pieteikumus nesaglabās');
-console.log(SITE ? `Sakne: ${SITE}` : 'SITE_URL nav uzstādīts — bez canonical un hreflang');
+console.log(API ? `API: ${API}` : 'SCANINBOX_API not set — the published page will not save sign-ups');
+console.log(SITE ? `Root: ${SITE}` : 'SITE_URL not set — no canonical or hreflang');

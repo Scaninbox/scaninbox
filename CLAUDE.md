@@ -1,250 +1,276 @@
 # CLAUDE.md
 
-Šis fails ir Claude Code darba atmiņa par šo projektu. Tajā ir tas, ko **nevar
-izlasīt no koda** — lēmumi, iemesli un slazdi. Visu pārējo skaties `README.md`,
-kas ir rakstīts cilvēkiem un ir aktuāls.
+This file is Claude Code's working memory for this project. It holds what
+**can't be read from the code** — decisions, reasons, and traps. For
+everything else see `README.md`, which is written for people and kept
+current.
 
-## Kas šis ir
+## What this is
 
-Validācijas landing lapa **ScanInbox** — iecerētam inbox.eu pakalpojumam, kas
-biroja skenerim vai daudzfunkciju printerim iedod savus SMTP piekļuves datus, lai
-iekārtas poga «Scan to E-mail» beidzot strādātu.
+A validation landing page for **ScanInbox** — a planned inbox.eu service that
+gives an office scanner or multifunction printer its own SMTP credentials so
+the device's «Scan to E-mail» button finally works.
 
-**Lapas vienīgais mērķis ir savākt e-pastu pieteikumus.** Produkta nav. Lēmumi
-par saturu tiek pieņemti par labu pieteikumu skaitam, ne pilnībai.
+**The page's only goal is to collect e-mail sign-ups.** There is no product.
+Content decisions are made in favour of sign-up count, not completeness.
 
-Trīs kolēģi taisa pa savai versijai vienai un tai pašai idejai un pēc tam salīdzina
-([nimda5](https://nimda5.github.io/sendscan/), [achelnov](https://achelnov.github.io/IoTMail/index.html)).
-No viņu lapām ir aizgūts vairāk nekā tikai idejas — skat. «Pārņemts 1:1».
+Three colleagues are each building their own version of the same idea and
+then comparing ([nimda5](https://nimda5.github.io/sendscan/),
+[achelnov](https://achelnov.github.io/IoTMail/index.html)). More than just
+ideas has been borrowed from their pages — see «Taken 1:1».
 
-Ceturtais spēlētājs: kolēģis Mauris ir tiešs **atzars no mūsu repozitorija**
-(`jeanjmauris.github.io/scaninbox`), nevis neatkarīga lapa — tāpēc tajā pašas
-klases un pati struktūra, un salīdzinājums ir precīzāks nekā ar pārējiem
-diviem. Viņš maina tikai tekstu un rūpīgi izstrādāto animāciju, ne uzbūvi.
+A fourth player: colleague Mauris is a direct **fork of our repository**
+(`jeanjmauris.github.io/scaninbox`), not an independent page — so it shares
+the same classes and structure, and the comparison with it is closer than
+with the other two. He changes only text and the carefully built animation,
+not the structure.
 
-## Zelta likumi
+## Golden rules
 
-1. **`index.html` ir vienīgais avots.** Viss — HTML, CSS, JS, animācija — ir
-   vienā failā bez atkarībām. Nesadali to. Tas ir apzināti: lapu publicē kā vienu
-   statisku failu, un to var atvērt arī no diska.
-2. **Nulle npm atkarību.** SQLite nāk no Node iebūvētā `node:sqlite` (vajag
-   Node 22.5+). Neieviesi `package.json`.
-3. **Tekstu maina caur `tools/i18n.js`** — skat. zemāk. Ja to izlaidīsi, lapa
-   klusi rādīs latviešu teikumus vācu versijā.
-4. **Nemergo bez atļaujas.** Push uz `main` publicē lapu internetā.
+1. **`index.html` is the only source.** Everything — HTML, CSS, JS,
+   animation — is in one file with no dependencies. Don't split it. This is
+   deliberate: the page is published as a single static file, and it can also
+   be opened straight from disk.
+2. **Zero npm dependencies.** SQLite comes from Node's built-in `node:sqlite`
+   (needs Node 22.5+). Don't introduce a `package.json`.
+3. **Text changes go through `tools/i18n.js`** — see below. Skip it and the
+   page will silently show Latvian sentences in the German version.
+4. **Don't merge without permission.** A push to `main` publishes the page
+   live.
 
-## Tulkojumi — vienīgā vieta, kur var kļūdīties klusi
+## Translations — the one place a mistake stays quiet
 
-21 valoda: lv, en, it, fr, de, bg, cs, da, el, es, fi, hr, hu, lt, nl, pl, pt,
-ro, sk, sl, sv — tāda pati izvēle, kāda ir nimda5 lapai. Latviešu teksts ir
-**pašā `index.html`** uz elementiem ar `data-i18n="atslēga"`. Pārējās 20 ir
-`i18n/<lang>.json`, un tās iemontē lapā kā `window.SCANINBOX_I18N` bloku.
+21 languages: lv, en, it, fr, de, bg, cs, da, el, es, fi, hr, hu, lt, nl, pl,
+pt, ro, sk, sl, sv — the same choice as the nimda5 page. Latvian text lives
+**in `index.html` itself**, on elements with `data-i18n="key"`. The other 20
+are `i18n/<lang>.json`, and they get mounted into the page as a
+`window.SCANINBOX_I18N` block.
 
-Mainot jebkuru tekstu:
+Changing any text:
 
 ```bash
-node tools/i18n.js extract      # atjauno i18n/lv.json no lapas
-git diff i18n/lv.json           # redzi, kuras atslēgas jātulko
-# izlabo tās pašas atslēgas i18n/<lang>.json katrai no 20 valodām
-node tools/i18n.js merge        # ieliek vārdnīcas atpakaļ lapā
+node tools/i18n.js extract      # refreshes i18n/lv.json from the page
+git diff i18n/lv.json           # see which keys need translating
+# fix the same keys in i18n/<lang>.json for each of the 20 languages
+node tools/i18n.js merge        # puts the dictionaries back into the page
 node --test
 ```
 
-**16 no šīm valodām (visas, izņemot en/it/fr/de) ir tulkotas ar AI, bez dzimtā
-valodā runājoša cilvēka pārbaudes.** Tas ir apzināts kompromiss — tulkot 21
-valodu pašrocīgi nav reāli šai iterācijai —, bet pirms publiskas palaišanas
-katra jāizlasa cilvēkam, kurš to valodu runā. Skat. arī «Kas bloķē
-palaišanu».
+**16 of these languages (everything except en/it/fr/de) were machine
+translated, with no native-speaker check.** That's a deliberate trade-off —
+translating 21 languages by hand wasn't realistic for this iteration — but
+before a public launch each one needs to be read by someone who speaks it.
+See also «What blocks launch».
 
-`i18n/lv.json` ir **ģenerēts** — to raksta `extract`, nevis cilvēks. Tas pastāv
-tikai tāpēc, lai `git diff` parādītu, kas mainījies.
+`i18n/lv.json` is **generated** — `extract` writes it, not a person. It
+exists purely so `git diff` can show what changed.
 
-Slazdi, kas jau vienreiz iekoduši:
+Traps that have already bitten once:
 
-- **Atslēga atslēgā.** `data-i18n` elements iekšā citam `data-i18n` elementam
-  tiek iznīcināts, pārslēdzot valodu. Nedari tā.
-- **Marķējums.** Tulkojumā jābūt tiem pašiem tagiem un entītijām. `tools/i18n.js
-  check` to pārbauda, un tas ir piesiets pie `node --test`.
-- **Kodi pret etiķetēm.** Pogas `data-v` ir datubāzes kods (`6-20` ar defisi),
-  redzamais teksts ir tipogrāfisks (`6–20` ar domuzīmi). Reiz tie bija vienādi,
-  un serveris klusi izmeta katru atbildi.
-- **`<code id="modal-mail">`** un tamlīdzīgi id tulkojumā jāsaglabā — JS tos
-  meklē pēc pārslēgšanas.
+- **A key inside a key.** A `data-i18n` element nested inside another
+  `data-i18n` element gets destroyed when the language switches. Don't do
+  that.
+- **Markup.** A translation must carry the same tags and entities. `tools/
+  i18n.js check` verifies this, and it's wired into `node --test`.
+- **Codes vs. labels.** A chip's `data-v` is a database code (`6-20` with a
+  hyphen), the visible text is typographic (`6–20` with an en dash). Once
+  those were the same, and the server silently dropped every answer.
+- **`<code id="modal-mail">`** and similar ids must survive translation — JS
+  looks them up after switching.
 
-## Valodas noteikšana un adreses
+## Language detection and addresses
 
-Publicētajā versijā katrai valodai ir sava lapa: `/lv/ /en/ /it/ /fr/ /de/` un
-vēl 16 klāt (`/bg/ /cs/ /da/ /el/ /es/ /fi/ /hr/ /hu/ /lt/ /nl/ /pl/ /pt/ /ro/
-/sk/ /sl/ /sv/`). Tās saliek `.github/build-site.js` no viena `index.html`.
-Sakne pāradresē.
+In the published version each language has its own page: `/lv/ /en/ /it/
+/fr/ /de/` plus 16 more (`/bg/ /cs/ /da/ /el/ /es/ /fi/ /hr/ /hu/ /lt/ /nl/
+/pl/ /pt/ /ro/ /sk/ /sl/ /sv/`). `.github/build-site.js` assembles those from
+one `index.html`. The root redirects.
 
-Secība: **adrese → `?lang=` → sīkdatne `scaninbox_lang` → pārlūka valoda →
-laika josla → angļu.**
+Order: **address → `?lang=` → the `scaninbox_lang` cookie → browser language
+→ time zone → English.**
 
-Divas lietas, kas izskatās pēc kļūdas, bet nav:
+Two things that look like bugs but aren't:
 
-- **Pārlūks stāv pirms laika joslas.** Otrādi bija, un tas nozīmēja, ka Latvijā
-  visi dabūja latviešu valodu, arī angļu pārlūki. Reklāmai tas ir slikti: vācietim
-  bez `?lang=` saitē jāatveras vācu versijai.
-- **Laika josla, nevis IP ģeolokācija.** Lapa pie formas apsola IP neglabāt, tāpēc
-  sūtīt to uz svešu geo-IP servisu būtu pretrunā ar pašas tekstu. Laika josla ir
-  bezmaksas, tūlītēja un neprasa atļauju.
+- **Browser language comes before time zone.** It used to be the other way
+  round, which meant everyone in Latvia got Latvian, including English
+  browsers. That's bad for advertising: a German with no `?lang=` in the
+  link needs the German version to open.
+- **Time zone, not IP geolocation.** The page promises next to the form that
+  it won't store IPs, so sending it to a third-party geo-IP service would
+  contradict its own text. Time zone is free, immediate, and needs no
+  permission.
 
-Lokāli valodu ceļu nav (marķieri ieliek CI), tāpēc lokāli slēdzis maina tekstu uz
-vietas un pāradresācijas nenotiek. Viens fails, kas strādā abos režīmos.
+Locally there is no language path (CI adds the marker), so locally the
+switch changes the text in place and no redirect happens. One file that
+works in both modes.
 
-## Priekšskatījuma režīms — izskatās pēc kļūdas, bet ir apzināts
+## Preview mode — looks like a bug, but is deliberate
 
-GitHub Pages ir statisks hostings, tur API nav. Lapa to pamana: ja `/api/leads`
-atbild ar **404 vai 405**, forma iziet cauri līdz galam — apstiprinājums un
-papildjautājumi — bet **neko nesūta**, un rinda zem formas saka, ka adrese netika
-saglabāta.
+GitHub Pages is static hosting, so there's no API there. The page notices
+this itself: if `/api/leads` responds with **404 or 405**, the form runs all
+the way through — confirmation and follow-up questions — but **sends
+nothing**, and the line under the form says the address wasn't saved.
 
-Tas attiecas tikai uz 404/405. Pārtrūcis savienojums joprojām ir kļūda ar
-iespēju mēģināt vēlreiz, citādi cilvēks ar sliktu signālu dabūtu «paldies» un
-pazustu.
+This applies only to 404/405. A dropped connection is still an error with a
+chance to retry, otherwise someone with a bad signal would get a "thank you"
+and vanish.
 
-To prasīja pasūtītājs, lai lapa būtu salīdzināma ar kolēģu versijām, kuras
-**neko nesaglabā vispār** un par to neko nesaka. Godīgā rinda ir atslēga
-`msg.savedDemo`.
+The client asked for this, so the page would be comparable with colleagues'
+versions, which **save nothing at all** and say nothing about it. The
+honest line is the `msg.savedDemo` key.
 
-## Papildjautājumi — trīs, ne četri, un visi ar vienu pieskārienu
+## Follow-up questions — three, not four, and all single-tap
 
-Bija četri jautājumi (kam der, cik ierīcēm, kāda zīmola — vairākas atbildes,
-un modelis — brīvs teksts). Tagad ir **trīs**, un katrs — arī zīmols — ir
-**viena pieskāriena izvēle**: klikšķis uz čipa uzreiz saglabā atbildi un
-virza tālāk (`advance()`), nevis gaida «Tālāk» pogu. Iemesls: mazāk berzes,
-ātrāk līdz beigām.
+There used to be four questions (who's it for, how many devices, which
+brand — multiple answers, and model — free text). Now there are **three**,
+and each one — brand included — is a **single-tap choice**: clicking a chip
+immediately saves the answer and moves on (`advance()`), rather than waiting
+for a "Next" button. Reason: less friction, faster to the end.
 
-Modeļa jautājums (brīvā teksta lauks) ir **pilnībā izņemts** no lapas, ne
-tikai paslēpts — `fu-model`, `q4.h`, `q4.ph`, `fu.next`, `fu.send` vairs
-neeksistē. Serveris joprojām pieņem `model` lauku pa API (`device_model`
-kolonna, `v_device_models` skats) — tas paliek tāpēc, ka to var aizpildīt
-citādi (piem., roku darbā vai nākotnē), tāpat kā `price_bands` paliek, lai
-gan forma to vairs nejautā. **Nesāc no jauna pievienot modeļa jautājumu UI,
-nesaprotot, kāpēc tas tika izņemts** — tas bija tiešs pasūtījums samazināt
-jautājumu skaitu.
+The model question (the free-text field) is **removed entirely** from the
+page, not just hidden — `fu-model`, `q4.h`, `q4.ph`, `fu.next`, `fu.send` no
+longer exist. The server still accepts a `model` field over the API
+(`device_model` column, `v_device_models` view) — that stays because it can
+be filled some other way (manual entry, or in future), the same way
+`price_bands` stays even though the form no longer asks about price.
+**Don't start re-adding a model question to the UI without understanding why
+it was removed** — that was a direct request to cut the number of
+questions.
 
-Zīmolu jautājums JS pusē tagad izskatās tāpat kā segments un ierīces —
-`answers.brands = [v]` (masīvs ar vienu vērtību, nevis toggle) —, lai
-`saveAnswers()` varētu sūtīt to pašu `brands` masīva formu, ko API jau
-sagaidīja, kad vēl bija vairākatbilžu izvēle.
+The brands question on the JS side now looks like segment and devices —
+`answers.brands = [v]` (a single-value array, not a toggle) — so
+`saveAnswers()` can send the same `brands` array shape the API already
+expected back when it was a multi-select.
 
-## Pārņemts 1:1 no kolēģa lapas
+## Taken 1:1 from a colleague's page
 
-Sadaļa «Kā tas strādā» — virsraksts, ievads, visi četri soļi, ikonas — ir
-**burtiski nokopēta** no nimda5 versijas pēc tiešas pasūtītāja prasības, kas
-atkārtota divreiz. Bultiņu josla un «Ģenerētā konfigurācija» piemēra tabula,
-kas te bija zem soļiem, ir **noņemta** — sekojot Maura atzaram, kas to izmeta
-(skat. zemāk), nevis nimda5, kurai tā joprojām ir.
+The «How it works» section — heading, intro, all four steps, icons — is
+**copied verbatim** from the nimda5 version, on the client's direct request,
+repeated twice. The arrow strip and the «Generated configuration» example
+table that used to sit below the steps have been **removed** — following
+Mauris's fork, which dropped it (see below), not nimda5, which still has it.
 
-**Tāpēc lapa sola AI printera atpazīšanu no bildes, kā ScanInbox nav.** Tā ir
-nimda produkta ideja. Validācijas lapai tas ir pieļaujams tests (kājenē skaidri
-rakstīts, ka pakalpojums nav pieejams), bet, ja kāds prasa to noņemt vai maina
-produkta apjomu, sākt vajag no šīs sadaļas.
+**That's why the page promises AI printer recognition from a photo, which
+ScanInbox does not have.** That's nimda's product idea. For a validation
+page this is an acceptable test (the footer clearly states the service
+isn't available yet), but if anyone asks to remove it or changes the
+product's scope, start from this section.
 
-## Ņemts no Maura atzara (foršs.html) — un kas no tā *nav* ņemts
+## Taken from Mauris's fork — and what *wasn't* taken from it
 
-Kolēģis Mauris atzaroja mūsu repozitoriju un uztaisīja savu versiju:
+Colleague Mauris forked our repository and made his own version:
 [jeanjmauris.github.io/scaninbox](https://jeanjmauris.github.io/scaninbox/en/).
-Ņemts pāri:
+Taken over:
 
-- **Hero virsraksts un ievadteksts** — jauns, kodolīgāks formulējums.
-- **`hero.offer`** — jauna izcelta rindiņa zem ievadteksta (fona krāsa,
-  kreisā apmale), kas aizstāj veco `hero.terms`/`hero.meta*` josliņu virs un
-  zem formas. Tā pati doma, kodolīgāk pateikta vienuviet.
-- **Pilnāka iesūtnes animācija** — no 3 rindām uz 8: piecas papildu (nekad
-  neanimētas) vēstules, lai saraksts izskatās pēc īstas iesūtnes, nevis
-  demo. `.inbox__list` tāpēc dabūja fiksētu augstumu 3 rindām
-  (`height:calc(3 * 46px);overflow:hidden`) — pārējās ir markup, ne redzamas.
-- **Cenas piedāvājums no «pirmajiem 10» uz «pirmajiem 50».** Šis nav tikai
-  teksts — tas ir biznesa lēmums (vairāk cilvēku, kam solām bezmaksas gadu),
-  un tas nav atsevišķi apstiprināts, tikai pārņemts kopā ar pārējo tekstu pēc
-  tiešas pasūtītāja prasības. Ja tas nav domāts, meklē `50` visā `i18n/`.
-- **`foot.about`** rindkopa footerī — īss teikums par to, ka ScanInbox ir
-  inbox.eu komandas darbs ar 20+ gadu pieredzi pasta infrastruktūrā. Tas nāk
-  nevis no Maura, bet no **nimda5** lapas, kur tāda informācija ir vesela
-  sadaļa (`.trust`); pasūtītājs prasīja to ielikt kodolīgi footerī, nevis kā
-  jaunu sadaļu.
-- **Sekcija «Kā tas strādā»** zaudēja bultiņu joslu un konfigurācijas tabulu
-  (skat. augšā).
+- **Hero headline and lede** — new, more concise wording.
+- **`hero.offer`** — a new highlighted line under the lede (background
+  colour, left border) that replaces the old `hero.terms`/`hero.meta*`
+  strip above and below the form. Same idea, said more concisely in one
+  place.
+- **A fuller inbox animation** — from 3 rows to 8: five extra (never
+  animated) messages so the list reads like a real inbox rather than a
+  demo. `.inbox__list` therefore got a fixed height of 3 rows
+  (`height:calc(3 * 46px);overflow:hidden`) — the rest are markup, not
+  visible.
+- **The price offer from "first 10" to "first 50".** This isn't just text —
+  it's a business decision (more people promised a free year), and it
+  wasn't separately confirmed, just carried along with the rest of the text
+  on the client's direct request. If that wasn't intended, search for `50`
+  across `i18n/`.
+- **`foot.about`** paragraph in the footer — a short line about ScanInbox
+  being built by the inbox.eu team with 20+ years of mail infrastructure
+  experience. This comes not from Mauris but from the **nimda5** page,
+  where that information is a whole section (`.trust`); the client asked
+  for it to go concisely into the footer, not as a new section.
+- **The «How it works» section** lost the arrow strip and the config table
+  (see above).
 
-**Apzināti NAV ņemts**, lai gan Maura lapā tas ir:
+**Deliberately NOT taken**, even though Mauris's page has it:
 
-- **Maura IT/FR/DE un LV teksti pašā lapā ir savā starpā nesaskaņoti.** Viņš
-  mainīja «10» uz «50» un pārrakstīja virsrakstus (`who.h2`, `how.h2`) tikai
-  savā EN vārdnīcā — viņa LV avota teksts un IT/FR/DE vārdnīcas palika
-  nemainītas un joprojām saka «10» un vecos virsrakstus. Tāpēc visur, kur
-  ņēmām viņa tekstu, par pamatu ņēmām **viņa angļu tekstu**, un LV/IT/FR/DE
-  uzrakstījām no jauna paši — nevis kopējām viņa (nesaskaņotās) versijas.
-  Šis ir iemesls, kāpēc «ņem tekstu no kolēģa» nedrīkst nozīmēt «kopē visas
-  viņa vārdnīcas» — jāpārbauda, vai viņa pats ir tulkojumus turējis sinhronus.
-- ~~Divkolonnu figūras izkārtojums~~ — **šis pēc tam gan tika pievienots**,
-  skat. «Divkolonnu figūra» zemāk. Pirmajā piegājienā apzināti izlaists, tad
-  pasūtītājs to prasīja tieši.
+- **Mauris's own IT/FR/DE and LV text are out of sync with each other on his
+  page.** He changed "10" to "50" and rewrote headings (`who.h2`, `how.h2`)
+  only in his EN dictionary — his LV source text and IT/FR/DE dictionaries
+  stayed unchanged and still say "10" and the old headings. So everywhere we
+  took his text, we used **his English text** as the basis, and wrote
+  LV/IT/FR/DE ourselves from scratch — rather than copying his (out-of-sync)
+  versions. This is why "take the text from the colleague" must not mean
+  "copy all his dictionaries" — check whether he actually kept his own
+  translations in sync.
+- ~~Two-column figure layout~~ — **this was in fact added afterwards**, see
+  «Two-column figure» below. Deliberately skipped on the first pass, then
+  the client asked for it directly.
 
-## Divkolonnu figūra — printeris un iesūtne blakus, nevis viens zem otra
+## Two-column figure — printer and inbox side by side, not one above the other
 
-`.fig{container-type:inline-size}` padara figūru pašu par vaicājuma
-konteineri, tāpēc `@container (min-width:28rem)` reaģē uz **figūras platumu**,
-nevis loga platumu — mobilā figūra var būt platāka par 28rem (447px), un
-tad izkārtojums jau ir blakusisks, kaut arī skatās no tālruņa.
+`.fig{container-type:inline-size}` makes the figure itself the query
+container, so `@container (min-width:28rem)` reacts to the **figure's own
+width**, not the viewport's — a mobile figure can be wider than 28rem
+(447px), and then the layout is already side-by-side even though it's
+viewed on a phone.
 
-Tas pats te ir savādāk nekā Maura lapā, kaut arī rezultāts izskatās līdzīgs:
+This part is different from Mauris's page, even though the result looks
+similar:
 
-- **Mūsu vads (`.wire`) jau bija horizontāls** šaurajā (sakrautajā) stāvoklī —
-  pilnas platuma josla ar adreses tekstlodziņu tās galā. Maura vads šaurajā
-  stāvoklī ir **vertikāli pagriezts** (`.wire__line{transform:rotate(90deg)}`,
-  `.pkt svg{transform:rotate(-90deg)}`) un tikai platajā stāvoklī atgriežas
-  horizontālā. Mums šī pagrieziena trika nevajadzēja — tāpēc platās versijas
-  CSS ir vienkāršāks: nav rotāciju, ko atcelt.
-- **Adreses tekstlodziņš (`#wire-to` / `.wire__to`) pārcelts no vada uz
-  iesūtnes galveni** (`.inbox__hd`), **abos** izkārtojumos — ne tikai platajā.
-  Iemesls: platajā stāvoklī vads sarūk līdz šaurai `clamp(2.5rem,7cqw,4.5rem)`
-  ailei starp printeri un iesūtni, kur adreses teksts (dažreiz garš) vienkārši
-  nevar ietilpt. Iesūtnes galvenei vietas ir daudz vairāk abos gadījumos, tāpēc
-  adrese tur dzīvo pastāvīgi. `.inbox__label` («Iesūtne»/«Inbox») paslēpjas
-  tikai platajā stāvoklī (`@container`), lai adresei būtu vieta blakus ikonai
-  un skaitītājam — šaurajā abi (etiķete un adrese) ietilpst, jo tur iesūtne
-  aizņem visu rindas platumu.
-- **`.inbox__list` augstums platajā stāvoklī vairs nav fiksēts** trīs rindām
-  (`height:calc(3 * 46px)`) — tas paliek šaurajā stāvoklī, bet platajā
-  `.inbox{align-self:stretch}` + `.inbox__list{flex:1 1 0;height:0}` ļauj
-  sarakstam aizpildīt tik daudz vietas, cik printera attēls (`.mfp`) dabiski
-  aizņem, un apgriezt pārējo. Cik rindu redzams, ir atkarīgs no printera
-  attēla augstuma tajā konkrētajā platumā — tas ir apzināti, nevis kļūda, ja
-  redzi 2 vai 4 rindas dažādos ekrānos.
+- **Our wire (`.wire`) was already horizontal** in the narrow (stacked)
+  state — a full-width bar with the address chip at its end. Mauris's wire
+  in the narrow state is **rotated vertical**
+  (`.wire__line{transform:rotate(90deg)}`,
+  `.pkt svg{transform:rotate(-90deg)}`) and only returns to horizontal in
+  the wide state. We didn't need that rotation trick, so the wide-state CSS
+  is simpler: no rotations to undo.
+- **The address chip (`#wire-to` / `.wire__to`) moved from the wire into the
+  inbox header** (`.inbox__hd`), in **both** layouts, not just the wide one.
+  Reason: in the wide state the wire shrinks to a narrow
+  `clamp(2.5rem,7cqw,4.5rem)` gutter between printer and inbox, where the
+  address text (sometimes long) simply cannot fit. The inbox header has far
+  more room in both cases, so the address lives there permanently.
+  `.inbox__label` ("Inbox") hides only in the wide state (`@container`), so
+  the address has room next to the icon and the counter — in the narrow
+  state both (label and address) fit, because there the inbox takes the
+  full width of its own row.
+- **`.inbox__list`'s height in the wide state is no longer fixed** to three
+  rows (`height:calc(3 * 46px)`) — that stays in the narrow state, but in
+  the wide state `.inbox{align-self:stretch}` +
+  `.inbox__list{flex:1 1 0;height:0}` lets the list fill however much space
+  the printer image (`.mfp`) naturally takes up, and clip the rest. How
+  many rows show up depends on the printer image's height at that
+  particular width — that's deliberate, not a bug, if you see 2 or 4 rows
+  on different screens.
 
-Pārbaudīt abus stāvokļus: paplašini pārlūka logu/figūras konteineri virs un
-zem 28rem (447px) un skaties, vai `.wire` pāriet no pilnas platuma joslas uz
-šauru aili starp printeri un iesūtni.
+To check both states: widen the browser window/the figure's container above
+and below 28rem (447px) and watch whether `.wire` switches from a
+full-width bar to a narrow gutter between printer and inbox.
 
-## Citi apzināti lēmumi, ko nevajag «salabot»
+## Other deliberate decisions that don't need "fixing"
 
-- **`noindex, nofollow`** ir vietā ar nodomu, kamēr lapa ir pārskatīšanai.
-- **`price_bands` tabula paliek**, lai gan forma cenu vairs nejautā — tur ir
-  pirmās iterācijas atbildes. `leads.js` to rāda tikai, ja kaut kas ir.
-- **`COALESCE` atjaunošanā.** Viens pieteikums aiziet kā vairāki pieprasījumi
-  (e-pasts, tad pa vienam uz katru atbildi), tāpēc vēlāks iesniegums ar mazāk
-  atbildēm jau saglabātās nedrīkst nodzēst. Zīmoli ir izņēmums: ja lauks ir klāt,
-  tas aizstāj kopu pilnībā, lai atzīmēto varētu noņemt.
-- **`/api/health` neatgriež pieteikumu skaitu.** Tas ir gan konkurenta mērījums,
-  gan veids pierādīt, ka «pirmie 50» jau aizņemti, kamēr lapa to vēl sola.
-- **Sargtests** `test/api.test.js` pārbauda, ka lapā ir tieši viens `fetch` un
-  nav otras glabātavas. Ja tas nokrīt, **nemaini testu** pirms nesaproti, kas
-  lapā sūta datus otrā vietā.
-- **Divi privātuma testi** `test/schema.test.js` neļauj shēmā parādīties `ip` vai
-  `user_agent` kolonnai. Tie sargā solījumu, ne kodu.
+- **`noindex, nofollow`** is there on purpose, while the page is under
+  review.
+- **The `price_bands` table stays**, even though the form no longer asks
+  about price — those are first-iteration answers. `leads.js` only shows it
+  when there's something to show.
+- **`COALESCE` on update.** One sign-up goes out as several requests (the
+  e-mail, then one per answer), so a later submission with fewer answers
+  must not erase ones already saved. Brands is the exception: if the field
+  is present, it replaces the set entirely, so a marked one can be removed.
+- **`/api/health` doesn't return the sign-up count.** That's both a
+  competitive metric and a way to prove the "first 50" are already taken
+  while the page still promises them.
+- **The guard test** `test/api.test.js` checks that the page has exactly one
+  `fetch` and no second storage. If it fails, **don't change the test**
+  before understanding what in the page is sending data somewhere else.
+- **Two privacy tests** in `test/schema.test.js` don't let an `ip` or
+  `user_agent` column appear in the schema. They guard the promise, not the
+  code.
 
-## Animācija
+## Animation
 
-Hero figūra iet pa **vienu pulksteni** — `--cycle` mainīgais `:root` blokā (9 s).
-Visas keyframes ir procentos pret to, tāpēc takti nevar aizpeldēt.
+The hero figure runs on **one clock** — the `--cycle` variable in the
+`:root` block (9 s). Every keyframe is a percentage against it, so the
+beats can't drift apart.
 
-Takti: skenē 5–27 % → sūta 33–53 % → nolaižas 54–60 % → atmaksa 60–88 % →
-atiestate 88–100 %. Mainot vienu, jāpārbauda kaimiņi.
+Beats: scan 5–27% → send 33–53% → land 54–60% → dwell 60–88% → reset
+88–100%. Change one, check its neighbours.
 
-Pārbaudīt var, pauzējot un skrollējot animāciju:
+You can check by pausing and scrubbing the animation:
 
 ```js
 document.getAnimations()
@@ -252,67 +278,74 @@ document.getAnimations()
   .forEach(a => { a.pause(); a.currentTime = 9000 * 0.44; });
 ```
 
-Divas lietas, kas jau bija salauztas un var atkārtoties:
+Two things that were already broken once and could recur:
 
-- **`IntersectionObserver` ieraksti pienāk ar nobīdi**, un pēdējais uzliktais
-  uzvar arī tad, kad tas vairs neatbilst patiesībai. Tāpēc `syncFigure()` un
-  `syncDock()` nolasa elementa **reālo pozīciju**, nevis tic notikumam. Neatgriez
-  to atpakaļ uz `entry.isIntersecting`.
-- **`prefers-reduced-motion`** blokam jāparāda **viens saskanīgs kadrs** (lapa
-  noskenēta, vēstule nolaidusies), nevis sasaldēts vidus. Pievienojot jaunu
-  animāciju, pievieno arī tās beigu stāvokli tur.
+- **`IntersectionObserver` entries arrive with a delay**, and the last one
+  applied wins even when it no longer matches reality. That's why
+  `syncFigure()` and `syncDock()` read the element's **actual position**
+  rather than trusting the event. Don't revert that back to
+  `entry.isIntersecting`.
+- **`prefers-reduced-motion`** must show **one coherent frame** (page
+  scanned, letter landed), not a frozen mid-point. When adding a new
+  animation, add its end state there too.
 
-## Palaišana
+## Running it
 
 ```bash
-node server.js                  # lapa + API uz http://localhost:8123
-node --test                     # 128 testi
-node leads.js --list            # pieteikumi terminālī
-node tools/i18n.js check        # tulkojumu parītāte
-SITE_URL=... node .github/build-site.js   # kā CI saliek _site
+node server.js                  # page + API on http://localhost:8123
+node --test                     # 128 tests
+node leads.js --list            # sign-ups in the terminal
+node tools/i18n.js check        # translation parity
+SITE_URL=... node .github/build-site.js   # how CI assembles _site
 ```
 
-Datubāze ir `data/`, git-ā nav. Ja `lang` kolonnas `CHECK` saraksts mainās,
-vecā datubāze jāizdzēš — SQLite `CHECK` ar `ALTER TABLE` nemaina.
+The database is `data/`, not in git. If the `lang` column's `CHECK` list
+changes, the old database has to be deleted — SQLite's `CHECK` doesn't
+change via `ALTER TABLE`.
 
-## Kas bloķē palaišanu
+## What blocks launch
 
-Nav kods, bet jāzina:
+Not code, but worth knowing:
 
-1. **Nav vietas, kur darbināt `server.js`.** Kamēr tās nav, lapa savāc nulli
-   pieteikumu. Vajag Node 22.5+, **pastāvīgu disku** (PaaS ar pagaidu failu
-   sistēmu datubāzi pazaudēs) un HTTPS. Tad `SCANINBOX_API` GitHub mainīgajos un
-   `SCANINBOX_ALLOW_ORIGIN` serverī — koda maiņa nav vajadzīga.
-2. **Nav privātuma paziņojuma.** VDAR 13. pants prasa pārzini, tiesības un
-   kontaktu. Bez tā formu nedrīkst laist reālā apritē.
-3. **Nav kontaktadreses.** BUJ tāpēc saka «atbildi uz mūsu vēstuli», nevis
-   «raksti mums».
-4. **Nav `og:image`.** Pārējie dalīšanās tagi ir.
-5. **Nav analītikas.** Bez tās uzzināsim pieteikumu skaitu, bet ne konversiju un
-   ne to, kura valoda pelna.
-6. **16 no 21 valodām nav lasījis neviens, kas tajā valodā runā.** Tās ir AI
-   tulkotas, tagu/entītiju parītāte ir pārbaudīta automātiski (`node
-   tools/i18n.js check`), bet **nozīme, tonis un dabiskums — nav**. Pirms
-   reklāmas šajās valodās katra jāizlasa cilvēkam.
+1. **There's nowhere to run `server.js`.** Until there is, the page collects
+   zero sign-ups. Needs Node 22.5+, a **persistent disk** (a PaaS with an
+   ephemeral filesystem will lose the database), and HTTPS. Then
+   `SCANINBOX_API` in GitHub variables and `SCANINBOX_ALLOW_ORIGIN` on the
+   server — no code change needed.
+2. **There's no privacy notice.** GDPR Article 13 requires naming the
+   controller, rights, and a contact. The form must not go live without
+   one.
+3. **There's no contact address.** That's why the FAQ says "reply to our
+   e-mail" rather than "write to us".
+4. **There's no `og:image`.** The other sharing tags are there.
+5. **There's no analytics.** Without it we'll know the sign-up count, but
+   not the conversion rate or which language earns.
+6. **16 of the 21 languages haven't been read by anyone who speaks that
+   language.** They're machine translated; tag/entity parity is checked
+   automatically (`node tools/i18n.js check`), but **meaning, tone, and
+   naturalness are not**. Each one needs a human read before advertising in
+   it.
 
-Pilns saraksts ar atzīmēm — `README.md`, sadaļa «Pirms publiskas palaišanas».
+Full checklist — `README.md`, section «Before a public launch».
 
-## Tirgus konteksts (no izpētes, kas nav repozitorijā)
+## Market context (from research that isn't in the repository)
 
-- Pieprasījumu rada **Microsoft, nevis papīra kultūra**: kopš 2020. gada janvāra
-  jaunajiem Microsoft 365 nomniekiem SMTP AUTH ir izslēgts pēc noklusējuma, un
-  2026. gada decembra beigās tas tiks izslēgts arī esošajiem. Tas ir asākais
-  arguments lapā un tāpēc ir atsevišķs lietojuma stāsts un BUJ ieraksts. **Šie
-  datumi jāpārbauda** — Microsoft grafiku jau ir pārcēlis trīs reizes.
-- **Cenu grīda ir tuvu nullei**: neviens SMTP serviss nemaksā par ierīci. 10 €
-  gadā (0,83 €/mēn.) ir uz konkurences līnijas; par ierīci *mēnesī* būtu miris.
-- **Itālija** ir strukturāli spēcīgākais tirgus (zemākais IT speciālistu īpatsvars
-  ES), **Vācija un Francija** — lielākie pēc apjoma. Tāpēc **sākotnēji** tulkots
-  uz šīm trim.
-- **Latvija viena ir par mazu** (~484 tūkst. € gadā pat pie 100 % tirgus daļas).
-- **21 valoda ir plašāka par šo tirgus analīzi**, ne tās rezultāts. Paplašinājums
-  uz nimda5 valodu sarakstu notika, lai lapas būtu salīdzināmas savā starpā, ne
-  tāpēc, ka izpēte parādīja 16 jaunus mērķa tirgus. Ja lēmums ir sašaurināt
-  reklāmu atpakaļ uz IT/FR/DE (vai LV/EN/IT/FR/DE), pārējās valodas paliek
-  pieejamas pēc `?lang=` vai tiešas adreses — tās vienkārši nesaņem reklāmas
-  budžetu.
+- Demand comes from **Microsoft, not paper culture**: since January 2020,
+  SMTP AUTH has been off by default for new Microsoft 365 tenants, and at
+  the end of December 2026 it will be turned off for existing ones too.
+  That's the sharpest argument on the page and so gets its own use-case
+  story and FAQ entry. **These dates need re-checking** — Microsoft has
+  already pushed its timeline back three times.
+- **The price floor is close to zero**: no SMTP service charges per device.
+  €10/year (€0.83/month) sits on the competitive line; per device *per
+  month* would be dead on arrival.
+- **Italy** is the structurally strongest market (lowest share of IT
+  specialists in the EU), **Germany and France** are the largest by volume.
+  That's why it was **initially** translated into these three.
+- **Latvia alone is too small** (~€484k/year even at 100% market share).
+- **21 languages is broader than this market analysis**, not a result of
+  it. The expansion to nimda5's language list happened so the pages would
+  be comparable with each other, not because the research turned up 16 new
+  target markets. If the decision is to narrow advertising back to IT/FR/DE
+  (or LV/EN/IT/FR/DE), the other languages stay available via `?lang=` or a
+  direct address — they just don't get ad budget.

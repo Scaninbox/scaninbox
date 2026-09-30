@@ -1,16 +1,17 @@
--- ScanInbox — pieteikumu (leads) datubāzes shēma
+-- ScanInbox — leads database schema
 --
--- Idempotenta: server.js to izpilda katrā startā, tāpēc visur IF NOT EXISTS
--- un INSERT OR IGNORE.
+-- Idempotent: server.js runs this on every start, hence IF NOT EXISTS and
+-- INSERT OR IGNORE everywhere.
 --
--- Ko šeit APZINĀTI NAV: IP adreses un user-agent. Lapas teksts lietotājam
--- apsola glabāt tikai e-pastu un formas atbildes, tāpēc neko citu arī
--- neglabājam. IP tiek izmantots tikai atmiņā ātruma ierobežošanai.
+-- Deliberately NOT here: IP addresses and user agents. The page's text
+-- promises the user it stores only the e-mail and the form answers, so
+-- nothing else gets stored either. The IP is only used in memory for rate
+-- limiting.
 
 -- ---------------------------------------------------------------------------
--- Uzmeklēšanas tabulas. Kodi ir tie paši, ko sūta forma; etiķetes abās
--- valodās, lai portāls vēlāk varētu rādīt cilvēklasāmus nosaukumus, un lai
--- datubāze pati sevi paskaidro bez atsauces uz HTML.
+-- Lookup tables. Codes are the same ones the form sends; labels in both
+-- languages so a dashboard can later show human-readable names, and so the
+-- database explains itself without a reference to the HTML.
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS segments (
   code     TEXT PRIMARY KEY,
@@ -30,15 +31,15 @@ CREATE TABLE IF NOT EXISTS price_bands (
   code       TEXT PRIMARY KEY,
   label_lv   TEXT    NOT NULL,
   label_en   TEXT    NOT NULL,
-  -- Vidējā vērtība eiro, lai varētu rēķināt aptuvenu ARPU. NULL, ja josla
-  -- nav skaitliska ("vēl nevaru pateikt").
+  -- Midpoint value in euros, so an approximate ARPU can be calculated. NULL
+  -- if the band isn't numeric ("cannot say yet").
   eur_midpoint REAL,
   sort       INTEGER NOT NULL
 );
 
--- Iekārtu zīmoli. Nosaukumi ir īpašvārdi, tāpēc abās valodās vienādi, bet
--- kolonnas paliek, lai tabula izskatītos tāpat kā pārējās uzmeklēšanas tabulas
--- un lai «Cits» un «Nezinu» varētu tulkot.
+-- Device brands. Names are proper nouns, so they're the same in both
+-- languages, but the columns stay so the table looks like the other lookup
+-- tables and so "Other" and "Do not know" can be translated.
 CREATE TABLE IF NOT EXISTS brands (
   code     TEXT PRIMARY KEY,
   label_lv TEXT    NOT NULL,
@@ -80,14 +81,14 @@ INSERT OR IGNORE INTO brands (code, label_lv, label_en, sort) VALUES
   ('unknown', 'Nezinu',         'Do not know',   12);
 
 -- ---------------------------------------------------------------------------
--- Pieteikumi. Viena rinda uz e-pastu — atkārtots pieteikums atjauno atbildes,
--- nevis rada dublikātu. Vēsture glabājas lead_events.
+-- Sign-ups. One row per e-mail — a repeat sign-up updates the answers rather
+-- than creating a duplicate. History is kept in lead_events.
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS leads (
   id           INTEGER PRIMARY KEY AUTOINCREMENT,
 
-  email        TEXT    NOT NULL,                 -- kā lietotājs ierakstīja
-  email_norm   TEXT    NOT NULL UNIQUE,          -- mazie burti, dublikātu novēršanai
+  email        TEXT    NOT NULL,                 -- as the user typed it
+  email_norm   TEXT    NOT NULL UNIQUE,          -- lower case, to prevent duplicates
   name         TEXT,
 
   segment      TEXT    REFERENCES segments(code),
@@ -96,9 +97,10 @@ CREATE TABLE IF NOT EXISTS leads (
   price_band   TEXT    REFERENCES price_bands(code),
 
   wants_beta   INTEGER NOT NULL DEFAULT 0 CHECK (wants_beta IN (0, 1)),
-  consent      INTEGER NOT NULL            CHECK (consent = 1),  -- bez piekrišanas rindas nav
-  -- Valodas, kurās lapa pastāv. Ja sarakstam pievieno vēl vienu, datubāze ir
-  -- jāizveido no jauna: CHECK ierobežojumu SQLite ar ALTER TABLE nemaina.
+  consent      INTEGER NOT NULL            CHECK (consent = 1),  -- no row without consent
+  -- Languages the page exists in. Adding another to the list means the
+  -- database has to be rebuilt: SQLite doesn't change a CHECK constraint
+  -- via ALTER TABLE.
   lang         TEXT    NOT NULL DEFAULT 'lv'
                CHECK (lang IN ('lv', 'en', 'it', 'fr', 'de', 'bg', 'cs', 'da', 'el',
                                'es', 'fi', 'hr', 'hu', 'lt', 'nl', 'pl', 'pt', 'ro',
@@ -107,7 +109,7 @@ CREATE TABLE IF NOT EXISTS leads (
   created_at   TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),
   updated_at   TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),
 
-  -- Komandas darba lauki, ko forma nekad neaizpilda
+  -- Team work fields the form never fills in
   contacted_at TEXT,
   notes        TEXT
 );
@@ -118,9 +120,9 @@ CREATE INDEX IF NOT EXISTS idx_leads_price    ON leads (price_band);
 CREATE INDEX IF NOT EXISTS idx_leads_beta     ON leads (wants_beta) WHERE wants_beta = 1;
 
 -- ---------------------------------------------------------------------------
--- Zīmoli uz pieteikumu. Cilvēkam mēdz būt vairāku ražotāju iekārtas, tāpēc šī
--- ir saite, nevis kolonna leads tabulā. Atkārtots pieteikums šo kopu aizstāj
--- pilnībā — atzīmēto var arī noņemt.
+-- Brands per sign-up. A person can have devices from several manufacturers,
+-- so this is a link table rather than a column on leads. A repeat sign-up
+-- replaces this set entirely — a marked one can also be removed.
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS lead_brands (
   lead_id    INTEGER NOT NULL REFERENCES leads(id) ON DELETE CASCADE,
@@ -131,25 +133,26 @@ CREATE TABLE IF NOT EXISTS lead_brands (
 CREATE INDEX IF NOT EXISTS idx_lead_brands_brand ON lead_brands (brand);
 
 -- ---------------------------------------------------------------------------
--- Audita pēdas. leads glabā pašreizējo stāvokli, šī tabula — ko tieši un kad
--- iesniedza. Noder, ja kāds maina atbildi, un atbild uz jautājumu "vai cena
--- mainījās pēc tam, kad cilvēks izlasīja lapu otrreiz".
+-- Audit trail. leads holds the current state, this table holds exactly what
+-- was submitted and when. Useful if someone changes an answer, and answers
+-- the question "did the price change after someone read the page twice".
 -- ---------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS lead_events (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   lead_id    INTEGER NOT NULL REFERENCES leads(id) ON DELETE CASCADE,
   kind       TEXT    NOT NULL CHECK (kind IN ('created', 'updated')),
-  payload    TEXT    NOT NULL,   -- iesniegtais JSON, kā saņemts
+  payload    TEXT    NOT NULL,   -- the submitted JSON, as received
   created_at TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now'))
 );
 
 CREATE INDEX IF NOT EXISTS idx_events_lead ON lead_events (lead_id, created_at);
 
 -- ---------------------------------------------------------------------------
--- Skati, kas atbild uz to jautājumu, kura dēļ šī lapa vispār eksistē.
+-- Views that answer the question this page exists to answer in the first
+-- place.
 -- ---------------------------------------------------------------------------
 
--- Pieteikumi ar cilvēklasāmām etiķetēm
+-- Sign-ups with human-readable labels
 CREATE VIEW IF NOT EXISTS v_leads AS
 SELECT
   l.id,
@@ -173,11 +176,12 @@ LEFT JOIN segments     s ON s.code = l.segment
 LEFT JOIN device_bands d ON d.code = l.device_band
 LEFT JOIN price_bands  p ON p.code = l.price_band;
 
--- Cik cilvēki kurā cenu joslā — vai vispār ir gatavība maksāt
+-- How many people in which price band — whether there's willingness to pay at all
 CREATE VIEW IF NOT EXISTS v_price_demand AS
 SELECT
   p.code,
   p.label_lv,
+  p.label_en,
   p.eur_midpoint,
   COUNT(l.id) AS leads,
   ROUND(COUNT(l.id) * 100.0 / NULLIF((SELECT COUNT(*) FROM leads WHERE price_band IS NOT NULL), 0), 1) AS pct
@@ -186,14 +190,15 @@ LEFT JOIN leads l ON l.price_band = p.code
 GROUP BY p.code
 ORDER BY p.sort;
 
--- Segmenti un cik ierīces tie pieteiktu — kur ir apjoms
+-- Segments and how many devices they'd sign up — where the volume is
 CREATE VIEW IF NOT EXISTS v_segment_demand AS
 SELECT
   s.code,
   s.label_lv,
+  s.label_en,
   COUNT(l.id)                                        AS leads,
   SUM(CASE WHEN l.wants_beta = 1 THEN 1 ELSE 0 END)  AS beta_volunteers,
-  -- Ierīču skaita joslas apakšējā robeža, konservatīvai aplēsei
+  -- Lower bound of the device-count band, for a conservative estimate
   SUM(CASE l.device_band WHEN '1' THEN 1 WHEN '2-5' THEN 2
            WHEN '6-20' THEN 6 WHEN '20+' THEN 20 ELSE 0 END) AS min_devices
 FROM segments s
@@ -201,13 +206,14 @@ LEFT JOIN leads l ON l.segment = s.code
 GROUP BY s.code
 ORDER BY s.sort;
 
--- Kuru ražotāju izvēlnes jāapraksta vispirms. Viens pieteikums var būt vairākos
--- zīmolos, tāpēc summa pārsniedz pieteikumu skaitu — procenti ir no tiem, kas
--- uz šo jautājumu vispār atbildēja.
+-- Which manufacturers' menus need documenting first. One sign-up can be in
+-- several brands, so the sum exceeds the sign-up count — percentages are of
+-- those who answered this question at all.
 CREATE VIEW IF NOT EXISTS v_brand_demand AS
 SELECT
   b.code,
   b.label_lv,
+  b.label_en,
   COUNT(lb.lead_id) AS leads,
   ROUND(COUNT(lb.lead_id) * 100.0 /
         NULLIF((SELECT COUNT(DISTINCT lead_id) FROM lead_brands), 0), 1) AS pct
@@ -216,7 +222,7 @@ LEFT JOIN lead_brands lb ON lb.brand = b.code
 GROUP BY b.code
 ORDER BY leads DESC, b.sort;
 
--- Kuras iekārtas jāatbalsta vispirms
+-- Which devices need supporting first
 CREATE VIEW IF NOT EXISTS v_device_models AS
 SELECT
   TRIM(device_model) AS model,

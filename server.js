@@ -1,23 +1,24 @@
 'use strict';
 
 /**
- * ScanInbox — statiskā lapa + pieteikumu API uz SQLite.
+ * ScanInbox — the static page + a sign-up API backed by SQLite.
  *
  *   node server.js
  *   node server.js --port 9000
  *
- * Nulle npm atkarību: SQLite nāk no Node iebūvētā `node:sqlite` (Node 22.5+).
+ * Zero npm dependencies: SQLite comes from Node's built-in `node:sqlite`
+ * (Node 22.5+).
  *
- * Modulis eksportē `createApp()`, un serveri palaiž tikai tad, ja fails ir
- * izsaukts tieši. Tāpēc testi var uzcelt savu instanci ar savu datubāzi,
- * neaiztiekot reālo.
+ * The module exports `createApp()`, and the server only starts if this file
+ * is invoked directly. That way tests can build their own instance with
+ * their own database, without touching the real one.
  *
- * Vides mainīgie:
- *   SCANINBOX_DB            datubāzes fails (noklusējums ./data/scaninbox.db)
- *   SCANINBOX_ADMIN_TOKEN   nepieciešams, lai lasītu pieteikumus caur API.
- *                           Ja nav uzstādīts, lasīšanas galapunkti ir slēgti.
- *   SCANINBOX_ALLOW_ORIGIN  CORS izcelsme, ja lapa tiek hostēta atsevišķi
- *   PORT                    ports
+ * Environment variables:
+ *   SCANINBOX_DB            the database file (default ./data/scaninbox.db)
+ *   SCANINBOX_ADMIN_TOKEN   required to read sign-ups through the API.
+ *                           If unset, the read endpoints are locked.
+ *   SCANINBOX_ALLOW_ORIGIN  CORS origin, if the page is hosted separately
+ *   PORT                    the port
  */
 
 const http = require('node:http');
@@ -30,19 +31,20 @@ const ROOT = __dirname;
 const SCHEMA_PATH = path.join(ROOT, 'db', 'schema.sql');
 
 const LIMITS = {
-  body: 8 * 1024,             // pieteikums nekad nav lielāks
-  email: 254,                 // RFC 5321 garākā adrese
+  body: 8 * 1024,             // a sign-up is never bigger than this
+  email: 254,                 // RFC 5321's longest address
   name: 120,
   model: 120,
-  brands: 12,                 // tik daudz zīmolu formā vispār ir
-  /* Pieteikšanās birojā notiek no vienas publiskās IP adreses, un viens
-     pieteikums ir divi pieprasījumi (pieteikums, tad aptauja). Seši nozīmēja
-     trīs kolēģus desmit minūtēs; rakstīšana ir lēta, atteikts lead nav. */
+  brands: 12,                 // that's how many brands the form even has
+  /* An office signs up from one public IP address, and one sign-up is two
+     requests (the sign-up, then the follow-up questions). Six would have
+     meant three colleagues in ten minutes; writing is cheap, a rejected
+     lead is not. */
   rateMax: 30,
   rateWindowMs: 10 * 60 * 1000,
 };
 
-/* Ceļi, ko nekad nepasniedz, arī ja kāds tos pieprasa tieši. */
+/* Paths that are never served, even if someone requests them directly. */
 const BLOCKED = new Set(['data', 'db', 'test', '.git', 'node_modules']);
 
 const MIME = {
@@ -61,28 +63,29 @@ const MIME = {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-/* Valodas, kurās lapa pastāv. Tās pašas ir shēmas CHECK ierobežojumā, tāpēc
-   nezināmu kodu labāk nomainīt pret 'lv' nekā ļaut rakstīšanai nokrist. */
+/* Languages the page exists in. These match the schema's CHECK constraint,
+   so an unknown code is better mapped to 'lv' than left to fail the write. */
 const LANGS = new Set(['lv', 'en', 'it', 'fr', 'de', 'bg', 'cs', 'da', 'el', 'es',
   'fi', 'hr', 'hu', 'lt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'sv']);
 
-// ---------------------------------------------------------------- datubāze ---
+// ----------------------------------------------------------------- store ---
 
 /**
- * Atver datubāzi, piemēro shēmu un sagatavo vaicājumus.
- * Shēma ir idempotenta, tāpēc to var izpildīt katrā startā.
+ * Opens the database, applies the schema, and prepares queries.
+ * The schema is idempotent, so it can run on every start.
  */
 function openStore(dbPath) {
   const full = path.resolve(dbPath);
   fs.mkdirSync(path.dirname(full), { recursive: true });
 
   const db = new DatabaseSync(full);
-  db.exec('PRAGMA journal_mode = WAL');   // lasītāji netraucē rakstītāju
-  db.exec('PRAGMA foreign_keys = ON');    // jāieslēdz katram savienojumam
+  db.exec('PRAGMA journal_mode = WAL');   // readers don't block the writer
+  db.exec('PRAGMA foreign_keys = ON');    // has to be turned on per connection
   db.exec('PRAGMA busy_timeout = 5000');
   db.exec(fs.readFileSync(SCHEMA_PATH, 'utf8'));
 
-  /* Derīgās koda vērtības nāk no datubāzes, nevis no otras kopijas JS pusē. */
+  /* Valid code values come from the database, not from a second copy on the
+     JS side. */
   const codes = {
     segment: new Set(db.prepare('SELECT code FROM segments').all().map((r) => r.code)),
     device_band: new Set(db.prepare('SELECT code FROM device_bands').all().map((r) => r.code)),
@@ -125,9 +128,9 @@ function openStore(dbPath) {
   return { db, codes, q, path: full, close: () => db.close() };
 }
 
-// ------------------------------------------------------------- validācija ---
+// -------------------------------------------------------------- validate ---
 
-/** Apgriež malas un ierobežo garumu. Tukša virkne kļūst par null. */
+/** Trims and caps length. An empty string becomes null. */
 function clean(value, max) {
   if (typeof value !== 'string') return null;
   const trimmed = value.trim();
@@ -135,15 +138,16 @@ function clean(value, max) {
   return trimmed.slice(0, max);
 }
 
-/** Nezināmu kodu klusi izmet — labāk null nekā troksnis datubāzē. */
+/** Silently drops an unknown code — null is better than noise in the database. */
 function pickCode(value, allowed) {
   const v = clean(value, 40);
   return v && allowed.has(v) ? v : null;
 }
 
 /**
- * Vairākizvēles kodi. Atšķir «lauka nebija» (null) no «nekas nav atzīmēts»
- * (tukšs masīvs) — pirmais neaiztiek jau saglabāto, otrais to notīra.
+ * Multi-select codes. Distinguishes "the field wasn't there" (null) from
+ * "nothing is ticked" (an empty array) — the first leaves what's already
+ * saved untouched, the second clears it.
  */
 function pickCodes(value, allowed, max = LIMITS.brands) {
   if (!Array.isArray(value)) return null;
@@ -157,16 +161,17 @@ function pickCodes(value, allowed, max = LIMITS.brands) {
 }
 
 /**
- * Pārbauda iesniegumu. Atgriež `{lead}` vai `{error, field}`.
- * Tīra funkcija — nekas netiek rakstīts.
+ * Validates a submission. Returns `{lead}` or `{error, field}`.
+ * A pure function — nothing gets written.
  */
 function validate(body, codes) {
   if (!body || typeof body !== 'object' || Array.isArray(body)) {
     return { error: 'invalid_body' };
   }
 
-  /* Adresi negriežam pēc garuma: apgriezts e-pasts ir cita adrese, nevis
-     īsāka tā pati, tāpēc pārgaru iesniegumu noraidām. */
+  /* The address isn't truncated to length: a cut-off e-mail is a different
+     address, not a shorter version of the same one, so an over-long
+     submission is rejected instead. */
   const rawEmail = typeof body.email === 'string' ? body.email.trim() : '';
   if (!rawEmail || rawEmail.length > LIMITS.email || !EMAIL_RE.test(rawEmail)) {
     return { error: 'invalid_email', field: 'email' };
@@ -190,11 +195,11 @@ function validate(body, codes) {
   };
 }
 
-// ------------------------------------------------------------- rakstīšana ---
+// ----------------------------------------------------------------- write ---
 
 /**
- * Viena rinda uz e-pastu: atkārtots pieteikums atjauno atbildes.
- * Iesniegtais JSON vienmēr nonāk lead_events, lai vecā atbilde nepazustu.
+ * One row per e-mail: a repeat sign-up updates the answers.
+ * The submitted JSON always lands in lead_events, so no old answer is lost.
  */
 function saveLead(store, lead, raw) {
   store.db.exec('BEGIN IMMEDIATE');
@@ -215,8 +220,8 @@ function saveLead(store, lead, raw) {
       status = 'created';
     }
 
-    /* null nozīmē «lauka nebija» — jau atzīmētos zīmolus tas neaiztiek.
-       Masīvs, arī tukšs, aizstāj kopu pilnībā. */
+    /* null means "the field wasn't there" — it leaves already-marked brands
+       untouched. An array, even an empty one, replaces the set entirely. */
     if (lead.brands) {
       store.q.clearBrands.run(id);
       for (const brand of lead.brands) store.q.addBrand.run(id, brand);
@@ -231,11 +236,11 @@ function saveLead(store, lead, raw) {
   }
 }
 
-// ---------------------------------------------------- ātruma ierobežojums ---
+// ---------------------------------------------------------- rate limiter ---
 
 /**
- * IP tikai atmiņā un tikai šim nolūkam — datubāzē tas nenonāk.
- * Instance uz lietotni, lai testi nedalītos ar stāvokli.
+ * The IP lives only in memory and only for this purpose — it never reaches
+ * the database. One instance per app, so tests don't share state.
  */
 function createRateLimiter({ max = LIMITS.rateMax, windowMs = LIMITS.rateWindowMs } = {}) {
   const hits = new Map();
@@ -257,9 +262,10 @@ function createRateLimiter({ max = LIMITS.rateMax, windowMs = LIMITS.rateWindowM
 // ------------------------------------------------------------------ HTTP ---
 
 /**
- * Nolasa ķermeni ar griestiem. Pārsniegumu noraida, bet savienojumu
- * nenogalina — citādi klients redzētu reset, nevis 413. Pārējos datus
- * vienkārši ignorē, un atbilde aizver savienojumu.
+ * Reads the body with a size cap. An overflow is rejected, but the
+ * connection isn't killed — otherwise the client would see a reset rather
+ * than a 413. The remaining data is simply ignored, and the response closes
+ * the connection.
  */
 function readBody(req, max) {
   return new Promise((resolve, reject) => {
@@ -293,7 +299,7 @@ function csv(rows) {
   return [cols.join(','), ...rows.map((r) => cols.map((c) => cell(r[c])).join(','))].join('\r\n');
 }
 
-/** Salīdzina bez laika noplūdes, lai pilnvaru nevar uzminēt pa baitam. */
+/** Compares without a timing leak, so the token can't be guessed byte by byte. */
 function tokenMatches(given, expected) {
   if (!expected) return false;
   const a = Buffer.from(given || '');
@@ -301,7 +307,7 @@ function tokenMatches(given, expected) {
   return a.length === b.length && crypto.timingSafeEqual(a, b);
 }
 
-// ------------------------------------------------------------- lietotne ---
+// ------------------------------------------------------------------- app ---
 
 function createApp(options = {}) {
   const store = options.store || openStore(options.dbPath || path.join(ROOT, 'data', 'scaninbox.db'));
@@ -329,7 +335,7 @@ function createApp(options = {}) {
     try {
       rel = urlPath === '/' ? 'index.html' : decodeURIComponent(urlPath).replace(/^\/+/, '');
     } catch {
-      return send(res, 400, { error: 'bad_path' });   // bojāts procentu kodējums
+      return send(res, 400, { error: 'bad_path' });   // broken percent-encoding
     }
 
     const first = rel.split(/[\\/]/)[0];
@@ -370,9 +376,10 @@ function createApp(options = {}) {
       });
     }
 
-    /* Dzīvības pārbaude neko neizpauž: pieteikumu skaits ir gan konkurenta
-       mērījums, gan veids, kā pierādīt, ka «pirmie 10» jau ir aizņemti,
-       kamēr lapa to vēl sola. Skaitu rāda /api/stats, aiz pilnvaras. */
+    /* The health check reveals nothing: the sign-up count is both a
+       competitive metric and a way to prove the "first 10" are already
+       taken while the page still promises them. The count is shown by
+       /api/stats, behind the token. */
     if (route === '/api/health') {
       return send(res, 200, { ok: true });
     }
@@ -408,13 +415,13 @@ function createApp(options = {}) {
       }
     }
 
-    /* Lasīšana ir aizvērta, kamēr nav uzstādīta pilnvara. */
+    /* Reads are locked until a token is set. */
     if (READS.has(route) && req.method === 'GET') {
       const given = (req.headers.authorization || '').replace(/^Bearer\s+/i, '');
       if (!tokenMatches(given, adminToken)) {
         return send(res, 401, {
           error: 'unauthorized',
-          hint: adminToken ? 'Authorization: Bearer <token>' : 'SCANINBOX_ADMIN_TOKEN nav uzstādīts',
+          hint: adminToken ? 'Authorization: Bearer <token>' : 'SCANINBOX_ADMIN_TOKEN is not set',
         });
       }
 
@@ -455,7 +462,7 @@ function createApp(options = {}) {
 
 module.exports = { createApp, openStore, validate, clean, pickCode, pickCodes, csv, saveLead, LIMITS, LANGS };
 
-// ------------------------------------------------------------------- CLI ---
+// -------------------------------------------------------------------- CLI ---
 
 if (require.main === module) {
   const argOf = (flag) => {
@@ -472,11 +479,11 @@ if (require.main === module) {
 
   app.listen(port).then(() => {
     console.log(`ScanInbox  http://localhost:${port}`);
-    console.log(`Datubāze   ${app.store.path}  (${app.store.q.count.get().n} pieteikumi)`);
+    console.log(`Database   ${app.store.path}  (${app.store.q.count.get().n} sign-ups)`);
     console.log(process.env.SCANINBOX_ADMIN_TOKEN
-      ? 'Lasīšana   ieslēgta ar SCANINBOX_ADMIN_TOKEN'
-      : 'Lasīšana   slēgta — uzstādi SCANINBOX_ADMIN_TOKEN, lai lasītu caur API');
-    console.log('Ctrl+C, lai apturētu');
+      ? 'Reads      enabled with SCANINBOX_ADMIN_TOKEN'
+      : 'Reads      locked — set SCANINBOX_ADMIN_TOKEN to read through the API');
+    console.log('Ctrl+C to stop');
   });
 
   for (const sig of ['SIGINT', 'SIGTERM']) {

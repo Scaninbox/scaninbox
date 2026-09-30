@@ -1,6 +1,6 @@
 'use strict';
 
-/** Kopīgie palīgi testiem. Katrs tests strādā ar savu pagaidu datubāzi. */
+/** Shared test helpers. Each test runs against its own temporary database. */
 
 const fs = require('node:fs');
 const os = require('node:os');
@@ -12,12 +12,12 @@ function tempDir() {
 }
 
 function removeDir(dir) {
-  /* Windows dažreiz vēl kādu mirkli tur WAL failus; testu tīrīšanas dēļ
-     nav vērts krist. */
+  /* Windows sometimes still holds the WAL files for a moment; not worth
+     failing test cleanup over. */
   try { fs.rmSync(dir, { recursive: true, force: true }); } catch {}
 }
 
-/** Tukša datubāze ar piemērotu shēmu. */
+/** An empty database with the schema applied. */
 function freshStore() {
   const dir = tempDir();
   const store = openStore(path.join(dir, 'test.db'));
@@ -27,7 +27,7 @@ function freshStore() {
   };
 }
 
-/** Palaista lietotne uz brīva porta, ar fetch saīsnēm. */
+/** A running app on a free port, with fetch shortcuts. */
 async function startApp(options = {}) {
   const dir = tempDir();
   const app = createApp({ dbPath: path.join(dir, 'test.db'), quiet: true, ...options });
@@ -49,7 +49,7 @@ async function startApp(options = {}) {
   };
 }
 
-/** Derīgs pieteikums, ko var pārrakstīt pa laukiem. */
+/** A valid sign-up, with fields that can be overridden. */
 function validLead(overrides = {}) {
   return {
     email: 'anna.berzina@inbox.lv',
@@ -65,7 +65,7 @@ function validLead(overrides = {}) {
   };
 }
 
-/** Ieraksta rindu tieši datubāzē, apejot API — shēmas testiem. */
+/** Writes a row straight into the database, bypassing the API — for schema tests. */
 function insertLead(store, overrides = {}) {
   const row = {
     email: 'x@inbox.lv',
