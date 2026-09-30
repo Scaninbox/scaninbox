@@ -13,6 +13,10 @@
      content="https://api.scaninbox.eu/api/leads" — un tajā serverī jāuzstāda
      SCANINBOX_ALLOW_ORIGIN=https://ingmarsj.github.io -->
 <meta name="scaninbox:api" content="">
+<!-- Supabase publishable key (public by design — it only allows calling
+     submit_lead, see db/supabase.sql). Empty while server.js serves the page.
+     On publish .github/build-site.js fills it from SCANINBOX_API_KEY. -->
+<meta name="scaninbox:apikey" content="">
 <!-- Publicējot CI ieliek <meta name="scaninbox:langpaths" content="1">, un
      tikai tad saknes lapa pāradresē uz /lv/, /de/ un tā tālāk. Lokāli šī taga
      nav, tāpēc nekādas pāradresācijas nav un ?lang= strādā kā līdz šim. -->
@@ -4861,6 +4865,10 @@ window.SCANINBOX_I18N = {
      galvenē — viena rinda, un tā pati lapa sūta uz reālo API. */
   var apiMeta = document.querySelector('meta[name="scaninbox:api"]');
   var LEADS_ENDPOINT = (apiMeta && apiMeta.getAttribute("content")) || "/api/leads";
+  /* Supabase expects the key in an `apikey` header. server.js does not, so
+     without the meta tag the header is not sent at all. */
+  var keyMeta = document.querySelector('meta[name="scaninbox:apikey"]');
+  var API_KEY = (keyMeta && keyMeta.getAttribute("content")) || "";
 
   /* Deliberately loose: the server is the authority on what an address is, and
      a page that argues with a valid but unusual address loses the lead. */
@@ -5314,9 +5322,12 @@ window.SCANINBOX_I18N = {
     var ac = window.AbortController ? new AbortController() : null;
     var timer = setTimeout(function () { if (ac) ac.abort(); }, 15000);
 
+    var headers = { "Content-Type": "application/json" };
+    if (API_KEY) headers.apikey = API_KEY;
+
     return fetch(LEADS_ENDPOINT, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: headers,
       body: JSON.stringify(payload),
       signal: ac ? ac.signal : undefined
     }).then(function (r) {
@@ -5328,8 +5339,9 @@ window.SCANINBOX_I18N = {
         if (r.status === 404 || r.status === 405) throw { code: "no_backend" };
         /* The server's 422s are deterministic: saying "try again" would send
            the visitor round a loop that cannot end well. */
-        if (r.status === 422) throw { code: "rejected", server: data.error };
-        throw { code: "http_" + r.status, server: data.error };
+        /* server.js answers with {error}, Supabase (PostgREST) with {code}. */
+        if (r.status === 422) throw { code: "rejected", server: data.error || data.code };
+        throw { code: "http_" + r.status, server: data.error || data.code };
       });
     }, function () {
       /* A dropped connection is worth retrying; saying "preview copy" here

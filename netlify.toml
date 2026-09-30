@@ -1,0 +1,25 @@
+# Netlify publishes the page from the main branch to https://scaninbox.me.
+#
+# Every value here is public: it ends up in the built HTML. The Supabase
+# publishable key only allows calling submit_lead() — it cannot read leads
+# (RLS, see db/supabase.sql). NEVER put the secret key here.
+
+[build]
+  command = "node .github/build-site.js"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "24"
+  SITE_URL = "https://scaninbox.me"
+  SCANINBOX_API = "https://bvbfyonyxtbnklpplxnq.supabase.co/rest/v1/rpc/submit_lead"
+  SCANINBOX_API_KEY = "sb_publishable_1Kp4hc1uuoKgOn05RcE8jw_dhje8AGh"
+
+# PR deploy previews would write to the SAME database, so there the form stays
+# in preview mode: it sends nothing and says so.
+[context.deploy-preview.environment]
+  SCANINBOX_API = ""
+  SITE_URL = ""
+
+[context.branch-deploy.environment]
+  SCANINBOX_API = ""
+  SITE_URL = ""
