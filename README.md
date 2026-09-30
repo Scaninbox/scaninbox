@@ -70,7 +70,9 @@ Each language has its own address, and that's what ad campaigns link to:
   in the Netlify dashboard, so everyone working on the repository can see
   them. Every PR gets a preview link; there the form is deliberately in
   preview mode so testing never pollutes real leads.
-- **Supabase** (project `scaninbox`, Frankfurt) stores the leads. The schema
+- **Supabase** (project `scaninbox`, West EU / Ireland, `eu-west-1` — picked
+  automatically by Supabase at creation; it is in the EU, so it is fine for
+  GDPR and there is no reason to move it) stores the leads. The schema
   and all saving logic are in `db/supabase.sql` — one function,
   `submit_lead(jsonb)`, which the page calls directly. To change the schema,
   edit that file and run it in the Supabase SQL Editor (it is idempotent).
@@ -93,9 +95,9 @@ This link can be sent to colleagues for review. Keep two things in mind:
 
 - **The form saves real leads** to Supabase. In PR previews and in copies
   without `SCANINBOX_API` it saves nothing — see "Preview mode" below.
-- **The page is publicly reachable** by anyone with the link. Search engines
-  do not index it because `index.html` carries `noindex, nofollow` — remove
-  that before launch.
+- **The page is public and indexable** — `noindex` was removed for the
+  launch. Netlify PR previews stay out of search engines on their own
+  (Netlify sends `X-Robots-Tag: noindex` on deploy previews).
 
 Netlify publishes from the `main` branch: `.github/build-site.js` turns the
 single `index.html` into 22 pages — the root plus 21 languages. The project
@@ -314,7 +316,7 @@ In a Bash shell, files can be named directly: `node --test test/*.test.js`.
       start, not an end, and 16 of them have never been read by anyone who
       speaks that language
 - [ ] Confirm the €10/year-per-device price and the "first 50" offer
-- [ ] Remove `noindex, nofollow` from `index.html`
+- [x] Remove `noindex, nofollow` from `index.html`
 - [ ] Set up backups for `data/`
 - [ ] Add analytics, if we want to measure conversion
 
