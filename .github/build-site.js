@@ -18,7 +18,9 @@
  *   SCANINBOX_API   pilna API adrese. Ja nav, publicētā lapa strādā kā
  *                   priekšskatījums — forma iziet cauri, bet neko nesaglabā,
  *                   un tā to arī pasaka.
- *   SITE_URL        lapas sakne canonical un hreflang saitēm.
+ *   SCANINBOX_API_KEY  Supabase publishable key galvenei `apikey`. Publisks
+ *                   pēc būtības — atļauj tikai izsaukt submit_lead().
+ *   SITE_URL       lapas sakne canonical un hreflang saitēm.
  */
 
 const fs = require('node:fs');
@@ -36,12 +38,15 @@ const LOCALE = {
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, '_site');
 const API = process.env.SCANINBOX_API || '';
+const API_KEY = process.env.SCANINBOX_API_KEY || '';
 const SITE = (process.env.SITE_URL || '').replace(/\/+$/, '');
 
 const src = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
 const API_TAG = /<meta name="scaninbox:api" content="[^"]*">/;
 if (!API_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:api"> nav atrasts');
+const KEY_TAG = /<meta name="scaninbox:apikey" content="[^"]*">/;
+if (!KEY_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:apikey"> nav atrasts');
 
 /** Saites uz to pašu lapu pārējās valodās, plus kanoniskā adrese. */
 function alternates(lang) {
@@ -58,7 +63,8 @@ function alternates(lang) {
  * @param {string} lang  valoda vai '' saknei
  */
 function build(lang) {
-  let html = src.replace(API_TAG, `<meta name="scaninbox:api" content="${API}">`);
+  let html = src.replace(API_TAG, `<meta name="scaninbox:api" content="${API}">`)
+    .replace(KEY_TAG, `<meta name="scaninbox:apikey" content="${API_KEY}">`);
 
   /* Šis marķieris ieslēdz gan saknes pāradresāciju, gan to, ka valodas slēdzis
      pārvieto uz citu adresi, nevis maina tekstu uz vietas. Lokālajā failā tā
