@@ -1,10 +1,7 @@
 name: CI
 
-# Testi katrā pushā, un no main zara publicē lapu uz GitHub Pages.
-#
-# Uz Pages aiziet TIKAI index.html. Serveris, testi un shēma tur nenonāk —
-# Pages ir statisks hostings, un mums nav iemesla pasniegt servera kodu kā
-# statiskus failus.
+# Runs the tests on every push and pull request. Publishing is not done
+# here: Netlify builds and publishes the site from main (see netlify.toml).
 
 on:
   push:
@@ -21,66 +18,15 @@ concurrency:
 
 jobs:
   test:
-    name: Testi
+    name: Tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          # node:sqlite bez experimental karoga prasa Node 23.4+
+          # node:sqlite without the experimental flag needs Node 23.4+
           node-version: '24'
 
       - name: node --test
         run: node --test
-
-  deploy:
-    name: GitHub Pages
-    needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
-
-    steps:
-      - uses: actions/checkout@v4
-
-      # Jāizpilda PIRMS būves, jo no tā nāk base_url, ko lapa liek canonical
-      # un hreflang saitēs.
-      #
-      # Pages avots ir jāieslēdz vienu reizi ar roku:
-      # Settings -> Pages -> Source: GitHub Actions.
-      # `enablement: true` šeit nepalīdz — noklusējuma GITHUB_TOKEN nedrīkst
-      # izveidot Pages vietni ("Resource not accessible by integration").
-      - id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Salikt statisko lapu
-        env:
-          # Kur publicētā lapa sūta pieteikumus. Pages ir statisks hostings —
-          # tur API nav, tāpēc bez šī mainīgā forma godīgi saka, ka pieteikumus
-          # nesaglabā. Uzstādi: Settings -> Secrets and variables -> Actions ->
-          # Variables -> SCANINBOX_API = https://<hosts>/api/leads
-          # Tajā serverī jābūt SCANINBOX_ALLOW_ORIGIN ar šīs lapas izcelsmi.
-          SCANINBOX_API: ${{ vars.SCANINBOX_API }}
-          # Lapas sakne canonical un hreflang saitēm. Nāk no paša Pages,
-          # tāpēc nekas nav jāuzstāda ar roku.
-          SITE_URL: ${{ steps.pages.outputs.base_url }}
-        run: |
-          node .github/build-site.js
-          # Bez šī Jekyll apstrādātu failus un izlaistu tos, kas sākas ar _
-          touch _site/.nojekyll
-
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-      - id: deploy
-        uses: actions/deploy-pages@v4
