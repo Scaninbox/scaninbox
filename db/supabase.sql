@@ -401,3 +401,15 @@ revoke all on public.segments, public.device_bands, public.price_bands, public.b
 
 revoke all on function public.submit_lead(jsonb) from public;
 grant execute on function public.submit_lead(jsonb) to anon, authenticated;
+
+-- Supabase's "automatic RLS" option adds an event trigger function to public,
+-- executable by anon. Calling it over the API only errors out (it returns
+-- event_trigger), but nothing in public other than submit_lead() needs to be
+-- callable from the browser. The event trigger itself keeps working: it runs
+-- as whoever executes the DDL, not as anon.
+do $$
+begin
+  if to_regprocedure('public.rls_auto_enable()') is not null then
+    revoke execute on function public.rls_auto_enable() from public, anon, authenticated;
+  end if;
+end $$;
