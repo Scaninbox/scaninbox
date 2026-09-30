@@ -224,6 +224,71 @@ group by lower(trim(device_model))
 order by mentions desc, model;
 
 -- ---------------------------------------------------------------------------
+-- Chart views. One view per chart in the Supabase "Leads" report: a label
+-- column first, then numbers, in display order, with English labels and
+-- zero rows for answers nobody picked yet — so each one charts as is, with no
+-- query writing. `select * from v_chart_...` is all a report block needs.
+-- ---------------------------------------------------------------------------
+
+-- New sign-ups per day and the running total (days with none are included)
+create or replace view public.v_chart_signups_daily with (security_invoker = true) as
+with days as (
+  select generate_series(
+           coalesce((select min(created_at)::date from public.leads), current_date),
+           current_date, interval '1 day')::date as day
+)
+select
+  d.day,
+  count(l.id)                               as new_signups,
+  sum(count(l.id)) over (order by d.day)::int as total_signups
+from days d
+left join public.leads l on l.created_at::date = d.day
+group by d.day
+order by d.day;
+
+-- How far people get: sign-up, then each follow-up question
+create or replace view public.v_chart_funnel with (security_invoker = true) as
+select step, leads from (
+  select 1 as n, '1. Signed up (e-mail)'    as step, count(*) as leads from public.leads
+  union all
+  select 2, '2. Answered: who uses it',   count(*) from public.leads where segment is not null
+  union all
+  select 3, '3. Answered: how many devices', count(*) from public.leads where device_band is not null
+  union all
+  select 4, '4. Answered: brand',         count(distinct lead_id) from public.lead_brands
+) f
+order by n;
+
+create or replace view public.v_chart_segments with (security_invoker = true) as
+select s.label_en as answer, count(l.id) as leads
+from public.segments s
+left join public.leads l on l.segment = s.code
+group by s.code
+order by s.sort;
+
+create or replace view public.v_chart_devices with (security_invoker = true) as
+select d.label_en as answer, count(l.id) as leads
+from public.device_bands d
+left join public.leads l on l.device_band = d.code
+group by d.code
+order by d.sort;
+
+create or replace view public.v_chart_brands with (security_invoker = true) as
+select b.label_en as answer, count(lb.lead_id) as leads
+from public.brands b
+left join public.lead_brands lb on lb.brand = b.code
+group by b.code
+order by count(lb.lead_id) desc, b.sort;
+
+-- Page language — the closest thing we have to "which market": every ad
+-- campaign links to its own language
+create or replace view public.v_chart_languages with (security_invoker = true) as
+select lang as language, count(*) as leads
+from public.leads
+group by lang
+order by count(*) desc, lang;
+
+-- ---------------------------------------------------------------------------
 -- submit_lead — the only entry point from the browser.
 --
 -- One unnamed jsonb parameter: PostgREST then passes the whole request body
@@ -396,7 +461,10 @@ alter table public.lead_events  enable row level security;
 revoke all on public.segments, public.device_bands, public.price_bands, public.brands,
               public.leads, public.lead_brands, public.lead_events,
               public.v_leads, public.v_price_demand, public.v_segment_demand,
-              public.v_brand_demand, public.v_device_models
+              public.v_brand_demand, public.v_device_models,
+              public.v_chart_signups_daily, public.v_chart_funnel,
+              public.v_chart_segments, public.v_chart_devices,
+              public.v_chart_brands, public.v_chart_languages
   from anon, authenticated;
 
 revoke all on function public.submit_lead(jsonb) from public;
