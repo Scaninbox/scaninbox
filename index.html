@@ -76,7 +76,13 @@
 <meta property="og:title" id="ogtitle" content="Nospied «Skenēt» uz printera. PDF jau ir tavā e-pastā.">
 <meta property="og:description" id="ogdesc" content="ScanInbox iedod tavam skenerim vai daudzfunkciju printerim savus SMTP piekļuves datus. Uzstādīšana ap piecām minūtēm, vienu reizi.">
 <meta property="og:locale" id="oglocale" content="lv_LV">
-<meta name="twitter:card" content="summary">
+<!-- Absolute by default so it also works opened straight from disk; build-site.js
+     rewrites it to an absolute SITE_URL address per language when SITE_URL is set. -->
+<meta property="og:image" id="ogimage" content="assets/og/lv.jpg">
+<meta property="og:image:width" content="800">
+<meta property="og:image:height" content="420">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" id="twimage" content="assets/og/lv.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
@@ -904,7 +910,9 @@ b,strong{font-weight:600}
 
 /* ------------------------------------------------------- the sticky dock --- */
 .dock{
-  position:fixed;right:clamp(.85rem,2.5vw,1.6rem);bottom:clamp(.85rem,2.5vw,1.6rem);z-index:70;
+  /* Netlify's own "Powered by Netlify" badge sits fixed bottom-right too,
+     roughly 4rem tall with its margin — clear it rather than stack under it. */
+  position:fixed;right:clamp(.85rem,2.5vw,1.6rem);bottom:calc(clamp(.85rem,2.5vw,1.6rem) + 4rem);z-index:70;
   display:flex;align-items:stretch;
   background:var(--surface);border:1px solid var(--rule-2);border-radius:var(--r-lg);
   box-shadow:var(--shadow);

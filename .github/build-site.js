@@ -13,6 +13,9 @@
  *   _site/index.html      redirects to a language by cookie, time zone, or
  *                         browser; otherwise identical
  *   _site/<lang>/         the page itself in that language, no redirect
+ *   _site/assets/         static files the page references (the og:image
+ *                         share cards, one per language) — index.html has
+ *                         no other assets, being a single file by design
  *
  * Environment variables:
  *   SCANINBOX_API      the full API address. If unset, the published page
@@ -120,6 +123,20 @@ function build(lang) {
     `<meta property="og:locale" id="oglocale" content="${LOCALE[lang || 'lv']}">`,
   );
 
+  /* A share card is only worth having if it unfurls: relative image URLs
+     don't resolve for bots, so this needs SITE_URL to become absolute. */
+  const imageUrl = SITE
+    ? `${SITE}/assets/og/${lang || 'lv'}.jpg`
+    : `assets/og/${lang || 'lv'}.jpg`;
+  html = html.replace(
+    /<meta property="og:image" id="ogimage"[^>]*content="[^"]*">/,
+    `<meta property="og:image" id="ogimage" content="${imageUrl}">`,
+  );
+  html = html.replace(
+    /<meta name="twitter:image" id="twimage"[^>]*content="[^"]*">/,
+    `<meta name="twitter:image" id="twimage" content="${imageUrl}">`,
+  );
+
   /* This marker switches on both the root redirect and the language switcher
      navigating to a different address rather than swapping text in place.
      The local file doesn't have it, so locally none of that happens. */
@@ -141,6 +158,7 @@ function build(lang) {
 
 fs.rmSync(OUT, { recursive: true, force: true });
 const written = ['', ...LANGS].map(build);
+fs.cpSync(path.join(ROOT, 'assets'), path.join(OUT, 'assets'), { recursive: true });
 
 console.log(written.join('\n'));
 console.log(API ? `API: ${API}` : 'SCANINBOX_API not set — the published page will not save sign-ups');
