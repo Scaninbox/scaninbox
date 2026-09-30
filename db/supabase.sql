@@ -266,8 +266,11 @@ left join public.leads l on l.segment = s.code
 group by s.code
 order by s.sort;
 
+-- Bare labels such as "1" or "2–5" are read as dates by the dashboard chart,
+-- so the unit is spelled out.
 create or replace view public.v_chart_devices with (security_invoker = true) as
-select d.label_en as answer, count(l.id) as leads
+select case when d.code = '1' then '1 device' else d.label_en || ' devices' end as answer,
+       count(l.id) as leads
 from public.device_bands d
 left join public.leads l on l.device_band = d.code
 group by d.code
