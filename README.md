@@ -160,7 +160,15 @@ applied on every start — it's idempotent, so no migrations are needed.
 
 ## Viewing sign-ups
 
-The fastest way, no server and no token needed:
+**Live sign-ups** from scaninbox.me are in Supabase. The project home page
+has a **Reports** section with six charts — sign-ups per day, survey
+funnel, who uses it, how many devices, brands, languages — and the same
+charts are in Observability → Custom reports → **Leads**. They are built
+on the `v_chart_*` views in `db/supabase.sql`. For the raw rows, open
+Table Editor → `leads`, or run `select * from v_leads` in the SQL Editor.
+
+**Local sign-ups** (from `node server.js`, stored in `data/`) — no server
+and no token needed:
 
 ```powershell
 node leads.js           # summary: languages, segments, brands
@@ -292,9 +300,14 @@ In a Bash shell, files can be named directly: `node --test test/*.test.js`.
 
 ## Before a public launch
 
-- [ ] Set `SCANINBOX_ADMIN_TOKEN` to a long random string
-- [ ] Put the server behind HTTPS (the SQLite file outside the web root)
-- [ ] Check the sample SMTP values in the "Device credentials" section
+- [x] ~~Set `SCANINBOX_ADMIN_TOKEN` to a long random string~~ — no longer
+      applies: the live site runs no server. Leads are stored in Supabase and
+      can be read only in the Supabase dashboard (RLS, see `db/supabase.sql`)
+- [x] ~~Put the server behind HTTPS~~ — no longer applies: Netlify serves
+      `scaninbox.me` over HTTPS (Let's Encrypt, renewed automatically) and
+      the form posts to Supabase over HTTPS
+- [x] ~~Check the sample SMTP values in the "Device credentials" section~~ —
+      that section was removed from the page
 - [ ] Re-check the Microsoft SMTP AUTH dates in FAQ 03 and the "Microsoft
       365 blocks it" use-case story — Microsoft has already pushed its
       timeline back three times
@@ -302,6 +315,9 @@ In a Bash shell, files can be named directly: `node --test test/*.test.js`.
       The page already tells the person what it stores and for how long,
       next to the form, but GDPR Article 13 also requires naming the
       controller, rights, and a contact. Must not launch without this.
+      The Cookiebot banner covers cookie consent only; it does not replace
+      this notice, which should also list Google Tag Manager / Cookiebot
+      as recipients
 - [ ] Confirm that €10/year per device is **VAT included**. The page says
       so because the "At home" section also addresses private individuals;
       if the price is ex-VAT, fix `price.unit`, `m4`, and `hero.offer` in
@@ -309,16 +325,24 @@ In a Bash shell, files can be named directly: `node --test test/*.test.js`.
 - [ ] Provide a real contact address. The FAQ currently says "reply to our
       e-mail" rather than "write to us", because there's no address on the
       page
-- [ ] Make an `og:image` (1200×630) and add it to the head — the other
-      sharing tags are already there
-- [ ] Replace the `scaninbox.eu` address examples with real ones
+- [x] Make an `og:image` and add it to the head — done: one share card per
+      language in `assets/og/<lang>.jpg`, absolute URL on the live site.
+      They are 800×420; 1200×630 would look sharper on large previews
+- [x] ~~Replace the `scaninbox.eu` address examples with real ones~~ — there
+      are none left on the page
 - [ ] Read all 21 languages with human eyes — machine translation is a
       start, not an end, and 16 of them have never been read by anyone who
       speaks that language
 - [ ] Confirm the €10/year-per-device price and the "first 50" offer
 - [x] Remove `noindex, nofollow` from `index.html`
-- [ ] Set up backups for `data/`
-- [ ] Add analytics, if we want to measure conversion
+- [ ] Set up backups. `data/` (SQLite) is local only now; the real leads
+      are in Supabase, and the Free plan includes **no backups**. Either
+      export `v_leads` to CSV regularly (SQL Editor → Export) or move to
+      the Pro plan, which has daily backups
+- [x] Add analytics — Google Tag Manager (`GTM-W4W896PC`) with Cookiebot
+      consent mode, and a `generate_lead` event on sign-up
+- [ ] Add `scaninbox.me` to Google Search Console and submit it for
+      indexing, so Google finds the page sooner
 
 ## How the page is built
 
