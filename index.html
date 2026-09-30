@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" id="metadesc" content="ScanInbox savieno tavu skeneri vai daudzfunkciju printeri ar e-pastu. Nospied «Skenēt» — dokuments jau ir tavā pastkastē. Uzstādīšana piecās minūtēs. Piesakies tagad: pirmie 50 saņem gadu bez maksas.">
+<!-- One SVG, inline: the blue badge, envelope, and led dot from the page's
+     own palette. No separate file, so it survives being opened from disk. -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%225%22%20fill%3D%22%2317518A%22%2F%3E%3Cpath%20d%3D%22M4.2%2013.2h4.4l1.9%202.6h3l1.9-2.6h4.4M4.2%2013.2%206.4%206.9A1.7%201.7%200%200%201%208%205.7h8a1.7%201.7%200%200%201%201.6%201.2l2.2%206.3v4.5a1.7%201.7%200%200%201-1.7%201.7H5.9a1.7%201.7%200%200%201-1.7-1.7z%22%20fill%3D%22none%22%20stroke%3D%22%23F4F5F2%22%20stroke-width%3D%221.7%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2218.3%22%20cy%3D%226.1%22%20r%3D%222.5%22%20fill%3D%22%231B9E76%22%2F%3E%3C%2Fsvg%3E">
 <!-- Unlaunched product: the page must not be indexed while it's under
      review. Remove this line before the public launch. -->
 <meta name="robots" content="noindex, nofollow">
@@ -75,7 +78,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
 <style>
 /* ==========================================================================
-   ScanInbox — otrā iterācija
+   ScanInbox — second iteration
    Visual register: office-equipment technical documentation. Dense spec
    tables, monospace values, figure captions, one dark "device" panel.
    ========================================================================== */
@@ -4990,7 +4993,12 @@ window.SCANINBOX_I18N = {
 
   /* Locale tags for the share card. og:locale wants a territory, and the
      unfurlers are not fussy about which one, so pick the obvious market. */
-  var OG_LOCALE = { lv: "lv_LV", en: "en_GB", it: "it_IT", fr: "fr_FR", de: "de_DE" };
+  var OG_LOCALE = {
+    lv: "lv_LV", en: "en_GB", it: "it_IT", fr: "fr_FR", de: "de_DE",
+    bg: "bg_BG", cs: "cs_CZ", da: "da_DK", el: "el_GR", es: "es_ES", fi: "fi_FI",
+    hr: "hr_HR", hu: "hu_HU", lt: "lt_LT", nl: "nl_NL", pl: "pl_PL", pt: "pt_PT",
+    ro: "ro_RO", sk: "sk_SK", sl: "sl_SI", sv: "sv_SE"
+  };
 
   function plain(html) {
     var box = document.createElement("div");
@@ -5335,7 +5343,7 @@ window.SCANINBOX_I18N = {
 
   function post(payload) {
     /* A stalled proxy answers nothing at all. Without this the button stays
-       disabled on "Sūta…" until the visitor reloads the page. */
+       disabled on "Sending…" until the visitor reloads the page. */
     var ac = window.AbortController ? new AbortController() : null;
     var timer = setTimeout(function () { if (ac) ac.abort(); }, 15000);
 

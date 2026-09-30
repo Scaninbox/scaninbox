@@ -43,6 +43,36 @@ const src = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const API_TAG = /<meta name="scaninbox:api" content="[^"]*">/;
 if (!API_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:api"> not found');
 
+/* Bots that unfurl a shared link (Discord, Slack, iMessage, ...) fetch the
+   raw HTML and never run the client-side script that swaps this same text
+   after load. So the title, description, and share-card tags have to be
+   baked into each language's file at build time, or every link — whatever
+   language it points at — unfurls in Latvian. */
+const LV_TITLE = /<title>([^<]*)<\/title>/.exec(src)[1];
+const LV_DESC = /<meta name="description" id="metadesc"[^>]*content="([^"]*)"/.exec(src)[1];
+const LV_H1 = /<h1 data-i18n="hero\.h1">([\s\S]*?)<\/h1>/.exec(src)[1];
+
+/** Strips tags and collapses whitespace — same as the page's own plain(). */
+function plain(html) {
+  return html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+}
+
+function escapeAttr(s) {
+  return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+}
+
+/** The window.SCANINBOX_I18N block, parsed once, so each language's own
+    title/description/heading can be baked in rather than left in Latvian. */
+function loadDict(lang) {
+  if (lang === 'lv' || !lang) return null;
+  const file = path.join(ROOT, 'i18n', lang + '.json');
+  try {
+    return JSON.parse(fs.readFileSync(file, 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
 /** Links to the same page in every other language, plus the canonical address. */
 function alternates(lang) {
   if (!SITE) return '';
@@ -51,6 +81,7 @@ function alternates(lang) {
   );
   rows.push(`<link rel="alternate" hreflang="x-default" href="${SITE}/">`);
   rows.push(`<link rel="canonical" href="${SITE}${lang ? '/' + lang + '/' : '/'}">`);
+  rows.push(`<meta property="og:url" content="${SITE}${lang ? '/' + lang + '/' : '/'}">`);
   return rows.join('\n') + '\n';
 }
 
@@ -60,14 +91,34 @@ function alternates(lang) {
 function build(lang) {
   let html = src.replace(API_TAG, `<meta name="scaninbox:api" content="${API}">`);
 
+  const dict = loadDict(lang);
+  const title = escapeAttr(dict && dict['meta.title'] || LV_TITLE);
+  const desc = escapeAttr(dict && dict['meta.desc'] || LV_DESC);
+  const h1Plain = escapeAttr(plain(dict && dict['hero.h1'] || LV_H1));
+
+  html = html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
+  html = html.replace(
+    /<meta name="description" id="metadesc"[^>]*content="[^"]*">/,
+    `<meta name="description" id="metadesc" content="${desc}">`,
+  );
+  html = html.replace(
+    /<meta property="og:title" id="ogtitle"[^>]*content="[^"]*">/,
+    `<meta property="og:title" id="ogtitle" content="${h1Plain}">`,
+  );
+  html = html.replace(
+    /<meta property="og:description" id="ogdesc"[^>]*content="[^"]*">/,
+    `<meta property="og:description" id="ogdesc" content="${desc}">`,
+  );
+  html = html.replace(
+    /<meta property="og:locale" id="oglocale"[^>]*content="[^"]*">/,
+    `<meta property="og:locale" id="oglocale" content="${LOCALE[lang || 'lv']}">`,
+  );
+
   /* This marker switches on both the root redirect and the language switcher
      navigating to a different address rather than swapping text in place.
      The local file doesn't have it, so locally none of that happens. */
   let head = '<meta name="scaninbox:langpaths" content="1">\n';
-  if (lang) {
-    head += `<meta name="scaninbox:lang" content="${lang}">\n`;
-    head += `<meta property="og:locale" content="${LOCALE[lang]}">\n`;
-  }
+  if (lang) head += `<meta name="scaninbox:lang" content="${lang}">\n`;
   head += alternates(lang);
 
   html = html.replace('<meta name="scaninbox:api"', head + '<meta name="scaninbox:api"');
