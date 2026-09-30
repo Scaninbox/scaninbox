@@ -340,7 +340,7 @@ b,strong{font-weight:600}
    the wire to the address, and the mail lands at the top of the inbox.
    Everything is keyframed against --cycle so the beats cannot drift apart.
    ========================================================================= */
-.fig{margin:0;display:flex;flex-direction:column;gap:.55rem}
+.fig{margin:0;display:flex;flex-direction:column;gap:.55rem;container-type:inline-size}
 /* Single column: the figure keeps a device's proportions instead of stretching
    to the full width of the text above it. */
 @media (max-width:979px){ .fig{max-width:34rem} }
@@ -493,11 +493,12 @@ b,strong{font-weight:600}
 }
 
 /* --- 2. the wire the mail flies along ---
-   The address chip is a flex item at the end of the wire and the dashed line
-   is the runway that leads to it, so the packet travels the line's own width
-   and stops AT the address however wide that address happens to be. The chip
-   lights only once the packet has arrived. */
-.wire{position:relative;display:flex;align-items:center;gap:.45rem;height:56px;margin:.35rem 0 .1rem;padding-inline:.15rem}
+   Just the line and the packet — the address used to live at the end of the
+   wire, but that only worked while the wire was the full width of the stage.
+   Side by side (below) it is a short bridge between two panels, so the
+   address moved into the inbox header, which has the room for it in either
+   layout. */
+.wire{position:relative;display:flex;align-items:center;height:56px;margin:.35rem 0 .1rem}
 .wire__line{
   position:relative;flex:1 1 auto;min-width:2.75rem;height:1px;
   background:repeating-linear-gradient(90deg,var(--device-rule) 0 6px,transparent 6px 12px);
@@ -515,8 +516,9 @@ b,strong{font-weight:600}
   86%{transform:scaleX(1)}
   89%,100%{transform:scaleX(0)}
 }
+/* the address, now living in the inbox header rather than at the wire's end */
 .wire__to{
-  flex:0 1 auto;min-width:0;
+  flex:1 1 auto;min-width:0;
   background:var(--device);padding:.18rem .5rem;
   font-family:var(--mono);font-size:.625rem;letter-spacing:.04em;color:var(--device-dim);
   border:1px solid var(--device-rule);border-radius:var(--r);
@@ -665,6 +667,22 @@ b,strong{font-weight:600}
 @keyframes shine{
   0%,59%{transform:translateX(-110%)}
   74%,100%{transform:translateX(110%)}
+}
+
+/* Wide enough for three columns: the machine and the inbox stand side by
+   side, the wire between them a short bridge rather than a full-width row.
+   `.fig` is the queried container (`container-type:inline-size` above), so
+   this reacts to the figure's own width, not the viewport's. */
+@container (min-width:28rem){
+  .stage{grid-template-columns:minmax(0,1fr) clamp(2.5rem,7cqw,4.5rem) minmax(0,1fr);align-items:start}
+  .mfp,.inbox{min-width:0}
+  .wire{height:56px;margin:1.85rem 0 0}
+  /* the machine sets the row's height; the inbox stretches to match, and the
+     list fills whatever is left over and clips — however many rows sit in
+     the markup, they never make the figure taller than the machine beside it */
+  .inbox{align-self:stretch;display:flex;flex-direction:column}
+  .inbox__list{flex:1 1 0;height:0;min-height:0;overflow:hidden}
+  .inbox__label{display:none}
 }
 
 /* off-screen the whole thing stops; nothing animates behind the viewport */
@@ -1065,20 +1083,25 @@ b,strong{font-weight:600}
                 </div>
               </div>
 
-              <!-- 2. the wire: the mail leaves the machine and flies to the address -->
+              <!-- 2. the wire: the mail leaves the machine and flies to the address.
+                   Stacked (narrow figure): a full-width bridge with its own
+                   address chip. Side by side (see the container query below):
+                   the same horizontal line and packet, just shorter — the
+                   address moves into the inbox header, which now has the
+                   width to show it. -->
               <div class="wire">
                 <span class="wire__line">
                   <i class="trail"></i>
                   <span class="pkt"><i><svg viewBox="0 0 24 24"><rect x="2.8" y="5.4" width="18.4" height="13.2"/><path d="M3.4 6.6 12 12.9l8.6-6.3"/></svg></i></span>
                 </span>
-                <span class="wire__to" id="wire-to" data-i18n="anim.to">birojs@inbox.eu</span>
               </div>
 
               <!-- 3. the inbox: the scan arrives at the top of the list -->
               <div class="inbox">
                 <div class="inbox__hd">
                   <svg viewBox="0 0 24 24"><path d="M3 12h5l2 3h4l2-3h5M3 12l2.6-6.4A2 2 0 0 1 7.5 4.4h9a2 2 0 0 1 1.9 1.2L21 12v5.6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-                  <span data-i18n="anim.inbox">Iesūtne</span>
+                  <span class="inbox__label" data-i18n="anim.inbox">Iesūtne</span>
+                  <span class="wire__to" id="wire-to" data-i18n="anim.to">birojs@inbox.eu</span>
                   <i class="inbox__n">1</i>
                 </div>
                 <ul class="inbox__list">

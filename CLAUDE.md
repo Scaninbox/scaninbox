@@ -179,10 +179,45 @@ Kolēģis Mauris atzaroja mūsu repozitoriju un uztaisīja savu versiju:
   uzrakstījām no jauna paši — nevis kopējām viņa (nesaskaņotās) versijas.
   Šis ir iemesls, kāpēc «ņem tekstu no kolēģa» nedrīkst nozīmēt «kopē visas
   viņa vārdnīcas» — jāpārbauda, vai viņa pats ir tulkojumus turējis sinhronus.
-- **Divkolonnu figūras izkārtojums** (`@container (min-width:28rem)`, kur
-  printeris un iesūtne stāv blakus, nevis viens zem otra) — Maura lapā tas ir,
-  mūsu lapā joprojām ir viencolonnu izkārtojums no otrās iterācijas. Apzināti
-  atstāts kā iespējams nākamais solis, ne izdarīts klusībā.
+- ~~Divkolonnu figūras izkārtojums~~ — **šis pēc tam gan tika pievienots**,
+  skat. «Divkolonnu figūra» zemāk. Pirmajā piegājienā apzināti izlaists, tad
+  pasūtītājs to prasīja tieši.
+
+## Divkolonnu figūra — printeris un iesūtne blakus, nevis viens zem otra
+
+`.fig{container-type:inline-size}` padara figūru pašu par vaicājuma
+konteineri, tāpēc `@container (min-width:28rem)` reaģē uz **figūras platumu**,
+nevis loga platumu — mobilā figūra var būt platāka par 28rem (447px), un
+tad izkārtojums jau ir blakusisks, kaut arī skatās no tālruņa.
+
+Tas pats te ir savādāk nekā Maura lapā, kaut arī rezultāts izskatās līdzīgs:
+
+- **Mūsu vads (`.wire`) jau bija horizontāls** šaurajā (sakrautajā) stāvoklī —
+  pilnas platuma josla ar adreses tekstlodziņu tās galā. Maura vads šaurajā
+  stāvoklī ir **vertikāli pagriezts** (`.wire__line{transform:rotate(90deg)}`,
+  `.pkt svg{transform:rotate(-90deg)}`) un tikai platajā stāvoklī atgriežas
+  horizontālā. Mums šī pagrieziena trika nevajadzēja — tāpēc platās versijas
+  CSS ir vienkāršāks: nav rotāciju, ko atcelt.
+- **Adreses tekstlodziņš (`#wire-to` / `.wire__to`) pārcelts no vada uz
+  iesūtnes galveni** (`.inbox__hd`), **abos** izkārtojumos — ne tikai platajā.
+  Iemesls: platajā stāvoklī vads sarūk līdz šaurai `clamp(2.5rem,7cqw,4.5rem)`
+  ailei starp printeri un iesūtni, kur adreses teksts (dažreiz garš) vienkārši
+  nevar ietilpt. Iesūtnes galvenei vietas ir daudz vairāk abos gadījumos, tāpēc
+  adrese tur dzīvo pastāvīgi. `.inbox__label` («Iesūtne»/«Inbox») paslēpjas
+  tikai platajā stāvoklī (`@container`), lai adresei būtu vieta blakus ikonai
+  un skaitītājam — šaurajā abi (etiķete un adrese) ietilpst, jo tur iesūtne
+  aizņem visu rindas platumu.
+- **`.inbox__list` augstums platajā stāvoklī vairs nav fiksēts** trīs rindām
+  (`height:calc(3 * 46px)`) — tas paliek šaurajā stāvoklī, bet platajā
+  `.inbox{align-self:stretch}` + `.inbox__list{flex:1 1 0;height:0}` ļauj
+  sarakstam aizpildīt tik daudz vietas, cik printera attēls (`.mfp`) dabiski
+  aizņem, un apgriezt pārējo. Cik rindu redzams, ir atkarīgs no printera
+  attēla augstuma tajā konkrētajā platumā — tas ir apzināti, nevis kļūda, ja
+  redzi 2 vai 4 rindas dažādos ekrānos.
+
+Pārbaudīt abus stāvokļus: paplašini pārlūka logu/figūras konteineri virs un
+zem 28rem (447px) un skaties, vai `.wire` pāriet no pilnas platuma joslas uz
+šauru aili starp printeri un iesūtni.
 
 ## Citi apzināti lēmumi, ko nevajag «salabot»
 
