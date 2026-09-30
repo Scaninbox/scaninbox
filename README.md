@@ -87,16 +87,14 @@ Vecais `?lang=` joprojām strādā, lai jau izsūtītās saites nepārtrūktu.
 - **The form saves real leads** to Supabase. In PR previews and in copies
   without `SCANINBOX_API` it saves nothing — see "Priekšskatījuma režīms"
   below.
-- **Lapa ir publiski sasniedzama** ikvienam, kam ir saite. Piekļuves kontrole
-  Pages lapām ir tikai GitHub Enterprise Cloud. Meklētājos tā nenonāk, jo
-  `index.html` nes `noindex, nofollow` — to noņem pirms palaišanas.
+- **The page is publicly reachable** by anyone with the link. Search engines
+  do not index it because `index.html` carries `noindex, nofollow` — remove
+  that before launch.
 
-Publicē CI darbplūsma no `main` zara: `.github/build-site.js` no viena
-`index.html` saliek 22 lapas — sakni un 21 valodu.
-
-> Pages avots ir jāieslēdz **vienu reizi** ar roku: Settings → Pages →
-> Source: **GitHub Actions**. Darbplūsma to nevar izdarīt pati — noklusējuma
-> `GITHUB_TOKEN` drīkst publicēt uz Pages, bet ne izveidot vietni.
+Netlify publishes from the `main` branch: `.github/build-site.js` turns the
+single `index.html` into 22 pages — the root plus 21 languages. The project
+is no longer published to GitHub Pages; CI (`.github/workflows/ci.yml`)
+only runs the tests.
 
 ### Priekšskatījuma režīms
 
