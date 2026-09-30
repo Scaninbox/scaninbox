@@ -45,17 +45,36 @@ Kas mainījies pēc 8. septembra pārskatīšanas ar komandu:
 
 ## Publicētā lapa
 
-<https://ingmarsj.github.io/scaninbox/>
+<https://scaninbox.me/> — hostēta uz **Netlify**, pieteikumi nonāk **Supabase**.
 
 Katrai valodai ir sava adrese, un tur ved reklāmas kampaņas:
 
 | | |
 | --- | --- |
-| <https://ingmarsj.github.io/scaninbox/lv/> | latviski |
-| <https://ingmarsj.github.io/scaninbox/en/> | angliski |
-| <https://ingmarsj.github.io/scaninbox/it/> | itāliski |
-| <https://ingmarsj.github.io/scaninbox/fr/> | franciski |
-| <https://ingmarsj.github.io/scaninbox/de/> | vāciski |
+| <https://scaninbox.me/lv/> | latviski |
+| <https://scaninbox.me/en/> | angliski |
+| <https://scaninbox.me/it/> | itāliski |
+| <https://scaninbox.me/fr/> | franciski |
+| <https://scaninbox.me/de/> | vāciski |
+
+### Kā tas ir savienots
+
+- **Netlify** katrā push uz `main` palaiž `node .github/build-site.js` un
+  publicē `_site`. Iestatījumi un vides mainīgie ir `netlify.toml` — nevis
+  Netlify panelī, lai tos redz katrs, kas strādā ar repozitoriju. Katram PR
+  Netlify uztaisa priekšskatījuma saiti; tur forma apzināti ir
+  priekšskatījuma režīmā, lai testi nepiesārņotu īstos pieteikumus.
+- **Supabase** (projekts `scaninbox`, Frankfurte) glabā pieteikumus. Shēma
+  un visa saglabāšanas loģika ir `db/supabase.sql` — viena funkcija
+  `submit_lead(jsonb)`, ko lapa izsauc tieši. Mainot shēmu, izlabo šo failu
+  un izpildi to Supabase SQL Editor (tas ir idempotents).
+- Pārlūks drīkst **tikai iesniegt**: tabulām ir RLS bez politikām, un anon
+  lomai nav tiesību tās lasīt. Pieteikumus skaties Supabase panelī →
+  Table Editor vai SQL Editor, piemēram `select * from v_leads`.
+- **Domēns** `scaninbox.me` ir GoDaddy: A `@` → `75.2.60.5`, CNAME `www` →
+  `scaninbox.netlify.app`. HTTPS sertifikātu Netlify izsniedz un atjauno pats.
+
+`server.js` un SQLite paliek lokālai izstrādei un testiem.
 
 Sakne pāradresē uz valodu pēc sīkdatnes, laika joslas vai pārlūka. Lapa, kas
 jau nosaukta savā valodā, nekad netiek pāradresēta prom no tā, kas prasīts.
@@ -63,9 +82,9 @@ Vecais `?lang=` joprojām strādā, lai jau izsūtītās saites nepārtrūktu.
 
 Šo saiti var sūtīt kolēģiem pārskatīšanai. Ņem vērā divas lietas:
 
-- **Forma tur neko nesaglabā**, kamēr nav uzstādīts `SCANINBOX_API` — sīkāk
-  zemāk, «Priekšskatījuma režīms». Reālu pieteikumu vākšanai vajag vietu, kur
-  darbojas `server.js`.
+- **Forma saglabā īstus pieteikumus** Supabase. PR priekšskatījumos un
+  kopijās bez `SCANINBOX_API` tā neko nesaglabā — sīkāk zemāk,
+  «Priekšskatījuma režīms».
 - **Lapa ir publiski sasniedzama** ikvienam, kam ir saite. Piekļuves kontrole
   Pages lapām ir tikai GitHub Enterprise Cloud. Meklētājos tā nenonāk, jo
   `index.html` nes `noindex, nofollow` — to noņem pirms palaišanas.
@@ -218,11 +237,12 @@ nenonāk.
 
 ## Kur nonāk pieteikumi
 
-**Tikai SQLite.** `index.html` skripta sākumā ir `LEADS_ENDPOINT`, pēc
-noklusējuma `/api/leads`. Rezerves glabātavas nav — ja lapa nevar sasniegt šo
-galapunktu, tā to **pasaka**, nevis klusi noliek datus kaut kur citur.
-
-Uz inbox.eu infrastruktūras norādi `LEADS_ENDPOINT` uz reālo API ceļu.
+**Vienā vietā.** `index.html` skripta sākumā ir `LEADS_ENDPOINT`, pēc
+noklusējuma `/api/leads` (lokāli — `server.js` un SQLite). Publicētajā lapā
+to aizstāj `<meta name="scaninbox:api">` ar Supabase `submit_lead` adresi, un
+`<meta name="scaninbox:apikey">` dod atslēgu galvenei `apikey`. Rezerves
+glabātavas nav — ja lapa nevar sasniegt šo galapunktu, tā to **pasaka**,
+nevis klusi noliek datus kaut kur citur.
 
 Praktiskās sekas: lapas kopija, kas tiek pasniegta no cita servera bez šī
 API (piemēram, Claude Artifact priekšskatījums), formā parāda «Šī ir

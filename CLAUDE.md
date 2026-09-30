@@ -244,10 +244,12 @@ vecā datubāze jāizdzēš — SQLite `CHECK` ar `ALTER TABLE` nemaina.
 
 Nav kods, bet jāzina:
 
-1. **Nav vietas, kur darbināt `server.js`.** Kamēr tās nav, lapa savāc nulli
-   pieteikumu. Vajag Node 22.5+, **pastāvīgu disku** (PaaS ar pagaidu failu
-   sistēmu datubāzi pazaudēs) un HTTPS. Tad `SCANINBOX_API` GitHub mainīgajos un
-   `SCANINBOX_ALLOW_ORIGIN` serverī — koda maiņa nav vajadzīga.
+1. ~~Nav vietas, kur darbināt `server.js`.~~ **Atrisināts:** lapa ir Netlify
+   (`netlify.toml`), pieteikumi iet uz Supabase funkciju `submit_lead()`
+   (`db/supabase.sql`). Šī funkcija ir `server.js` `validate()`/`saveLead()`
+   dvīnis — **mainot vienu, maini otru**, citādi lokāli un publicētajā lapā
+   pieteikumi uzvedīsies atšķirīgi. Ātruma ierobežojuma pēc IP Supabase pusē
+   nav (IP neglabājam un nelasām).
 2. **Nav privātuma paziņojuma.** VDAR 13. pants prasa pārzini, tiesības un
    kontaktu. Bez tā formu nedrīkst laist reālā apritē.
 3. **Nav kontaktadreses.** BUJ tāpēc saka «atbildi uz mūsu vēstuli», nevis

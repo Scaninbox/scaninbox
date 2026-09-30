@@ -1,0 +1,25 @@
+# Netlify publicē lapu no main zara uz https://scaninbox.me.
+#
+# Visas vērtības šeit ir publiskas: tās nonāk gatavajā HTML. Supabase
+# publishable key atļauj tikai izsaukt submit_lead() — lasīt pieteikumus ar
+# to nevar (RLS, skat. db/supabase.sql). Secret key šeit NEKAD neliek.
+
+[build]
+  command = "node .github/build-site.js"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "24"
+  SITE_URL = "https://scaninbox.me"
+  SCANINBOX_API = "https://bvbfyonyxtbnklpplxnq.supabase.co/rest/v1/rpc/submit_lead"
+  SCANINBOX_API_KEY = "sb_publishable_1Kp4hc1uuoKgOn05RcE8jw_dhje8AGh"
+
+# PR priekšskatījumi (deploy previews) raksta TO PAŠU datubāzi, tāpēc tur
+# formu atstājam priekšskatījuma režīmā — tā neko nesūta un godīgi to pasaka.
+[context.deploy-preview.environment]
+  SCANINBOX_API = ""
+  SITE_URL = ""
+
+[context.branch-deploy.environment]
+  SCANINBOX_API = ""
+  SITE_URL = ""
