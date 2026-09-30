@@ -37,6 +37,11 @@ not the structure.
    page will silently show Latvian sentences in the German version.
 4. **Don't merge without permission.** A push to `main` publishes the page
    live.
+5. **Everything written for other people to read is in English** — code,
+   comments, docs, commit messages, PR titles and descriptions. The team
+   works across languages; Latvian survives only where it's actual product
+   content (the page's own `lv` text, `label_lv` data), never as the
+   language documentation or code is written in.
 
 ## Translations — the one place a mistake stays quiet
 
@@ -307,11 +312,13 @@ change via `ALTER TABLE`.
 
 Not code, but worth knowing:
 
-1. **There's nowhere to run `server.js`.** Until there is, the page collects
-   zero sign-ups. Needs Node 22.5+, a **persistent disk** (a PaaS with an
-   ephemeral filesystem will lose the database), and HTTPS. Then
-   `SCANINBOX_API` in GitHub variables and `SCANINBOX_ALLOW_ORIGIN` on the
-   server — no code change needed.
+1. ~~There's nowhere to run `server.js`.~~ **Solved:** the page is on
+   Netlify (`netlify.toml`) and leads go to the Supabase function
+   `submit_lead()` (`db/supabase.sql`). That function is the twin of
+   `validate()`/`saveLead()` in `server.js` — **change one, change the
+   other**, or leads will behave differently locally and on the live page.
+   Rate limits in `submit_lead()` are per e-mail and global, never per IP
+   (we do not store or read IPs).
 2. **There's no privacy notice.** GDPR Article 13 requires naming the
    controller, rights, and a contact. The form must not go live without
    one.

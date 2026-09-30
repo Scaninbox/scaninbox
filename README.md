@@ -48,20 +48,41 @@ What changed after the September 8 review with the team:
 
 ## The published page
 
-<https://ingmarsj.github.io/scaninbox/>
+<https://scaninbox.me/> — hosted on **Netlify**, leads are stored in **Supabase**.
 
 Each language has its own address, and that's what ad campaigns link to:
 
 | | |
 | --- | --- |
-| <https://ingmarsj.github.io/scaninbox/lv/> | Latvian |
-| <https://ingmarsj.github.io/scaninbox/en/> | English |
-| <https://ingmarsj.github.io/scaninbox/it/> | Italian |
-| <https://ingmarsj.github.io/scaninbox/fr/> | French |
-| <https://ingmarsj.github.io/scaninbox/de/> | German |
+| <https://scaninbox.me/lv/> | Latvian |
+| <https://scaninbox.me/en/> | English |
+| <https://scaninbox.me/it/> | Italian |
+| <https://scaninbox.me/fr/> | French |
+| <https://scaninbox.me/de/> | German |
 
 ...plus 16 more (`/bg/ /cs/ /da/ /el/ /es/ /fi/ /hr/ /hu/ /lt/ /nl/ /pl/
 /pt/ /ro/ /sk/ /sl/ /sv/`) — 22 pages in total.
+
+### How it is wired
+
+- **Netlify** runs `node .github/build-site.js` on every push to `main` and
+  publishes `_site`. Build settings and variables live in `netlify.toml`, not
+  in the Netlify dashboard, so everyone working on the repository can see
+  them. Every PR gets a preview link; there the form is deliberately in
+  preview mode so testing never pollutes real leads.
+- **Supabase** (project `scaninbox`, Frankfurt) stores the leads. The schema
+  and all saving logic are in `db/supabase.sql` — one function,
+  `submit_lead(jsonb)`, which the page calls directly. To change the schema,
+  edit that file and run it in the Supabase SQL Editor (it is idempotent).
+- The browser may **only submit**: every table has RLS with no policies, and
+  the anon role has no privileges on them. `submit_lead()` also rate-limits
+  per e-mail and globally (no IPs). Read leads in the Supabase dashboard →
+  Table Editor or SQL Editor, e.g. `select * from v_leads`.
+- The **domain** `scaninbox.me` is at GoDaddy: A `@` → `75.2.60.5`, CNAME
+  `www` → `scaninbox.netlify.app`. Netlify issues and renews the HTTPS
+  certificate itself.
+
+`server.js` and SQLite remain for local development and tests.
 
 The root redirects to a language based on cookie, time zone, or browser.
 A page already named for its own language is never redirected away from
@@ -70,20 +91,16 @@ don't break.
 
 This link can be sent to colleagues for review. Keep two things in mind:
 
-- **The form saves nothing there** while `SCANINBOX_API` isn't set — more
-  below, under "Preview mode". Collecting real sign-ups needs somewhere for
-  `server.js` to run.
-- **The page is publicly reachable** by anyone with the link. Access control
-  for Pages sites is GitHub Enterprise Cloud only. It won't end up in search
-  engines, since `index.html` carries `noindex, nofollow` — remove that
-  before launch.
+- **The form saves real leads** to Supabase. In PR previews and in copies
+  without `SCANINBOX_API` it saves nothing — see "Preview mode" below.
+- **The page is publicly reachable** by anyone with the link. Search engines
+  do not index it because `index.html` carries `noindex, nofollow` — remove
+  that before launch.
 
-A CI workflow publishes from the `main` branch: `.github/build-site.js`
-assembles 22 pages — the root plus 21 languages — from one `index.html`.
-
-> The Pages source has to be switched on **once**, by hand: Settings →
-> Pages → Source: **GitHub Actions**. The workflow can't do this itself —
-> the default `GITHUB_TOKEN` may publish to Pages, but not create the site.
+Netlify publishes from the `main` branch: `.github/build-site.js` turns the
+single `index.html` into 22 pages — the root plus 21 languages. The project
+is no longer published to GitHub Pages; CI (`.github/workflows/ci.yml`)
+only runs the tests.
 
 ### Preview mode
 
@@ -233,12 +250,12 @@ several requests) and goes nowhere else.
 
 ## Where sign-ups end up
 
-**SQLite only.** At the top of `index.html`'s script is `LEADS_ENDPOINT`,
-`/api/leads` by default. There's no fallback storage — if the page can't
-reach that endpoint, it **says so**, rather than quietly putting the data
-somewhere else.
-
-On inbox.eu's infrastructure, point `LEADS_ENDPOINT` at the real API path.
+**In one place.** The top of the `index.html` script has `LEADS_ENDPOINT`,
+by default `/api/leads` (locally: `server.js` and SQLite). On the live page
+`<meta name="scaninbox:api">` replaces it with the Supabase `submit_lead`
+URL, and `<meta name="scaninbox:apikey">` supplies the `apikey` header. There
+is no fallback store — if the page cannot reach this endpoint it **says so**
+instead of quietly keeping the data somewhere else.
 
 Practical consequence: a copy of the page served from another server
 without this API (for example, a Claude Artifact preview) shows "This is a

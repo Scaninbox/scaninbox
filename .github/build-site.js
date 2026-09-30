@@ -15,10 +15,12 @@
  *   _site/<lang>/         the page itself in that language, no redirect
  *
  * Environment variables:
- *   SCANINBOX_API   the full API address. If unset, the published page runs
- *                   as a preview — the form goes through but saves nothing,
- *                   and says so.
- *   SITE_URL        the page's root, for canonical and hreflang links.
+ *   SCANINBOX_API      the full API address. If unset, the published page
+ *                      runs as a preview — the form goes through but saves
+ *                      nothing, and says so.
+ *   SCANINBOX_API_KEY  Supabase publishable key for the `apikey` header.
+ *                      Public by design: it only allows calling submit_lead().
+ *   SITE_URL           the page's root, for canonical and hreflang links.
  */
 
 const fs = require('node:fs');
@@ -36,12 +38,15 @@ const LOCALE = {
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, '_site');
 const API = process.env.SCANINBOX_API || '';
+const API_KEY = process.env.SCANINBOX_API_KEY || '';
 const SITE = (process.env.SITE_URL || '').replace(/\/+$/, '');
 
 const src = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
 const API_TAG = /<meta name="scaninbox:api" content="[^"]*">/;
 if (!API_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:api"> not found');
+const KEY_TAG = /<meta name="scaninbox:apikey" content="[^"]*">/;
+if (!KEY_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:apikey"> not found');
 
 /* Bots that unfurl a shared link (Discord, Slack, iMessage, ...) fetch the
    raw HTML and never run the client-side script that swaps this same text
@@ -89,7 +94,8 @@ function alternates(lang) {
  * @param {string} lang  the language, or '' for the root
  */
 function build(lang) {
-  let html = src.replace(API_TAG, `<meta name="scaninbox:api" content="${API}">`);
+  let html = src.replace(API_TAG, `<meta name="scaninbox:api" content="${API}">`)
+    .replace(KEY_TAG, `<meta name="scaninbox:apikey" content="${API_KEY}">`);
 
   const dict = loadDict(lang);
   const title = escapeAttr(dict && dict['meta.title'] || LV_TITLE);
