@@ -18,8 +18,8 @@
  *   SCANINBOX_API   pilna API adrese. Ja nav, publicētā lapa strādā kā
  *                   priekšskatījums — forma iziet cauri, bet neko nesaglabā,
  *                   un tā to arī pasaka.
- *   SCANINBOX_API_KEY  Supabase publishable key galvenei `apikey`. Publisks
- *                   pēc būtības — atļauj tikai izsaukt submit_lead().
+ *   SCANINBOX_API_KEY  Supabase publishable key for the `apikey` header.
+ *                   Public by design: it only allows calling submit_lead().
  *   SITE_URL       lapas sakne canonical un hreflang saitēm.
  */
 
@@ -46,7 +46,7 @@ const src = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const API_TAG = /<meta name="scaninbox:api" content="[^"]*">/;
 if (!API_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:api"> nav atrasts');
 const KEY_TAG = /<meta name="scaninbox:apikey" content="[^"]*">/;
-if (!KEY_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:apikey"> nav atrasts');
+if (!KEY_TAG.test(src)) throw new Error('index.html: <meta name="scaninbox:apikey"> not found');
 
 /** Saites uz to pašu lapu pārējās valodās, plus kanoniskā adrese. */
 function alternates(lang) {

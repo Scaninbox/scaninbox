@@ -103,18 +103,17 @@ describe('privātums', () => {
     }
   });
 
-  /* Supabase shēmu te nevar izpildīt (tas ir Postgres), tāpēc pārbaudām tekstu:
-     neviena kolonna ne leads, ne lead_events tabulā nedrīkst glabāt IP vai
-     pārlūka datus. */
-  test('arī db/supabase.sql nav IP un user-agent kolonnu', () => {
+  /* The Supabase schema is Postgres and cannot run here, so check the text:
+     no column in leads or lead_events may hold an IP address or browser data. */
+  test('db/supabase.sql has no IP or user-agent columns either', () => {
     const sql = fs.readFileSync(path.join(__dirname, '..', 'db', 'supabase.sql'), 'utf8')
       .replace(/--.*$/gm, '');
     for (const table of ['leads', 'lead_events']) {
       const m = sql.match(new RegExp(`create table if not exists public\\.${table} \\(([\\s\\S]*?)\\n\\);`));
-      assert.ok(m, `${table} tabula atrasta db/supabase.sql`);
+      assert.ok(m, `${table} table found in db/supabase.sql`);
       const cols = m[1].split('\n').map((l) => l.trim().split(/\s+/)[0].toLowerCase()).filter(Boolean);
       for (const forbidden of ['ip', 'ip_address', 'remote_addr', 'user_agent', 'useragent', 'referrer']) {
-        assert.equal(cols.includes(forbidden), false, `${table}.${forbidden} nedrīkst būt shēmā`);
+        assert.equal(cols.includes(forbidden), false, `${table}.${forbidden} must not be in the schema`);
       }
     }
   });

@@ -13,9 +13,9 @@
      content="https://api.scaninbox.eu/api/leads" — un tajā serverī jāuzstāda
      SCANINBOX_ALLOW_ORIGIN=https://ingmarsj.github.io -->
 <meta name="scaninbox:api" content="">
-<!-- Supabase publishable key (publisks pēc būtības — tas atļauj tikai izsaukt
-     submit_lead, skat. db/supabase.sql). Tukšs, kamēr lapu pasniedz server.js.
-     Publicējot to ieliek .github/build-site.js no SCANINBOX_API_KEY. -->
+<!-- Supabase publishable key (public by design — it only allows calling
+     submit_lead, see db/supabase.sql). Empty while server.js serves the page.
+     On publish .github/build-site.js fills it from SCANINBOX_API_KEY. -->
 <meta name="scaninbox:apikey" content="">
 <!-- Publicējot CI ieliek <meta name="scaninbox:langpaths" content="1">, un
      tikai tad saknes lapa pāradresē uz /lv/, /de/ un tā tālāk. Lokāli šī taga
@@ -4865,8 +4865,8 @@ window.SCANINBOX_I18N = {
      galvenē — viena rinda, un tā pati lapa sūta uz reālo API. */
   var apiMeta = document.querySelector('meta[name="scaninbox:api"]');
   var LEADS_ENDPOINT = (apiMeta && apiMeta.getAttribute("content")) || "/api/leads";
-  /* Supabase gaida atslēgu galvenē `apikey`. server.js to neprasa, tāpēc
-     bez meta taga galvene netiek sūtīta vispār. */
+  /* Supabase expects the key in an `apikey` header. server.js does not, so
+     without the meta tag the header is not sent at all. */
   var keyMeta = document.querySelector('meta[name="scaninbox:apikey"]');
   var API_KEY = (keyMeta && keyMeta.getAttribute("content")) || "";
 
@@ -5339,7 +5339,7 @@ window.SCANINBOX_I18N = {
         if (r.status === 404 || r.status === 405) throw { code: "no_backend" };
         /* The server's 422s are deterministic: saying "try again" would send
            the visitor round a loop that cannot end well. */
-        /* server.js atbild ar {error}, Supabase (PostgREST) — ar {code}. */
+        /* server.js answers with {error}, Supabase (PostgREST) with {code}. */
         if (r.status === 422) throw { code: "rejected", server: data.error || data.code };
         throw { code: "http_" + r.status, server: data.error || data.code };
       });

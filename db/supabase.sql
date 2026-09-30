@@ -1,24 +1,28 @@
--- ScanInbox — pieteikumu datubāze Supabase (Postgres) pusē.
+-- ScanInbox — lead database on Supabase (Postgres).
 --
--- Publicētā lapa (Netlify) sūta pieteikumu tieši uz Supabase funkciju
--- submit_lead() — bez sava servera. Tā ir db/schema.sql + server.js
--- validate()/saveLead() loģika vienā vietā:
+-- The published page (Netlify) sends every submission straight to the
+-- Supabase function submit_lead(), with no server of our own. This file is
+-- db/schema.sql plus the validate()/saveLead() logic from server.js in one
+-- place:
 --
---   POST https://<projekts>.supabase.co/rest/v1/rpc/submit_lead
+--   POST https://<project>.supabase.co/rest/v1/rpc/submit_lead
 --   apikey: <publishable key>
 --   { "email": "...", "consent": true, "segment": "small", ... }
 --
--- Drošība: visām tabulām ir RLS bez neviena policy, un anon/authenticated
--- lomām nav tiesību uz tabulām un skatiem. Vienīgais, ko pārlūks drīkst, ir
--- izsaukt submit_lead(). Lasīt pieteikumus var tikai Supabase panelī.
+-- Security: every table has RLS with no policies, and the anon/authenticated
+-- roles have no privileges on tables or views. The only thing a browser may
+-- do is call submit_lead(). Leads can be read only in the Supabase dashboard.
 --
--- Idempotents: var izpildīt SQL Editor atkārtoti.
+-- Abuse limits live in submit_lead() (see "Rate limits" below). They use no
+-- IP address: the page promises to store nothing but the e-mail and the
+-- answers, so limits are per e-mail and global instead.
 --
--- Ko šeit APZINĀTI NAV — tāpat kā db/schema.sql: IP adreses un user-agent.
--- Lapa apsola glabāt tikai e-pastu un formas atbildes.
+-- Idempotent: safe to run again in the SQL Editor after any change.
+--
+-- Deliberately NOT here, as in db/schema.sql: IP addresses and user agents.
 
 -- ---------------------------------------------------------------------------
--- Uzmeklēšanas tabulas
+-- Lookup tables
 -- ---------------------------------------------------------------------------
 create table if not exists public.segments (
   code     text primary key,
@@ -87,7 +91,7 @@ insert into public.brands (code, label_lv, label_en, sort) values
 on conflict (code) do nothing;
 
 -- ---------------------------------------------------------------------------
--- Pieteikumi. Viena rinda uz e-pastu.
+-- Leads. One row per e-mail address.
 -- ---------------------------------------------------------------------------
 create table if not exists public.leads (
   id           bigint generated always as identity primary key,
@@ -111,7 +115,7 @@ create table if not exists public.leads (
   created_at   timestamptz not null default now(),
   updated_at   timestamptz not null default now(),
 
-  -- Komandas darba lauki, ko forma nekad neaizpilda
+  -- Team working fields; the form never fills them
   contacted_at timestamptz,
   notes        text
 );
@@ -137,11 +141,12 @@ create table if not exists public.lead_events (
   created_at timestamptz not null default now()
 );
 
-create index if not exists idx_events_lead on public.lead_events (lead_id, created_at);
+create index if not exists idx_events_lead    on public.lead_events (lead_id, created_at);
+create index if not exists idx_events_created on public.lead_events (created_at);
 
 -- ---------------------------------------------------------------------------
--- Skati. security_invoker — lai tie neapietu RLS, ja kādreiz kādam iedos
--- tiesības uz tiem.
+-- Views. security_invoker so they never bypass RLS if someone is ever
+-- granted access to them.
 -- ---------------------------------------------------------------------------
 create or replace view public.v_leads with (security_invoker = true) as
 select
@@ -165,6 +170,7 @@ left join public.segments     s on s.code = l.segment
 left join public.device_bands d on d.code = l.device_band
 left join public.price_bands  p on p.code = l.price_band;
 
+-- How many people are in each price band — is there any willingness to pay
 create or replace view public.v_price_demand with (security_invoker = true) as
 select
   p.code,
@@ -178,12 +184,14 @@ left join public.leads l on l.price_band = p.code
 group by p.code
 order by p.sort;
 
+-- Segments and how many devices they would sign up — where the volume is
 create or replace view public.v_segment_demand with (security_invoker = true) as
 select
   s.code,
   s.label_lv,
   count(l.id)                                    as leads,
   count(*) filter (where l.wants_beta)           as beta_volunteers,
+  -- Lower bound of each device band, for a conservative estimate
   coalesce(sum(case l.device_band when '1' then 1 when '2-5' then 2
                     when '6-20' then 6 when '20+' then 20 end), 0) as min_devices
 from public.segments s
@@ -191,6 +199,8 @@ left join public.leads l on l.segment = s.code
 group by s.code
 order by s.sort;
 
+-- Which manufacturers' menus to document first. Percentages are of the
+-- people who answered the brand question at all.
 create or replace view public.v_brand_demand with (security_invoker = true) as
 select
   b.code,
@@ -203,6 +213,7 @@ left join public.lead_brands lb on lb.brand = b.code
 group by b.code
 order by leads desc, b.sort;
 
+-- Which device models to support first
 create or replace view public.v_device_models with (security_invoker = true) as
 select
   min(trim(device_model)) as model,
@@ -213,13 +224,25 @@ group by lower(trim(device_model))
 order by mentions desc, model;
 
 -- ---------------------------------------------------------------------------
--- submit_lead — vienīgā ieeja no pārlūka.
+-- submit_lead — the only entry point from the browser.
 --
--- Viens nenosaukts jsonb parametrs: PostgREST tad nodod visu pieprasījuma
--- ķermeni kā ir, tāpēc lapa sūta to pašu JSON, ko sūtīja server.js.
+-- One unnamed jsonb parameter: PostgREST then passes the whole request body
+-- as is, so the page sends exactly the JSON it used to send to server.js.
 --
--- Kļūdas iet caur SQLSTATE 'PGRST', lai PostgREST atbildētu ar to pašu HTTP
--- statusu, ko server.js (422, 413), un ķermenī būtu {"code": "..."}.
+-- Errors are raised with SQLSTATE 'PGRST' so PostgREST answers with the same
+-- HTTP status as server.js (422, 413, 429) and a body of {"code": "..."}.
+--
+-- Rate limits. Without an IP address there is no per-visitor limit, so:
+--   * per e-mail: at most 20 submissions in 10 minutes. One real sign-up is
+--     the e-mail plus one request per follow-up answer — 4–5 requests.
+--   * new e-mails, all visitors together: at most 30 a minute and 1000 a day.
+--     A validation page with ad traffic gets nowhere near this; a script
+--     inventing addresses hits it within seconds and then gets 429.
+--   * all submissions together: at most 300 a minute.
+-- A 429 makes the page show its "busy, try again" message. The limits cap
+-- how fast the table can grow; they do not tell a bot from a person. If fake
+-- sign-ups do show up, the next step is a CAPTCHA (e.g. Cloudflare Turnstile)
+-- checked in a Supabase Edge Function.
 -- ---------------------------------------------------------------------------
 create or replace function public.submit_lead(jsonb)
 returns jsonb
@@ -238,6 +261,7 @@ declare
   v_brands    text[];
   v_beta      boolean;
   v_lang      text;
+  v_existing  bigint;
   v_id        bigint;
   v_inserted  boolean;
 begin
@@ -254,7 +278,8 @@ begin
       detail  = '{"status":413,"headers":{}}';
   end if;
 
-  -- Adresi negriežam pēc garuma: apgriezts e-pasts ir cita adrese.
+  -- The address is never truncated: a shortened e-mail is a different
+  -- address, not a shorter version of the same one.
   raw_email := case when jsonb_typeof(body->'email') = 'string'
                     then trim(body->>'email') end;
   if raw_email is null or raw_email = '' or char_length(raw_email) > 254
@@ -270,11 +295,31 @@ begin
       detail  = '{"status":422,"headers":{}}';
   end if;
 
-  -- clean(): tikai virknes, apgrieztas, tukša = null, ierobežots garums
+  -- Rate limits (see above). Checked after validation so that malformed
+  -- requests, which write nothing, do not use up anybody's allowance.
+  select id into v_existing from leads where email_norm = lower(raw_email);
+
+  if (select count(*) from lead_events
+       where created_at > now() - interval '1 minute') >= 300
+     or (v_existing is not null and
+         (select count(*) from lead_events
+           where lead_id = v_existing
+             and created_at > now() - interval '10 minutes') >= 20)
+     or (v_existing is null and
+         ((select count(*) from leads
+            where created_at > now() - interval '1 minute') >= 30
+          or (select count(*) from leads
+               where created_at > now() - interval '1 day') >= 1000)) then
+    raise sqlstate 'PGRST' using
+      message = '{"code":"rate_limited","message":"rate_limited"}',
+      detail  = '{"status":429,"headers":{"Retry-After":"60"}}';
+  end if;
+
+  -- clean(): strings only, trimmed, empty becomes null, length capped
   v_name  := left(nullif(trim(case when jsonb_typeof(body->'name')  = 'string' then body->>'name'  end), ''), 120);
   v_model := left(nullif(trim(case when jsonb_typeof(body->'model') = 'string' then body->>'model' end), ''), 120);
 
-  -- pickCode(): nezināmu kodu klusi izmet kā null
+  -- pickCode(): an unknown code is silently dropped as null
   select code into v_segment from segments
    where jsonb_typeof(body->'segment') = 'string' and code = left(trim(body->>'segment'), 40);
   select code into v_devices from device_bands
@@ -282,7 +327,7 @@ begin
   select code into v_price from price_bands
    where jsonb_typeof(body->'priceBand') = 'string' and code = left(trim(body->>'priceBand'), 40);
 
-  -- pickCodes(): null = «lauka nebija», tukšs masīvs = «nekas nav atzīmēts»
+  -- pickCodes(): null means "field absent", an empty array means "nothing ticked"
   if jsonb_typeof(body->'brands') = 'array' then
     select coalesce(array_agg(code), '{}') into v_brands
       from (select b.code
@@ -299,10 +344,10 @@ begin
                                          'sk', 'sl', 'sv')
                  then body->>'lang' else 'lv' end;
 
-  /* COALESCE, nevis piešķiršana: viens pieteikums aiziet kā vairāki
-     pieprasījumi (e-pasts, tad pa vienam uz katru atbildi), tāpēc vēlāks
-     iesniegums ar mazāk atbildēm jau saglabātās nedrīkst nodzēst.
-     wants_beta ir lipīgs — klusums piekrišanu neatsauc. */
+  /* COALESCE, not plain assignment: one sign-up arrives as several requests
+     (the e-mail, then one per answer), so a later submission carrying fewer
+     answers must not erase the ones already given. wants_beta is sticky —
+     silence never withdraws an opt-in. */
   insert into leads as l (email, email_norm, name, segment, device_band, device_model,
                           price_band, wants_beta, consent, lang)
   values (raw_email, lower(raw_email), v_name, v_segment, v_devices, v_model,
@@ -319,7 +364,7 @@ begin
     updated_at   = now()
   returning id, (xmax = 0) into v_id, v_inserted;
 
-  -- Zīmoli: masīvs, arī tukšs, aizstāj kopu pilnībā; null neaiztiek.
+  -- Brands: an array, even an empty one, replaces the set; null leaves it.
   if v_brands is not null then
     delete from lead_brands where lead_id = v_id;
     insert into lead_brands (lead_id, brand)
@@ -338,7 +383,7 @@ end;
 $$;
 
 -- ---------------------------------------------------------------------------
--- Tiesības. Pārlūks (anon) drīkst tikai iesniegt, ne lasīt.
+-- Privileges. The browser (anon) may submit, never read.
 -- ---------------------------------------------------------------------------
 alter table public.segments     enable row level security;
 alter table public.device_bands enable row level security;

@@ -45,7 +45,7 @@ Kas mainījies pēc 8. septembra pārskatīšanas ar komandu:
 
 ## Publicētā lapa
 
-<https://scaninbox.me/> — hostēta uz **Netlify**, pieteikumi nonāk **Supabase**.
+<https://scaninbox.me/> — hosted on **Netlify**, leads are stored in **Supabase**.
 
 Katrai valodai ir sava adrese, un tur ved reklāmas kampaņas:
 
@@ -57,24 +57,26 @@ Katrai valodai ir sava adrese, un tur ved reklāmas kampaņas:
 | <https://scaninbox.me/fr/> | franciski |
 | <https://scaninbox.me/de/> | vāciski |
 
-### Kā tas ir savienots
+### How it is wired
 
-- **Netlify** katrā push uz `main` palaiž `node .github/build-site.js` un
-  publicē `_site`. Iestatījumi un vides mainīgie ir `netlify.toml` — nevis
-  Netlify panelī, lai tos redz katrs, kas strādā ar repozitoriju. Katram PR
-  Netlify uztaisa priekšskatījuma saiti; tur forma apzināti ir
-  priekšskatījuma režīmā, lai testi nepiesārņotu īstos pieteikumus.
-- **Supabase** (projekts `scaninbox`, Frankfurte) glabā pieteikumus. Shēma
-  un visa saglabāšanas loģika ir `db/supabase.sql` — viena funkcija
-  `submit_lead(jsonb)`, ko lapa izsauc tieši. Mainot shēmu, izlabo šo failu
-  un izpildi to Supabase SQL Editor (tas ir idempotents).
-- Pārlūks drīkst **tikai iesniegt**: tabulām ir RLS bez politikām, un anon
-  lomai nav tiesību tās lasīt. Pieteikumus skaties Supabase panelī →
-  Table Editor vai SQL Editor, piemēram `select * from v_leads`.
-- **Domēns** `scaninbox.me` ir GoDaddy: A `@` → `75.2.60.5`, CNAME `www` →
-  `scaninbox.netlify.app`. HTTPS sertifikātu Netlify izsniedz un atjauno pats.
+- **Netlify** runs `node .github/build-site.js` on every push to `main` and
+  publishes `_site`. Build settings and variables live in `netlify.toml`, not
+  in the Netlify dashboard, so everyone working on the repository can see
+  them. Every PR gets a preview link; there the form is deliberately in
+  preview mode so testing never pollutes real leads.
+- **Supabase** (project `scaninbox`, Frankfurt) stores the leads. The schema
+  and all saving logic are in `db/supabase.sql` — one function,
+  `submit_lead(jsonb)`, which the page calls directly. To change the schema,
+  edit that file and run it in the Supabase SQL Editor (it is idempotent).
+- The browser may **only submit**: every table has RLS with no policies, and
+  the anon role has no privileges on them. `submit_lead()` also rate-limits
+  per e-mail and globally (no IPs). Read leads in the Supabase dashboard →
+  Table Editor or SQL Editor, e.g. `select * from v_leads`.
+- The **domain** `scaninbox.me` is at GoDaddy: A `@` → `75.2.60.5`, CNAME
+  `www` → `scaninbox.netlify.app`. Netlify issues and renews the HTTPS
+  certificate itself.
 
-`server.js` un SQLite paliek lokālai izstrādei un testiem.
+`server.js` and SQLite remain for local development and tests.
 
 Sakne pāradresē uz valodu pēc sīkdatnes, laika joslas vai pārlūka. Lapa, kas
 jau nosaukta savā valodā, nekad netiek pāradresēta prom no tā, kas prasīts.
@@ -82,9 +84,9 @@ Vecais `?lang=` joprojām strādā, lai jau izsūtītās saites nepārtrūktu.
 
 Šo saiti var sūtīt kolēģiem pārskatīšanai. Ņem vērā divas lietas:
 
-- **Forma saglabā īstus pieteikumus** Supabase. PR priekšskatījumos un
-  kopijās bez `SCANINBOX_API` tā neko nesaglabā — sīkāk zemāk,
-  «Priekšskatījuma režīms».
+- **The form saves real leads** to Supabase. In PR previews and in copies
+  without `SCANINBOX_API` it saves nothing — see "Priekšskatījuma režīms"
+  below.
 - **Lapa ir publiski sasniedzama** ikvienam, kam ir saite. Piekļuves kontrole
   Pages lapām ir tikai GitHub Enterprise Cloud. Meklētājos tā nenonāk, jo
   `index.html` nes `noindex, nofollow` — to noņem pirms palaišanas.
@@ -237,12 +239,12 @@ nenonāk.
 
 ## Kur nonāk pieteikumi
 
-**Vienā vietā.** `index.html` skripta sākumā ir `LEADS_ENDPOINT`, pēc
-noklusējuma `/api/leads` (lokāli — `server.js` un SQLite). Publicētajā lapā
-to aizstāj `<meta name="scaninbox:api">` ar Supabase `submit_lead` adresi, un
-`<meta name="scaninbox:apikey">` dod atslēgu galvenei `apikey`. Rezerves
-glabātavas nav — ja lapa nevar sasniegt šo galapunktu, tā to **pasaka**,
-nevis klusi noliek datus kaut kur citur.
+**In one place.** The top of the `index.html` script has `LEADS_ENDPOINT`,
+by default `/api/leads` (locally: `server.js` and SQLite). On the live page
+`<meta name="scaninbox:api">` replaces it with the Supabase `submit_lead`
+URL, and `<meta name="scaninbox:apikey">` supplies the `apikey` header. There
+is no fallback store — if the page cannot reach this endpoint it **says so**
+instead of quietly keeping the data somewhere else.
 
 Praktiskās sekas: lapas kopija, kas tiek pasniegta no cita servera bez šī
 API (piemēram, Claude Artifact priekšskatījums), formā parāda «Šī ir
