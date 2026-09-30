@@ -24,8 +24,14 @@
 const fs = require('node:fs');
 const path = require('node:path');
 
-const LANGS = ['lv', 'en', 'it', 'fr', 'de'];
-const LOCALE = { lv: 'lv_LV', en: 'en_GB', it: 'it_IT', fr: 'fr_FR', de: 'de_DE' };
+const LANGS = ['lv', 'en', 'it', 'fr', 'de', 'bg', 'cs', 'da', 'el', 'es', 'fi',
+               'hr', 'hu', 'lt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'sv'];
+const LOCALE = {
+  lv: 'lv_LV', en: 'en_GB', it: 'it_IT', fr: 'fr_FR', de: 'de_DE',
+  bg: 'bg_BG', cs: 'cs_CZ', da: 'da_DK', el: 'el_GR', es: 'es_ES', fi: 'fi_FI',
+  hr: 'hr_HR', hu: 'hu_HU', lt: 'lt_LT', nl: 'nl_NL', pl: 'pl_PL', pt: 'pt_PT',
+  ro: 'ro_RO', sk: 'sk_SK', sl: 'sl_SI', sv: 'sv_SE',
+};
 
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, '_site');

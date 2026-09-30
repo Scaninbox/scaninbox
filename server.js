@@ -63,7 +63,8 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 /* Valodas, kurās lapa pastāv. Tās pašas ir shēmas CHECK ierobežojumā, tāpēc
    nezināmu kodu labāk nomainīt pret 'lv' nekā ļaut rakstīšanai nokrist. */
-const LANGS = new Set(['lv', 'en', 'it', 'fr', 'de']);
+const LANGS = new Set(['lv', 'en', 'it', 'fr', 'de', 'bg', 'cs', 'da', 'el', 'es',
+  'fi', 'hr', 'hu', 'lt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'sv']);
 
 // ---------------------------------------------------------------- datubāze ---
 

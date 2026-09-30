@@ -100,7 +100,9 @@ CREATE TABLE IF NOT EXISTS leads (
   -- Valodas, kurās lapa pastāv. Ja sarakstam pievieno vēl vienu, datubāze ir
   -- jāizveido no jauna: CHECK ierobežojumu SQLite ar ALTER TABLE nemaina.
   lang         TEXT    NOT NULL DEFAULT 'lv'
-               CHECK (lang IN ('lv', 'en', 'it', 'fr', 'de')),
+               CHECK (lang IN ('lv', 'en', 'it', 'fr', 'de', 'bg', 'cs', 'da', 'el',
+                               'es', 'fi', 'hr', 'hu', 'lt', 'nl', 'pl', 'pt', 'ro',
+                               'sk', 'sl', 'sv')),
 
   created_at   TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),
   updated_at   TEXT    NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%SZ', 'now')),

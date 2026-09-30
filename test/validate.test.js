@@ -148,7 +148,8 @@ describe('validate() — karodziņi un valoda', () => {
   });
 
   test('pieņem visas lapas valodas, viss cits kļūst lv', () => {
-    for (const known of ['lv', 'en', 'it', 'fr', 'de']) {
+    for (const known of ['lv', 'en', 'it', 'fr', 'de', 'bg', 'cs', 'da', 'el', 'es',
+      'fi', 'hr', 'hu', 'lt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'sv']) {
       assert.equal(validate(validLead({ lang: known }), codes).lead.lang, known);
     }
     for (const other of ['ru', 'EN', 'en-GB', '', undefined, null, 7]) {

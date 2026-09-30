@@ -5,10 +5,11 @@ skenētos dokumentus nogādā tieši e-pastā, izmantojot inbox.eu SMTP.
 
 Lapas vienīgais mērķis ir noskaidrot, **vai produkts ir vajadzīgs**: tā
 paskaidro ideju un savāc priekšreģistrācijas pieteikumus. Forma prasa **tikai
-e-pastu**; segmentu, ierīču skaitu, zīmolus un modeli jautā turpat kartītē pēc
-tam, kad pieteikums jau ir saglabāts — pa vienam jautājumam, ar spiežamām
-pogām, un katra atbilde aiziet uz serveri uzreiz, tāpēc pusceļā pamesta
-aptauja tik un tā kaut ko pasaka.
+e-pastu**; segmentu, ierīču skaitu un zīmolu jautā turpat kartītē pēc tam,
+kad pieteikums jau ir saglabāts — trīs jautājumi, katrs ar vienu pieskārienu
+uz vienu no spiežamajām pogām (nav ne «Tālāk» pogas, ne brīvā teksta lauka),
+un katra atbilde aiziet uz serveri uzreiz, tāpēc pusceļā pamesta aptauja tik
+un tā kaut ko pasaka.
 
 ### Otrā iterācija
 
@@ -29,14 +30,18 @@ Kas mainījies pēc 8. septembra pārskatīšanas ar komandu:
   soļa savs laiks.
 - **Uzstādīšana** ir pārņemta 1:1 no kolēģa lapas: ievads par to, kā cilvēki
   līdz šai problēmai nonāk, tad četri soļi vertikālā sarakstā (ikona kolonnā,
-  numurs virsrakstā, laiks ieaudzēts tekstā, nevis atsevišķā nozīmītē), un
-  bultiņu josla, kas nodod lasītāju piekļuves datu tabulai. Tās pašas klases
-  un tās pašas CSS vērtības.
-- **Cena** ir skaitlis: 10 € gadā par ierīci, pirmajiem 10 — gads bez maksas.
+  numurs virsrakstā, laiks ieaudzēts tekstā, nevis atsevišķā nozīmītē). Tās
+  pašas klases un tās pašas CSS vērtības. (Bultiņu josla un «Ģenerētā
+  konfigurācija» piemēra tabula, kas te bija agrāk, ir noņemta — cits kolēģis,
+  kas no mūsu lapas atzaroja savu versiju, to izmeta, un mēs sekojām.)
+- **Cena** ir skaitlis: 10 € gadā par ierīci, pirmajiem 50 — gads bez maksas.
 - **BUJ** ir akordeons ar 14 jautājumiem, no kuriem daļa ir tehniska un tur
   ir SEO dēļ. Divi aizgūti no kolēģu lapām: «Kas ir ScanInbox?» ievadam un
   «Vai ar to var skenēt arī viesis?».
-- **Piecas valodas**: latviešu, angļu, itāļu, franču, vācu.
+- **21 valoda**: latviešu, angļu, itāļu, franču, vācu, bulgāru, čehu, dāņu,
+  grieķu, holandiešu, horvātu, lietuviešu, poļu, portugāļu, rumāņu, slovāku,
+  slovēņu, somu, spāņu, ungāru un zviedru — tāda pati izvēle, kāda ir kolēģa
+  nimda5 lapā.
 
 ## Publicētā lapa
 
@@ -66,7 +71,7 @@ Vecais `?lang=` joprojām strādā, lai jau izsūtītās saites nepārtrūktu.
   `index.html` nes `noindex, nofollow` — to noņem pirms palaišanas.
 
 Publicē CI darbplūsma no `main` zara: `.github/build-site.js` no viena
-`index.html` saliek sešas lapas — sakni un piecas valodas.
+`index.html` saliek 22 lapas — sakni un 21 valodu.
 
 > Pages avots ir jāieslēdz **vienu reizi** ar roku: Settings → Pages →
 > Source: **GitHub Actions**. Darbplūsma to nevar izdarīt pati — noklusējuma
@@ -262,14 +267,15 @@ Bash čaulā var norādīt failus tieši: `node --test test/*.test.js`.
       prasa arī nosaukt pārzini, tiesības un kontaktu. Bez tā palaist nedrīkst.
 - [ ] Apstiprināt, ka 10 € gadā par ierīci ir **ar PVN**. Lapa tā raksta, jo
       sadaļa «Mājās» uzrunā arī privātpersonas; ja cena ir bez PVN, jālabo
-      `price.unit`, `m4` un `hero.terms` visās piecās valodās
+      `price.unit`, `m4` un `hero.offer` visās valodās
 - [ ] Iedot reālu kontaktadresi. BUJ tagad saka «atbildi uz mūsu vēstuli»,
       nevis «raksti mums», jo adreses lapā nav
 - [ ] Uztaisīt `og:image` (1200×630) un pievienot to galvenē — pārējie
       dalīšanās tagi jau ir
 - [ ] Aizvietot `scaninbox.eu` adreses piemērus ar reālajām
-- [ ] Izlasīt visas piecas valodas ar dzīvām acīm — mašīntulkojums ir sākums, ne gals
-- [ ] Apstiprināt cenu 10 € gadā par ierīci un «pirmajiem 10» piedāvājumu
+- [ ] Izlasīt visas 21 valodu ar dzīvām acīm — mašīntulkojums ir sākums, ne
+      gals, un 16 no tām nekad nav lasījis cilvēks, kas runā šajā valodā
+- [ ] Apstiprināt cenu 10 € gadā par ierīci un «pirmajiem 50» piedāvājumu
 - [ ] Noņemt `noindex, nofollow` no `index.html`
 - [ ] Iestatīt `data/` dublēšanu
 - [ ] Pievienot analītiku, ja gribam mērīt konversiju

@@ -38,7 +38,8 @@ const path = require('node:path');
 const ROOT = path.join(__dirname, '..');
 const PAGE = path.join(ROOT, 'index.html');
 const DIR = path.join(ROOT, 'i18n');
-const LANGS = ['en', 'it', 'fr', 'de'];
+const LANGS = ['en', 'it', 'fr', 'de', 'bg', 'cs', 'da', 'el', 'es', 'fi',
+  'hr', 'hu', 'lt', 'nl', 'pl', 'pt', 'ro', 'sk', 'sl', 'sv'];
 
 const BEGIN = '<!-- I18N:BEGIN -->';
 const END = '<!-- I18N:END -->';
