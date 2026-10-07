@@ -100,6 +100,12 @@ function build(lang) {
   let html = src.replace(API_TAG, `<meta name="scaninbox:api" content="${API}">`)
     .replace(KEY_TAG, `<meta name="scaninbox:apikey" content="${API_KEY}">`);
 
+  // Stable root URLs work on every language page and are discoverable by crawlers.
+  html = html.replace(/<link rel="icon"[^>]*>/,
+    '<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48">\n' +
+    '<link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">\n' +
+    '<link rel="apple-touch-icon" href="/apple-touch-icon.png">');
+
   const dict = loadDict(lang);
   const title = escapeAttr(dict && dict['meta.title'] || LV_TITLE);
   const desc = escapeAttr(dict && dict['meta.desc'] || LV_DESC);
@@ -161,6 +167,9 @@ const written = ['', ...LANGS].map(build);
 fs.cpSync(path.join(ROOT, 'assets'), path.join(OUT, 'assets'), { recursive: true });
 // Public privacy notice has its own stable URL and does not load tracking tags.
 fs.cpSync(path.join(ROOT, 'privacy'), path.join(OUT, 'privacy'), { recursive: true });
+for (const icon of ['favicon.svg', 'favicon.ico', 'favicon.png', 'apple-touch-icon.png']) {
+  fs.copyFileSync(path.join(ROOT, icon), path.join(OUT, icon));
+}
 
 console.log(written.join('\n'));
 console.log(API ? `API: ${API}` : 'SCANINBOX_API not set — the published page will not save sign-ups');
