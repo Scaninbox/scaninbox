@@ -171,6 +171,20 @@ for (const icon of ['favicon.svg', 'favicon.ico', 'favicon.png', 'apple-touch-ic
   fs.copyFileSync(path.join(ROOT, icon), path.join(OUT, icon));
 }
 
+// List stable public pages, excluding the root language-selection redirect.
+if (SITE) {
+  const escapeXml = (value) => value.replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+  const urls = [...LANGS.map((lang) => `${SITE}/${lang}/`), `${SITE}/privacy/`];
+  const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n' +
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    urls.map((url) => `  <url><loc>${escapeXml(url)}</loc></url>`).join('\n') +
+    '\n</urlset>\n';
+  fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap, 'utf8');
+  fs.writeFileSync(path.join(OUT, 'robots.txt'),
+    `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`, 'utf8');
+}
+
 console.log(written.join('\n'));
 console.log(API ? `API: ${API}` : 'SCANINBOX_API not set — the published page will not save sign-ups');
 console.log(SITE ? `Root: ${SITE}` : 'SITE_URL not set — no canonical or hreflang');
