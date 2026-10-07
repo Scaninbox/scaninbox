@@ -161,5 +161,6 @@
   "msg.failed": "Det gick inte att skicka. Försök igen.",
   "meta.title": "ScanInbox",
   "meta.desc": "ScanInbox kopplar din skanner eller multifunktionsskrivare till e-post. Tryck på ”Skanna” — dokumentet finns redan i din brevlåda. Konfiguration på fem minuter. Anmäl dig nu: de första 50 får ett år gratis.",
-  "foot.privacy": "Integritetspolicy (engelska)"
+  "foot.privacy": "Integritetspolicy (engelska)",
+  "foot.heading": "Ett etablerat företag, inte ett helgprojekt"
 }

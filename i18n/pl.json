@@ -161,5 +161,6 @@
   "msg.failed": "Wysyłanie nie powiodło się. Spróbuj ponownie.",
   "meta.title": "ScanInbox",
   "meta.desc": "ScanInbox łączy Twój skaner lub drukarkę wielofunkcyjną z pocztą e-mail. Naciśnij «Skanuj» — dokument jest już w Twojej skrzynce. Konfiguracja w pięć minut. Zapisz się teraz: pierwszych 50 dostaje rok bezpłatnie.",
-  "foot.privacy": "Polityka prywatności (po angielsku)"
+  "foot.privacy": "Polityka prywatności (po angielsku)",
+  "foot.heading": "Firma z doświadczeniem, nie weekendowy projekt"
 }

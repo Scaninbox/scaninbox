@@ -161,5 +161,6 @@
   "msg.failed": "Afsendelse mislykkedes. Prøv igen.",
   "meta.title": "ScanInbox",
   "meta.desc": "ScanInbox forbinder din scanner eller multifunktionsprinter med e-mail. Tryk på “Scan” — dokumentet er allerede i din postkasse. Opsætning på fem minutter. Tilmeld dig nu: de første 50 får et år gratis.",
-  "foot.privacy": "Privatlivspolitik (engelsk)"
+  "foot.privacy": "Privatlivspolitik (engelsk)",
+  "foot.heading": "En etableret virksomhed, ikke et weekendprojekt"
 }

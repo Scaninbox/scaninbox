@@ -161,5 +161,6 @@
   "msg.failed": "Slanje nije uspjelo. Pokušaj ponovno.",
   "meta.title": "ScanInbox",
   "meta.desc": "ScanInbox povezuje tvoj skener ili višefunkcijski pisač s e-mailom. Pritisni «Skeniraj» — dokument je već u tvom sandučiću. Postavljanje u pet minuta. Prijavi se sada: prvih 50 dobiva godinu dana besplatno.",
-  "foot.privacy": "Pravila privatnosti (engleski)"
+  "foot.privacy": "Pravila privatnosti (engleski)",
+  "foot.heading": "Etablirana tvrtka, a ne vikend-projekt"
 }

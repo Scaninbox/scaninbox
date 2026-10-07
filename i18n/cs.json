@@ -161,5 +161,6 @@
   "msg.failed": "Odeslání se nezdařilo. Zkuste to znovu.",
   "meta.title": "ScanInbox",
   "meta.desc": "ScanInbox propojuje váš skener nebo multifunkční tiskárnu s e-mailem. Stiskněte «Skenovat» — dokument je už ve vaší schránce. Nastavení za pět minut. Přihlaste se teď: prvních 50 dostane rok zdarma.",
-  "foot.privacy": "Zásady ochrany osobních údajů (anglicky)"
+  "foot.privacy": "Zásady ochrany osobních údajů (anglicky)",
+  "foot.heading": "Zavedená společnost, ne víkendový projekt"
 }

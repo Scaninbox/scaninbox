@@ -161,5 +161,6 @@
   "msg.failed": "A küldés sikertelen. Próbáld újra.",
   "meta.title": "ScanInbox",
   "meta.desc": "A ScanInbox összeköti a szkenneredet vagy multifunkciós nyomtatódat az e-maillel. Nyomd meg a «Szkennelés» gombot — a dokumentum már ott is van a postaládádban. Beállítás öt perc alatt. Jelentkezz most: az első 50 egy évet kap ingyen.",
-  "foot.privacy": "Adatvédelmi tájékoztató (angolul)"
+  "foot.privacy": "Adatvédelmi tájékoztató (angolul)",
+  "foot.heading": "Egy tapasztalt vállalat, nem egy hétvégi projekt"
 }

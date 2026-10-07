@@ -161,5 +161,6 @@
   "msg.failed": "No se pudo enviar. Inténtalo de nuevo.",
   "meta.title": "ScanInbox",
   "meta.desc": "ScanInbox conecta tu escáner o impresora multifunción con el correo electrónico. Pulsa «Escanear» — el documento ya está en tu buzón. Configuración en cinco minutos. Inscríbete ya: los primeros 50 consiguen un año gratis.",
-  "foot.privacy": "Política de privacidad (inglés)"
+  "foot.privacy": "Política de privacidad (inglés)",
+  "foot.heading": "Una empresa consolidada, no un proyecto de fin de semana"
 }

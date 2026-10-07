@@ -161,5 +161,6 @@
   "msg.failed": "Lähetys epäonnistui. Yritä uudelleen.",
   "meta.title": "ScanInbox",
   "meta.desc": "ScanInbox yhdistää skannerisi tai monitoimitulostimesi sähköpostiin. Paina «Skannaa» — dokumentti on jo postilaatikossasi. Käyttöönotto viidessä minuutissa. Ilmoittaudu nyt: ensimmäiset 50 saavat vuoden ilmaiseksi.",
-  "foot.privacy": "Tietosuojakäytäntö (englanniksi)"
+  "foot.privacy": "Tietosuojakäytäntö (englanniksi)",
+  "foot.heading": "Vakiintunut yritys, ei viikonloppuprojekti"
 }
