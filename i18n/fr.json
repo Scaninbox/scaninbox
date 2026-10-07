@@ -160,5 +160,6 @@
   "msg.busy": "Trop de requêtes. Réessayez dans un instant.",
   "msg.failed": "L’envoi a échoué. Réessayez.",
   "meta.title": "ScanInbox",
-  "meta.desc": "ScanInbox relie votre scanner ou votre imprimante multifonction à l’e-mail. Appuyez sur « Numériser » — le document est déjà dans votre boîte mail. Configuration en cinq minutes. Inscrivez-vous maintenant : les 50 premiers reçoivent un an gratuit."
+  "meta.desc": "ScanInbox relie votre scanner ou votre imprimante multifonction à l’e-mail. Appuyez sur « Numériser » — le document est déjà dans votre boîte mail. Configuration en cinq minutes. Inscrivez-vous maintenant : les 50 premiers reçoivent un an gratuit.",
+  "foot.privacy": "Politique de confidentialité (anglais)"
 }

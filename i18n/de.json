@@ -160,5 +160,6 @@
   "msg.busy": "Zu viele Anfragen. Bitte versuchen Sie es in Kürze erneut.",
   "msg.failed": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut.",
   "meta.title": "ScanInbox",
-  "meta.desc": "ScanInbox verbindet Ihren Scanner oder Multifunktionsdrucker mit der E-Mail. Drücken Sie „Scannen“ – das Dokument ist schon in Ihrem Postfach. Einrichtung in fünf Minuten. Jetzt anmelden: Die ersten 50 erhalten ein Jahr kostenlos."
+  "meta.desc": "ScanInbox verbindet Ihren Scanner oder Multifunktionsdrucker mit der E-Mail. Drücken Sie „Scannen“ – das Dokument ist schon in Ihrem Postfach. Einrichtung in fünf Minuten. Jetzt anmelden: Die ersten 50 erhalten ein Jahr kostenlos.",
+  "foot.privacy": "Datenschutzerklärung (Englisch)"
 }

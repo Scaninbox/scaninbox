@@ -160,5 +160,6 @@
   "msg.busy": "Te veel aanvragen. Probeer het over een moment opnieuw.",
   "msg.failed": "Versturen mislukt. Probeer het opnieuw.",
   "meta.title": "ScanInbox",
-  "meta.desc": "ScanInbox verbindt je scanner of multifunctionele printer met e-mail. Druk op “Scannen” — het document staat al in je postvak. Instellen in vijf minuten. Meld je nu aan: de eerste 50 krijgen een jaar gratis."
+  "meta.desc": "ScanInbox verbindt je scanner of multifunctionele printer met e-mail. Druk op “Scannen” — het document staat al in je postvak. Instellen in vijf minuten. Meld je nu aan: de eerste 50 krijgen een jaar gratis.",
+  "foot.privacy": "Privacybeleid (Engels)"
 }

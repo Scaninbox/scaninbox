@@ -160,5 +160,6 @@
   "msg.busy": "Demasiadas solicitudes. Inténtalo de nuevo en un momento.",
   "msg.failed": "No se pudo enviar. Inténtalo de nuevo.",
   "meta.title": "ScanInbox",
-  "meta.desc": "ScanInbox conecta tu escáner o impresora multifunción con el correo electrónico. Pulsa «Escanear» — el documento ya está en tu buzón. Configuración en cinco minutos. Inscríbete ya: los primeros 50 consiguen un año gratis."
+  "meta.desc": "ScanInbox conecta tu escáner o impresora multifunción con el correo electrónico. Pulsa «Escanear» — el documento ya está en tu buzón. Configuración en cinco minutos. Inscríbete ya: los primeros 50 consiguen un año gratis.",
+  "foot.privacy": "Política de privacidad (inglés)"
 }

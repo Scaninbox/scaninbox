@@ -160,5 +160,6 @@
   "msg.busy": "Too many requests. Please try again in a moment.",
   "msg.failed": "Sending failed. Please try again.",
   "meta.title": "ScanInbox",
-  "meta.desc": "ScanInbox connects your scanner or multifunction printer to e-mail. Press “Scan” — the document is already in your mailbox. Setup in five minutes. Sign up now: the first 50 get a year free."
+  "meta.desc": "ScanInbox connects your scanner or multifunction printer to e-mail. Press “Scan” — the document is already in your mailbox. Setup in five minutes. Sign up now: the first 50 get a year free.",
+  "foot.privacy": "Privacy policy (English)"
 }

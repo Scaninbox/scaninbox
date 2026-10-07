@@ -160,5 +160,6 @@
   "msg.busy": "Príliš veľa požiadaviek. Skúste to o chvíľu znova.",
   "msg.failed": "Odoslanie zlyhalo. Skúste to znova.",
   "meta.title": "ScanInbox",
-  "meta.desc": "ScanInbox prepája váš skener alebo multifunkčnú tlačiareň s e-mailom. Stlačte «Skenovať» — dokument je už vo vašej schránke. Nastavenie za päť minút. Prihláste sa teraz: prvých 50 dostane rok zdarma."
+  "meta.desc": "ScanInbox prepája váš skener alebo multifunkčnú tlačiareň s e-mailom. Stlačte «Skenovať» — dokument je už vo vašej schránke. Nastavenie za päť minút. Prihláste sa teraz: prvých 50 dostane rok zdarma.",
+  "foot.privacy": "Zásady ochrany osobných údajov (anglicky)"
 }

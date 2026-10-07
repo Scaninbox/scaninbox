@@ -127,6 +127,7 @@
   "faq.a13": "Jā. Klients, revidents vai kolēģis var printera ekrānā norādīt savu e-pasta adresi un nosūtīt dokumentu sev. Atsevišķs ScanInbox konts katram saņēmējam nav vajadzīgs. Jāiestata tikai pats printeris.",
   "faq.q12": "Ko jūs darāt ar manu e-pasta adresi?",
   "faq.a12": "Glabājam tavu e-pasta adresi, izvēlēto lapas valodu un brīvprātīgi sniegtās atbildes, lai sazinātos par ScanInbox un plānotu tā izstrādi. IP adresi un pārlūka datus neglabājam. Tavu adresi neizmantojam reklāmai vai citām ziņu vēstulēm un nenododam citiem. Datus glabājam līdz pakalpojuma darbības sākumam, bet ne ilgāk par 24 mēnešiem. Ja vēlies atteikties, atbildi uz mūsu e-pastu ar «nē». Dažu darbdienu laikā izdzēsīsim tavu adresi un atbildes.",
+  "foot.privacy": "Privātuma politika (angļu valodā)",
   "foot.about": "ScanInbox veido inbox.eu komanda ar vairāk nekā 20 gadu pieredzi e-pasta infrastruktūras uzturēšanā. Dokumentu nosūtīšanai un glabāšanai paredzēts izmantot šo pašu infrastruktūru un inbox.eu API.",
   "foot.id": "<b>ScanInbox</b> — topošs inbox.eu pakalpojums.",
   "foot.note": "ScanInbox vēl top. Šeit vari pieteikties, lai saņemtu ziņu par pakalpojuma pieejamību; pašlaik to vēl nevar iegādāties. Ražotāju nosaukumi ir to īpašnieku preču zīmes. ScanInbox nav saistīts ar minētajiem ražotājiem.",

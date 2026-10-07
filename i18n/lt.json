@@ -160,5 +160,6 @@
   "msg.busy": "Per daug užklausų. Bandyk dar kartą po akimirkos.",
   "msg.failed": "Siųsti nepavyko. Bandyk dar kartą.",
   "meta.title": "ScanInbox",
-  "meta.desc": "ScanInbox sujungia tavo skenerį ar daugiafunkcį spausdintuvą su e. paštu. Paspausk «Skenuoti» — dokumentas jau tavo pašto dėžutėje. Nustatymas per penkias minutes. Užsiregistruok dabar: pirmieji 50 gauna metus nemokamai."
+  "meta.desc": "ScanInbox sujungia tavo skenerį ar daugiafunkcį spausdintuvą su e. paštu. Paspausk «Skenuoti» — dokumentas jau tavo pašto dėžutėje. Nustatymas per penkias minutes. Užsiregistruok dabar: pirmieji 50 gauna metus nemokamai.",
+  "foot.privacy": "Privatumo politika (anglų kalba)"
 }

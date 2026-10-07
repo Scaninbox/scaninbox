@@ -160,5 +160,6 @@
   "msg.busy": "Prea multe solicitări. Încearcă din nou peste un moment.",
   "msg.failed": "Trimiterea a eșuat. Încearcă din nou.",
   "meta.title": "ScanInbox",
-  "meta.desc": "ScanInbox conectează scanerul sau imprimanta ta multifuncțională la e-mail. Apasă «Scanează» — documentul este deja în căsuța ta. Configurare în cinci minute. Înscrie-te acum: primii 50 primesc un an gratuit."
+  "meta.desc": "ScanInbox conectează scanerul sau imprimanta ta multifuncțională la e-mail. Apasă «Scanează» — documentul este deja în căsuța ta. Configurare în cinci minute. Înscrie-te acum: primii 50 primesc un an gratuit.",
+  "foot.privacy": "Politica de confidențialitate (engleză)"
 }

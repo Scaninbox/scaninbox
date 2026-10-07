@@ -159,6 +159,8 @@ function build(lang) {
 fs.rmSync(OUT, { recursive: true, force: true });
 const written = ['', ...LANGS].map(build);
 fs.cpSync(path.join(ROOT, 'assets'), path.join(OUT, 'assets'), { recursive: true });
+// Public privacy notice has its own stable URL and does not load tracking tags.
+fs.cpSync(path.join(ROOT, 'privacy'), path.join(OUT, 'privacy'), { recursive: true });
 
 console.log(written.join('\n'));
 console.log(API ? `API: ${API}` : 'SCANINBOX_API not set — the published page will not save sign-ups');
