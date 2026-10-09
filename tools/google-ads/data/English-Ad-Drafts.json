@@ -1,0 +1,56 @@
+[
+  {
+    "headlines": [
+      "Sign Up for ScanInbox",
+      "Printer Scan-to-Email SMTP",
+      "SMTP for Office Printers",
+      "Built by the inbox.eu Team",
+      "ScanInbox by inbox.eu",
+      "Simpler Printer Email Setup"
+    ],
+    "descriptions": [
+      "Office printer SMTP from the inbox.eu team. Sign up for ScanInbox.",
+      "Looking for SMTP for your office printer? Sign up and tell us your printer model.",
+      "Scan-to-email for office printers. Sign up for ScanInbox by inbox.eu."
+    ],
+    "path1": "printer-smtp",
+    "path2": "sign-up",
+    "final_url": "https://scaninbox.me/en/"
+  },
+  {
+    "headlines": [
+      "Sign Up for ScanInbox",
+      "Office Printer Email Setup",
+      "A Simpler SMTP Setup",
+      "Built by the inbox.eu Team",
+      "ScanInbox by inbox.eu",
+      "Your Scan-to-Email Setup"
+    ],
+    "descriptions": [
+      "Simpler scan-to-email setup for office printers. Sign up for ScanInbox.",
+      "From the inbox.eu team. Sign up and tell us about your printer email setup.",
+      "Office printer email setup with ScanInbox. Sign up and share your printer model."
+    ],
+    "path1": "printer-email",
+    "path2": "sign-up",
+    "final_url": "https://scaninbox.me/en/"
+  },
+  {
+    "headlines": [
+      "Sign Up for ScanInbox",
+      "Printer SMTP Beyond Your 365",
+      "SMTP for Office Printers",
+      "Built by the inbox.eu Team",
+      "ScanInbox by inbox.eu",
+      "A Separate Printer SMTP Setup"
+    ],
+    "descriptions": [
+      "Looking beyond your Microsoft 365 SMTP setup? Sign up for ScanInbox by inbox.eu.",
+      "A separate SMTP approach for office printers. Sign up and tell us your printer model.",
+      "Printer SMTP from the inbox.eu team. Sign up for ScanInbox."
+    ],
+    "path1": "printer-smtp",
+    "path2": "sign-up",
+    "final_url": "https://scaninbox.me/en/"
+  }
+]

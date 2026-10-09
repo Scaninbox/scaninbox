@@ -25,3 +25,7 @@ __pycache__/
 google-ads-desktop-client.json
 google-ads-user-token.json
 tools/google-ads/reports/
+
+# Public campaign inputs; keep excluding the website's private data directory
+!tools/google-ads/data/
+!tools/google-ads/data/*.json
