@@ -14,3 +14,14 @@ node_modules/
 
 # Pages build izvade — atjauno ar .github/build-site.js
 _site/
+
+# Local Google Ads credentials, environments and generated reports
+.secrets/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+google-ads-desktop-client.json
+google-ads-user-token.json
+tools/google-ads/reports/

@@ -1,5 +1,24 @@
 # ScanInbox — landing page
 
+## Google Ads tools and campaign files
+
+The English Google Ads CSV, Python API scripts, dependency files, and usage
+instructions are available in [tools/google-ads](tools/google-ads/README.md).
+
+- [Campaign CSV and import instructions](tools/google-ads/CAMPAIGN.md): 154
+  exact-match keywords and three responsive search ads for Ireland.
+- [API setup and command reference](tools/google-ads/README.md): OAuth setup,
+  account checks, language/location lookup, and keyword research.
+- [Campaign preparation script](tools/google-ads/prepare_eng_campaign.py) and
+  [launch script](tools/google-ads/launch_eng_campaign.py): documented snapshots
+  of the 9 October 2026 experiment.
+
+The Ireland campaign was enabled on 9 October 2026. It has a **€25 total
+campaign budget**, a **€0.10 maximum CPC bid**, and ends on **8 November 2026**.
+Check the live account before making changes; do not create a second campaign
+by importing the CSV into a different campaign name. Credentials and OAuth
+tokens are not included in this repository.
+
 A product-idea validation page for **ScanInbox** — an inbox.eu service that
 delivers scanned documents straight to e-mail, using inbox.eu SMTP.
 

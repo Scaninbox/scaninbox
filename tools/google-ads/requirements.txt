@@ -1,0 +1,2 @@
+google-ads>=32,<33
+google-auth-oauthlib>=1.2,<2
