@@ -2,11 +2,13 @@
 
 ## Google Ads tools and campaign files
 
-The English Google Ads CSV, Python API scripts, dependency files, and usage
+The English and Latvian Google Ads CSVs, Python API scripts, dependency files, and usage
 instructions are available in [tools/google-ads](tools/google-ads/README.md).
 
 - [Campaign CSV and import instructions](tools/google-ads/CAMPAIGN.md): 154
   exact-match keywords and three responsive search ads for Ireland.
+- [Latvia campaign CSV and settings](tools/google-ads/CAMPAIGN-LV.md): 186
+  enabled exact-match keywords, one paused duplicate and three Latvian ads.
 - [API setup and command reference](tools/google-ads/README.md): OAuth setup,
   account checks, language/location lookup, and keyword research.
 - [Campaign preparation script](tools/google-ads/prepare_eng_campaign.py) and
@@ -18,6 +20,11 @@ campaign budget**, a **€0.10 maximum CPC bid**, and ends on **8 November 2026*
 Check the live account before making changes; do not create a second campaign
 by importing the CSV into a different campaign name. Credentials and OAuth
 tokens are not included in this repository.
+
+The Latvia campaign is scheduled for **13 October–12 November 2026**, with a
+separate **€25 total campaign budget** and **€0.10 maximum CPC bid**. It uses
+Latvian ads and both Latvian and English keywords. The Python preparation and
+launch scripts remain specific to the Ireland experiment.
 
 A product-idea validation page for **ScanInbox** — an inbox.eu service that
 delivers scanned documents straight to e-mail, using inbox.eu SMTP.
