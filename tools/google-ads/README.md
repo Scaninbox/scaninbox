@@ -1,6 +1,6 @@
 # ScanInbox Google Ads API tools
 
-This directory contains the English campaign CSV and the Python scripts used
+This directory contains the English and Latvian campaign CSVs and the Python scripts used
 to research and prepare the ScanInbox Ireland experiment. The scripts run
 locally with Google's official Python client library. They are not part of
 the public website build.
@@ -11,6 +11,10 @@ the public website build.
 | --- | --- |
 | `ScanInbox-ENG-154-Keywords-and-Ads.csv` | Google Ads Editor import: 154 exact-match keywords and three responsive search ads. |
 | [CAMPAIGN.md](CAMPAIGN.md) | CSV import instructions, targeting, budget, dates and campaign checks. |
+| `ScanInbox-LV-187-Keywords-and-Ads.csv` | Latvia import: 186 enabled exact-match keywords, one paused duplicate and three Latvian responsive search ads. |
+| [CAMPAIGN-LV.md](CAMPAIGN-LV.md) | Latvia settings, comparison with Ireland, import caveats and measurement status. |
+| `data/latvian-keywords.json` | Latvia keyword records with explicit ad groups, match type, bids and status. |
+| `data/Latvian-Ad-Drafts.json` | Three Latvian ads, with six headlines and two descriptions each. |
 | `ads_research.py` | Read-only account checks, language/location lookup and keyword ideas. |
 | `prepare_eng_campaign.py` | Validates campaign operations; the `create` command saves a paused campaign. |
 | `launch_eng_campaign.py` | Checks the original experiment and enables its specific campaign. |
@@ -19,7 +23,7 @@ the public website build.
 | `requirements.txt` | Supported dependency ranges. |
 | `requirements.lock.txt` | The dependency versions used for the October 2026 experiment. |
 
-## Current experiment
+## Ireland experiment
 
 Account: `821-195-4796`. Campaign: `24331063425`.
 The campaign was enabled on **9 October 2026** and ends on **8 November 2026
@@ -28,6 +32,20 @@ Maximum CPC bid: **€0.10**. See [CAMPAIGN.md](CAMPAIGN.md) for all settings.
 The creation and launch scripts are dated snapshots of that experiment.
 Use read-only commands to inspect an existing campaign; do not rerun creation
 or launch as a setup step. Approval and delivery status can change in Google Ads.
+
+## Latvia experiment
+
+Account: `821-195-4796`. Campaign: `24348983011`.
+Scheduled for **13 October–12 November 2026**, in Europe/Riga account time,
+with a separate **€25 total campaign budget** and **€0.10 maximum CPC bid**.
+See [CAMPAIGN-LV.md](CAMPAIGN-LV.md) for the 12 October snapshot and import
+instructions. Latvian ads target Latvia using English and Latvian keywords.
+
+The Latvian JSON files are companion data for this campaign, not inputs to
+the existing Python preparation or launch scripts. Their explicit ad-group
+and status fields preserve the live grouping and the paused duplicate.
+Do not substitute them for the English JSON files or run the Ireland launch
+script for Latvia. No Latvia API creation or launch script is included.
 
 ## Install
 
