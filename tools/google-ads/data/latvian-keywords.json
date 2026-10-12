@@ -1,0 +1,1316 @@
+{
+  "campaign_id": "24348983011",
+  "campaign_name": "ScanInbox | LV | Latvia | Desktop | EUR25",
+  "snapshot_date": "2026-10-12",
+  "keywords": [
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "affordable smtp relay for printers",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "cheap smtp server for printers",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "command center rx kyocera smtp",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "free scan to email smtp",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "free smtp for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "free smtp relay for printers",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "free smtp relay for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "free smtp server for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "google smtp for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "google smtp scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "google smtp server for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "printer scan to email stopped working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "printer scan to email without computer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "printer smtp service",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "printer smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "printera smtp iestatījumi",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan directly to email without computer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan document to email online free",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan from printer directly to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email any email address",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email app for android",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email app for iphone",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email basic authentication",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email multiple users",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email relay service",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email service for printers",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email service for small business",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email smtp",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email smtp auth disabled",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email smtp provider",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email smtp relay",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email smtp server",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email smtp service",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email software for windows",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email without computer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "scan to email without static ip",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "send scanned documents directly to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "shaw smtp server scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp iestatījumi skenerim",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp pakalpojums printerim",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp relay for legacy printers",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp relay for printers",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp relay for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp relay service for printers",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp server for multifunction printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp server for office printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp server for printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp server for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp server for scanner",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp server scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp serveris printerim",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp serveris skenerim",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp service for office scanners",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp service for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Printeru SMTP",
+      "keyword": "smtp2go scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "brother scan to email not working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "brother scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "brother scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "canon scan to email not working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "canon scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "canon scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "comcast smtp settings for scanner",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "epson scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "epson scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "failed smtp authentication toshiba gmail",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail scanner smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail smtp scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail smtp server scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail smtp server settings for hp printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail smtp server settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail smtp settings for hp printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail smtp settings for ricoh printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "gmail smtp settings scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "google smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "hotmail smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how do i set up my kyocera scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how do i set up scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how do i setup my epson printer for email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how do i setup my hp printer for email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how do i setup my printer to scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to configure scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up brother printer to scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up brother scanner to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up email scan on hp printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up hp printer scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up hp printer to scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up hp scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up printer to scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up scan to email on brother printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up scan to email on epson printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up scan to email on hp printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up scan to email on konica minolta",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to set up scan to email on ricoh",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to setup a printer to scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to setup scan to email for hp printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to setup scan to email hp printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to setup scan to email in hp printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to setup scan to email on hp",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "how to setup scan to email on hp printer mac",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "hp how to setup scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "hp scan to email not working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "hp scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "hp scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "konica minolta gmail smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "konica minolta scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "konica minolta smtp settings gmail",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "kyocera scan to email not working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "kyocera scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "kyocera scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "kā iestatīt skenēšanu uz epastu",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "multifunction printer scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "nosūtīt skenētu dokumentu uz epastu",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "outlook com smtp settings for scanner",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "outlook smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "printer scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "printer smtp authentication error",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "printera skenēšana uz e-pastu",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "ricoh gmail smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "ricoh scan to email not working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "ricoh scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "ricoh scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "ricoh scan to email smtp settings gmail",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scan to email gmail smtp",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scan to email gmail smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scan to email outlook smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scan to email service",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scan to email without gmail",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scan to gmail smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scanner scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "scanner smtp authentication failed",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "skenēt uz epastu",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "skenēšana no printera uz epastu",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "skenēšana uz e-pastu",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "smtp for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Paused"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "smtp gmail scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "smtp scan to email gmail",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "smtp settings for gmail scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "use gmail smtp for scanner",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "xerox scan to email not working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "xerox scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Skenēšana uz e-pastu",
+      "keyword": "yahoo smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "alternative to office 365 scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "canon smtp settings for office 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "microsoft 365 scan to email not working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "microsoft 365 scan to email setup",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "microsoft 365 skenēšana uz epastu",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "microsoft 365 smtp printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "microsoft 365 smtp relay for printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "microsoft 365 smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "o365 smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "o365 smtp settings scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 printera iestatījumi",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 scan to email not working",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 scan to email smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 smtp relay for scanner",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 smtp relay printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 smtp server for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 smtp server settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 smtp settings for scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 smtp settings for scanner",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "office 365 smtp settings scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "printera smtp microsoft 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scan to email external recipients office 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scan to email oauth alternative",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scan to email office 365 smtp settings",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scan to email smtp server office 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scan to email smtp settings office 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scan to email without microsoft 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scan to email without oauth",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scan to email without office 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "scanner smtp office 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "smtp alternative for office 365 printer",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "smtp office 365 scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "smtp relay for office 365 scanner",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "smtp scan to email office 365",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "smtp server office 365 scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "smtp settings for office 365 scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    },
+    {
+      "ad_group": "Microsoft 365 un SMTP",
+      "keyword": "smtp settings office 365 scan to email",
+      "match_type": "Exact",
+      "max_cpc_eur": 0.1,
+      "status": "Enabled"
+    }
+  ]
+}

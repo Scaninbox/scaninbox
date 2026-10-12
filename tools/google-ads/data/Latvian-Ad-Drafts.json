@@ -1,0 +1,62 @@
+[
+  {
+    "ad_group": "Printeru SMTP",
+    "headlines": [
+      "Piesakies ScanInbox",
+      "SMTP biroja printeriem",
+      "Printera SMTP iestatījumi",
+      "No printera uz e-pastu",
+      "ScanInbox no inbox.eu",
+      "Risinājums biroja skeneriem"
+    ],
+    "descriptions": [
+      "Meklē SMTP risinājumu printerim? Piesakies ScanInbox no inbox.eu komandas.",
+      "Skenēšana uz e-pastu mājām un birojam. Iepazīsti ScanInbox un piesakies."
+    ],
+    "status": "Enabled",
+    "final_url": "https://scaninbox.me/lv/",
+    "path1": "",
+    "path2": "",
+    "headline_1_position": null
+  },
+  {
+    "ad_group": "Skenēšana uz e-pastu",
+    "headlines": [
+      "Piesakies ScanInbox",
+      "Skenēšana uz e-pastu",
+      "Scan to Email printeriem",
+      "Dokumenti tavā e-pastā",
+      "Mājām un birojam",
+      "ScanInbox no inbox.eu"
+    ],
+    "descriptions": [
+      "Interesē skenēšana no printera uz e-pastu? Iepazīsti ScanInbox un piesakies.",
+      "SMTP risinājums biroja printeriem no inbox.eu komandas. Piesakies ScanInbox."
+    ],
+    "status": "Enabled",
+    "final_url": "https://scaninbox.me/lv/",
+    "path1": "",
+    "path2": "",
+    "headline_1_position": null
+  },
+  {
+    "ad_group": "Microsoft 365 un SMTP",
+    "headlines": [
+      "Piesakies ScanInbox",
+      "Printera SMTP un Microsoft 365",
+      "SMTP biroja printeriem",
+      "Atsevišķs SMTP printerim",
+      "Skenēšana uz e-pastu",
+      "ScanInbox no inbox.eu"
+    ],
+    "descriptions": [
+      "Meklē atsevišķu SMTP risinājumu savam printerim? Piesakies ScanInbox no inbox.eu.",
+      "Lieto Microsoft 365? Iepazīsti ScanInbox pieeju skenēšanai uz e-pastu."
+    ],
+    "status": "Enabled",
+    "final_url": "https://scaninbox.me/lv/",
+    "path1": "",
+    "path2": "",
+    "headline_1_position": null
+  }
+]
