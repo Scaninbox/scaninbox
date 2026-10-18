@@ -1,0 +1,112 @@
+{
+  "lang": "pt",
+  "language_name": "Portuguese",
+  "country": "Portugal",
+  "geo_id": 2620,
+  "campaign_name": "ScanInbox | PT | Portugal | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/pt/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "servidor smtp para impressora",
+        "definições smtp da impressora",
+        "smtp relay para impressora",
+        "servidor smtp para scanner",
+        "smtp para impressoras de escritório",
+        "conta smtp para impressora",
+        "servidor smtp externo impressora",
+        "dados smtp para scanner",
+        "serviço smtp para impressoras",
+        "smtp para impressora multifunções",
+        "servidor smtp para digitalização",
+        "solução smtp para impressora",
+        "smtp para fotocopiadora",
+        "credenciais smtp impressora"
+      ],
+      "ad": {
+        "headlines": [
+          "Registe-se no ScanInbox",
+          "SMTP para impressoras",
+          "Definições SMTP da impressora",
+          "Da impressora para o e-mail",
+          "ScanInbox da inbox.eu",
+          "Solução para scanners"
+        ],
+        "descriptions": [
+          "À procura de uma solução SMTP para a impressora? Registe-se no ScanInbox da inbox.eu.",
+          "Digitalizar para e-mail em casa e no escritório. Conheça o ScanInbox e registe-se.",
+          "SMTP para impressoras de escritório da equipa inbox.eu. Registe-se no ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "configurar scan to email",
+        "digitalizar para e-mail impressora",
+        "como ativar digitalizar para e-mail",
+        "scan to email para escritório",
+        "digitalização para e-mail escritório",
+        "solução scan to email",
+        "enviar digitalizações por e-mail",
+        "scan to email impressora multifunções",
+        "digitalizar da impressora para email",
+        "configurar scanner para e-mail",
+        "serviço scan to email",
+        "scan to email servidor smtp",
+        "digitalizar para o email",
+        "digitalizar para email smtp"
+      ],
+      "ad": {
+        "headlines": [
+          "Registe-se no ScanInbox",
+          "Digitalizar para e-mail",
+          "Scan to Email para impressoras",
+          "Documentos no seu e-mail",
+          "Em casa e no escritório",
+          "ScanInbox da inbox.eu"
+        ],
+        "descriptions": [
+          "Quer digitalizar da impressora para o e-mail? Conheça o ScanInbox e registe-se.",
+          "Solução SMTP para impressoras de escritório da equipa inbox.eu. Registe-se no ScanInbox.",
+          "Configurar o scan to email no escritório? Conheça o ScanInbox da inbox.eu e registe-se."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "microsoft 365 smtp para impressora",
+        "office 365 smtp impressora digitalização",
+        "smtp auth desativado microsoft 365 impressora",
+        "exchange online smtp impressora",
+        "alternativa smtp microsoft 365",
+        "scan to email microsoft 365",
+        "digitalizar para e-mail office 365",
+        "enviar digitalizações com microsoft 365",
+        "servidor smtp alternativo digitalização",
+        "smtp relay microsoft 365 impressora",
+        "exchange online scan to email",
+        "autenticação básica smtp impressora",
+        "smtp office 365 para scanner",
+        "microsoft 365 bloqueia smtp auth impressora"
+      ],
+      "ad": {
+        "headlines": [
+          "Registe-se no ScanInbox",
+          "Impressora e Microsoft 365",
+          "SMTP para impressoras",
+          "SMTP separado para impressora",
+          "Digitalizar para e-mail",
+          "ScanInbox da inbox.eu"
+        ],
+        "descriptions": [
+          "À procura de um SMTP separado para a impressora? Registe-se no ScanInbox da inbox.eu.",
+          "Usa o Microsoft 365? Conheça a abordagem do ScanInbox para digitalizar para e-mail.",
+          "ScanInbox da inbox.eu: SMTP para impressoras a par do Microsoft 365. Registe-se."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "lang": "sv",
+  "language_name": "Swedish",
+  "country": "Sweden",
+  "geo_id": 2752,
+  "campaign_name": "ScanInbox | SV | Sweden | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/sv/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": ["smtp server för skrivare","smtp inställningar skrivare","smtp relay för skrivare","smtp för skanner","smtp server för skanner","smtp för kontorsskrivare","smtp server flerfunktionsskrivare","skrivare smtp server","smtp relay scan till e-post","extern smtp för skrivare","smtp inloggning för skrivare","smtp konto för skrivare","smtp server för kopiator","smtp lösning för skrivare","smtp relay för skanner","smtp konfiguration skrivare"],
+      "ad": {
+        "headlines": ["Anmäl dig till ScanInbox","SMTP för kontorsskrivare","SMTP-inställningar skrivare","Från skrivare till e-post","ScanInbox från inbox.eu","Lösning för kontorsskannrar"],
+        "descriptions": ["Söker du SMTP för din skrivare? Anmäl dig till ScanInbox från inbox.eu-teamet.","Skanna till e-post från skrivare eller skanner. Lär känna ScanInbox och anmäl dig.","SMTP-lösning för kontorsskrivare från inbox.eu-teamet. Anmäl dig till ScanInbox."]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": ["scan till e-post inställning","ställa in scan till e-post","scan till e-post lösning","skanna från skrivare till e-post","hur skannar man till e-post","aktivera scan till e-post","scan till e-post kontor","scan till e-post flerfunktionsskrivare","skanna dokument till e-post","scan till e-post utan egen mailserver","skicka skanningar via e-post från skrivare","scan till e-post funktion","scan till e-post kopiator","skanner till e-post inställning","skanna till e-post skrivare","konfigurera scan till e-post"],
+      "ad": {
+        "headlines": ["Anmäl dig till ScanInbox","Skanna till e-post","Scan to Email för skrivare","Dokument i din inkorg","För hemmet och kontoret","ScanInbox från inbox.eu"],
+        "descriptions": ["Intresserad av att skanna från skrivaren till e-post? Lär känna ScanInbox och anmäl dig.","SMTP-lösning för kontorsskrivare från inbox.eu-teamet. Anmäl dig till ScanInbox.","Skanna till e-post för hemmet och kontoret. Anmäl dig till ScanInbox från inbox.eu."]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": ["microsoft 365 smtp skrivare","office 365 smtp för skrivare","smtp auth microsoft 365 skrivare","exchange online smtp skanner","scan till e-post microsoft 365","alternativ till microsoft 365 smtp skrivare","smtp auth avstängd skrivare","smtp auth blockerad skanner","office 365 scan till e-post","microsoft 365 smtp relay skrivare","exchange online scan till e-post","microsoft 365 blockerar smtp auth","skrivare smtp microsoft 365","alternativ smtp för skanning","office 365 smtp relay skanner","microsoft 365 smtp auth för skrivare"],
+      "ad": {
+        "headlines": ["Anmäl dig till ScanInbox","Skrivar-SMTP och Microsoft 365","SMTP för kontorsskrivare","Separat SMTP för skrivaren","Skanna till e-post","ScanInbox från inbox.eu"],
+        "descriptions": ["Söker du en separat SMTP-lösning för skrivaren? Anmäl dig till ScanInbox, inbox.eu.","Använder du Microsoft 365? Lär känna ScanInbox sätt att skanna till e-post.","SMTP för skrivare från inbox.eu-teamet. Anmäl dig till ScanInbox och håll dig uppdaterad."]
+      }
+    }
+  ]
+}

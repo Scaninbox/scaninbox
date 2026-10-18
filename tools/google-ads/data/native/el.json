@@ -1,0 +1,112 @@
+{
+  "lang": "el",
+  "language_name": "Greek",
+  "country": "Greece",
+  "geo_id": 2300,
+  "campaign_name": "ScanInbox | EL | Greece | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/el/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "smtp server για εκτυπωτή",
+        "smtp ρυθμίσεις εκτυπωτή",
+        "smtp για σαρωτή",
+        "smtp server για σαρωτή",
+        "smtp relay για εκτυπωτή",
+        "smtp για εκτυπωτές γραφείου",
+        "εξωτερικός smtp για εκτυπωτή",
+        "smtp λογαριασμός για εκτυπωτή",
+        "smtp για πολυμηχάνημα",
+        "smtp πολυμηχανήματος",
+        "στοιχεία smtp για εκτυπωτή",
+        "smtp για φωτοτυπικό",
+        "smtp αυθεντικοποίηση εκτυπωτή",
+        "smtp διακομιστής εκτυπωτή"
+      ],
+      "ad": {
+        "headlines": [
+          "Εγγραφή στο ScanInbox",
+          "SMTP για εκτυπωτές γραφείου",
+          "Ρυθμίσεις SMTP εκτυπωτή",
+          "Από τον εκτυπωτή στο email",
+          "ScanInbox από το inbox.eu",
+          "Λύση για σαρωτές γραφείου"
+        ],
+        "descriptions": [
+          "Ψάχνετε λύση SMTP για εκτυπωτή; Εγγραφείτε στο ScanInbox από την ομάδα του inbox.eu.",
+          "Σάρωση σε email για το σπίτι και το γραφείο. Γνωρίστε το ScanInbox και εγγραφείτε.",
+          "SMTP για εκτυπωτές γραφείου από το inbox.eu. Εγγραφείτε και θα σας ενημερώσουμε."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "σάρωση σε email",
+        "σάρωση σε email από εκτυπωτή",
+        "σάρωση εγγράφων σε email",
+        "πώς να ρυθμίσω σάρωση σε email",
+        "ρύθμιση σάρωσης σε email",
+        "scan to email ρύθμιση",
+        "scan to email για εκτυπωτή",
+        "scan to email λύση",
+        "αποστολή σαρωμένων εγγράφων με email",
+        "σάρωση από σαρωτή σε email",
+        "ενεργοποίηση σάρωσης σε email",
+        "σάρωση σε email για γραφείο",
+        "scan to email για γραφείο",
+        "σάρωση σε ηλεκτρονικό ταχυδρομείο"
+      ],
+      "ad": {
+        "headlines": [
+          "Εγγραφή στο ScanInbox",
+          "Σάρωση σε email",
+          "Scan to Email για εκτυπωτές",
+          "Έγγραφα στο email σας",
+          "Για σπίτι και γραφείο",
+          "ScanInbox από το inbox.eu"
+        ],
+        "descriptions": [
+          "Σας ενδιαφέρει η σάρωση από τον εκτυπωτή σε email; Γνωρίστε το ScanInbox.",
+          "Λύση SMTP για εκτυπωτές γραφείου από το inbox.eu. Εγγραφείτε στο ScanInbox.",
+          "Η σάρωση σε email θέλει σωστό SMTP. Εγγραφείτε στο ScanInbox από το inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "microsoft 365 smtp για εκτυπωτή",
+        "office 365 smtp για εκτυπωτή",
+        "smtp auth microsoft 365 εκτυπωτής",
+        "exchange online smtp για σαρωτή",
+        "αποστολή από εκτυπωτή μέσω microsoft 365",
+        "σάρωση σε email με microsoft 365",
+        "σάρωση σε email office 365",
+        "εναλλακτικός smtp για εκτυπωτή",
+        "εναλλακτική στο smtp της microsoft 365",
+        "το microsoft 365 μπλοκάρει smtp auth",
+        "απενεργοποίηση smtp auth microsoft 365",
+        "smtp relay microsoft 365 εκτυπωτής",
+        "exchange online σάρωση σε email",
+        "office 365 scan to email"
+      ],
+      "ad": {
+        "headlines": [
+          "Εγγραφή στο ScanInbox",
+          "SMTP εκτυπωτή & Microsoft 365",
+          "SMTP για εκτυπωτές γραφείου",
+          "Ξεχωριστό SMTP για εκτυπωτή",
+          "Σάρωση σε email",
+          "ScanInbox από το inbox.eu"
+        ],
+        "descriptions": [
+          "Ψάχνετε ξεχωριστή λύση SMTP για τον εκτυπωτή; Εγγραφείτε στο ScanInbox του inbox.eu.",
+          "Χρησιμοποιείτε Microsoft 365; Δείτε την προσέγγιση του ScanInbox για σάρωση σε email.",
+          "Ο εκτυπωτής χρειάζεται δικά του στοιχεία SMTP; Γνωρίστε το ScanInbox από το inbox.eu."
+        ]
+      }
+    }
+  ]
+}

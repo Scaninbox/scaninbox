@@ -1,0 +1,113 @@
+{
+  "lang": "bg",
+  "language_name": "Bulgarian",
+  "country": "Bulgaria",
+  "geo_id": 2100,
+  "campaign_name": "ScanInbox | BG | Bulgaria | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/bg/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "smtp сървър за принтер",
+        "smtp настройки за принтер",
+        "smtp за скенер",
+        "smtp сървър за скенер",
+        "smtp релей за принтер",
+        "smtp релей за офис",
+        "smtp данни за принтер",
+        "външен smtp за принтер",
+        "smtp акаунт за принтер",
+        "smtp сървър за многофункционално устройство",
+        "smtp за мфу устройство",
+        "smtp за офис принтери",
+        "smtp за мултифункционален принтер",
+        "smtp удостоверяване принтер"
+      ],
+      "ad": {
+        "headlines": [
+          "Запиши се за ScanInbox",
+          "SMTP за офис принтери",
+          "SMTP настройки за принтер",
+          "От принтера към имейла",
+          "ScanInbox от inbox.eu",
+          "Решение за офис скенери"
+        ],
+        "descriptions": [
+          "Търсиш SMTP решение за принтер? Запиши се за ScanInbox от екипа на inbox.eu.",
+          "Сканиране към имейл за дома и офиса. Научи повече за ScanInbox и се запиши.",
+          "SMTP за офис принтери от екипа на inbox.eu. Запиши се и ще ти пишем при старта."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "сканиране към имейл",
+        "сканиране към имейл от принтер",
+        "сканиране на документи към имейл",
+        "как да настроя сканиране към имейл",
+        "настройка на сканиране към имейл",
+        "scan to email настройка",
+        "scan to email за принтер",
+        "scan to email решение",
+        "изпращане на сканирани документи по имейл",
+        "сканиране към е-поща",
+        "сканиране от скенер към имейл",
+        "активиране на сканиране към имейл",
+        "сканиране към имейл за офис",
+        "scan to email за офис"
+      ],
+      "ad": {
+        "headlines": [
+          "Запиши се за ScanInbox",
+          "Сканиране към имейл",
+          "Scan to Email за принтери",
+          "Документи във вашия имейл",
+          "За дома и офиса",
+          "ScanInbox от inbox.eu"
+        ],
+        "descriptions": [
+          "Интересува те сканиране от принтера към имейл? Научи за ScanInbox и се запиши.",
+          "SMTP решение за офис принтери от екипа на inbox.eu. Запиши се за ScanInbox.",
+          "Сканирането към имейл иска правилен SMTP. Запиши се за ScanInbox от inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "microsoft 365 smtp за принтер",
+        "office 365 smtp за принтер",
+        "smtp auth microsoft 365 принтер",
+        "exchange online smtp за скенер",
+        "изпращане от принтер през microsoft 365",
+        "сканиране към имейл с microsoft 365",
+        "сканиране към имейл office 365",
+        "алтернативен smtp за принтер",
+        "алтернатива на smtp на microsoft 365",
+        "microsoft 365 блокира smtp auth",
+        "изключване на smtp auth microsoft 365",
+        "smtp релей microsoft 365 принтер",
+        "smtp алтернатива за сканиране",
+        "exchange online сканиране към имейл",
+        "office 365 scan to email"
+      ],
+      "ad": {
+        "headlines": [
+          "Запиши се за ScanInbox",
+          "Принтер SMTP и Microsoft 365",
+          "SMTP за офис принтери",
+          "Отделен SMTP за принтера",
+          "Сканиране към имейл",
+          "ScanInbox от inbox.eu"
+        ],
+        "descriptions": [
+          "Търсиш отделно SMTP решение за принтера си? Запиши се за ScanInbox от inbox.eu.",
+          "Ползваш Microsoft 365? Разгледай подхода на ScanInbox към сканирането към имейл.",
+          "Принтерът има нужда от свои SMTP данни? Научи за ScanInbox от екипа на inbox.eu."
+        ]
+      }
+    }
+  ]
+}

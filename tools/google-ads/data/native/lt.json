@@ -1,0 +1,112 @@
+{
+  "lang": "lt",
+  "language_name": "Lithuanian",
+  "country": "Lithuania",
+  "geo_id": 2440,
+  "campaign_name": "ScanInbox | LT | Lithuania | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/lt/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "spausdintuvo smtp serveris",
+        "spausdintuvo smtp nustatymai",
+        "skenerio smtp serveris",
+        "smtp serveris skeneriui",
+        "smtp relay spausdintuvui",
+        "smtp biuro spausdintuvams",
+        "išorinis smtp spausdintuvui",
+        "smtp paskyra spausdintuvui",
+        "daugiafunkcio spausdintuvo smtp",
+        "smtp duomenys spausdintuvui",
+        "smtp autentifikavimas spausdintuvui",
+        "smtp paslauga spausdintuvui",
+        "smtp serveris biuro skeneriui",
+        "smtp daugiafunkciam įrenginiui"
+      ],
+      "ad": {
+        "headlines": [
+          "Registruokitės į ScanInbox",
+          "SMTP biuro spausdintuvams",
+          "Spausdintuvo SMTP nustatymai",
+          "Iš spausdintuvo į el. paštą",
+          "ScanInbox iš inbox.eu",
+          "Sprendimas biuro skeneriams"
+        ],
+        "descriptions": [
+          "Ieškote SMTP sprendimo spausdintuvui? Registruokitės į ScanInbox iš inbox.eu komandos.",
+          "Skenavimas į el. paštą namams ir biurui. Susipažinkite su ScanInbox ir registruokitės.",
+          "SMTP biuro spausdintuvams iš inbox.eu. Registruokitės, ir pranešime apie startą."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "skenavimas į el. paštą",
+        "skenavimas į el. paštą iš spausdintuvo",
+        "dokumentų skenavimas į el. paštą",
+        "kaip nustatyti skenavimą į el. paštą",
+        "skenavimo į el. paštą nustatymas",
+        "scan to email nustatymas",
+        "scan to email spausdintuvui",
+        "scan to email sprendimas",
+        "nuskenuotų dokumentų siuntimas el. paštu",
+        "skenavimas iš skenerio į el. paštą",
+        "skenavimo į el. paštą įjungimas",
+        "skenavimas į el. paštą biure",
+        "scan to email biuro spausdintuvas",
+        "skenavimas į elektroninį paštą"
+      ],
+      "ad": {
+        "headlines": [
+          "Registruokitės į ScanInbox",
+          "Skenavimas į el. paštą",
+          "Scan to Email spausdintuvams",
+          "Dokumentai jūsų el. pašte",
+          "Namams ir biurui",
+          "ScanInbox iš inbox.eu"
+        ],
+        "descriptions": [
+          "Domina skenavimas į el. paštą? Susipažinkite su ScanInbox ir registruokitės.",
+          "SMTP sprendimas biuro spausdintuvams iš inbox.eu komandos. Registruokitės į ScanInbox.",
+          "Skenavimui į el. paštą reikia tinkamo SMTP. Registruokitės į ScanInbox iš inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "microsoft 365 smtp spausdintuvui",
+        "office 365 smtp spausdintuvui",
+        "smtp auth microsoft 365 spausdintuvas",
+        "exchange online smtp skeneriui",
+        "siuntimas iš spausdintuvo per microsoft 365",
+        "skenavimas į el. paštą microsoft 365",
+        "skenavimas į el. paštą office 365",
+        "alternatyvus smtp spausdintuvui",
+        "microsoft 365 smtp alternatyva",
+        "microsoft 365 blokuoja smtp auth",
+        "smtp auth išjungimas microsoft 365",
+        "smtp relay microsoft 365 spausdintuvas",
+        "exchange online skenavimas į el. paštą",
+        "office 365 scan to email"
+      ],
+      "ad": {
+        "headlines": [
+          "Registruokitės į ScanInbox",
+          "Spausdintuvas ir Microsoft 365",
+          "SMTP biuro spausdintuvams",
+          "Atskiras SMTP spausdintuvui",
+          "Skenavimas į el. paštą",
+          "ScanInbox iš inbox.eu"
+        ],
+        "descriptions": [
+          "Ieškote atskiro SMTP sprendimo savo spausdintuvui? Registruokitės į ScanInbox iš inbox.eu.",
+          "Naudojate Microsoft 365? Susipažinkite su ScanInbox skenavimo į el. paštą sprendimu.",
+          "Spausdintuvui reikia savų SMTP duomenų? Susipažinkite su ScanInbox iš inbox.eu komandos."
+        ]
+      }
+    }
+  ]
+}

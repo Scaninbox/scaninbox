@@ -1,0 +1,113 @@
+{
+  "lang": "de",
+  "language_name": "German",
+  "country": "Germany",
+  "geo_id": 2276,
+  "campaign_name": "ScanInbox | DE | Germany | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/de/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "smtp server für drucker",
+        "smtp relay für drucker",
+        "drucker smtp einstellungen",
+        "smtp für scanner",
+        "smtp server für multifunktionsgerät",
+        "smtp zugangsdaten drucker",
+        "externer smtp server drucker",
+        "smtp relay für büro drucker",
+        "drucker smtp server einrichten",
+        "smtp für multifunktionsdrucker",
+        "smtp server für scan to email",
+        "smtp dienst für drucker",
+        "smtp relay scanner",
+        "smtp konto für drucker"
+      ],
+      "ad": {
+        "headlines": [
+          "Für ScanInbox anmelden",
+          "SMTP für Büro-Drucker",
+          "SMTP-Einstellungen Drucker",
+          "Vom Drucker per E-Mail",
+          "ScanInbox von inbox.eu",
+          "Lösung für Büro-Scanner"
+        ],
+        "descriptions": [
+          "Sie suchen SMTP für Ihren Drucker? Melden Sie sich für ScanInbox von inbox.eu an.",
+          "Scannen per E-Mail im Büro. Lernen Sie ScanInbox kennen und melden Sie sich an.",
+          "SMTP-Lösung für Büro-Drucker vom inbox.eu-Team. Melden Sie sich für ScanInbox an."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "scan to email einrichten",
+        "scannen an e-mail einrichten",
+        "drucker scan to email einrichten",
+        "scanner per e-mail versenden",
+        "scan to email lösung",
+        "scan to email für büro",
+        "scannen per e-mail drucker",
+        "scan to mail einrichten",
+        "dokumente vom drucker per e-mail senden",
+        "scan to email multifunktionsgerät",
+        "scan to email konfigurieren",
+        "scan to email smtp einrichten",
+        "scan to email für kleine unternehmen",
+        "scan to email dienst"
+      ],
+      "ad": {
+        "headlines": [
+          "Für ScanInbox anmelden",
+          "Scannen per E-Mail",
+          "Scan to E-Mail für Drucker",
+          "Dokumente in Ihrem Postfach",
+          "Für Büro und Home-Office",
+          "ScanInbox von inbox.eu"
+        ],
+        "descriptions": [
+          "Scannen vom Drucker per E-Mail? Lernen Sie ScanInbox kennen und melden Sie sich an.",
+          "SMTP-Lösung für Büro-Drucker vom inbox.eu-Team. Melden Sie sich für ScanInbox an.",
+          "Scan to E-Mail einfacher einrichten. ScanInbox von inbox.eu, jetzt vormerken lassen."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "drucker microsoft 365 smtp",
+        "scan to email microsoft 365",
+        "smtp auth drucker microsoft 365",
+        "office 365 smtp drucker",
+        "exchange online smtp drucker",
+        "drucker scan to email office 365",
+        "alternative smtp für drucker",
+        "smtp relay microsoft 365 drucker",
+        "smtp alternative für scanner",
+        "scannen microsoft 365 smtp",
+        "exchange online scan to email",
+        "alternative zu office 365 smtp drucker",
+        "microsoft 365 smtp relay scanner",
+        "basic auth drucker microsoft 365",
+        "smtp auth abschaltung drucker"
+      ],
+      "ad": {
+        "headlines": [
+          "Für ScanInbox anmelden",
+          "Drucker-SMTP und Microsoft 365",
+          "SMTP für Büro-Drucker",
+          "Eigener SMTP für Drucker",
+          "Scannen per E-Mail",
+          "ScanInbox von inbox.eu"
+        ],
+        "descriptions": [
+          "Eigenen SMTP-Dienst für den Drucker gesucht? Melden Sie sich für ScanInbox an.",
+          "Sie nutzen Microsoft 365? Lernen Sie den ScanInbox-Ansatz fürs Scannen per E-Mail kennen.",
+          "Getrennter SMTP für Büro-Drucker vom inbox.eu-Team. Melden Sie sich für ScanInbox an."
+        ]
+      }
+    }
+  ]
+}

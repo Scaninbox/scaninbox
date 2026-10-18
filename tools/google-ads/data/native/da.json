@@ -1,0 +1,34 @@
+{
+  "lang": "da",
+  "language_name": "Danish",
+  "country": "Denmark",
+  "geo_id": 2208,
+  "campaign_name": "ScanInbox | DA | Denmark | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/da/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": ["smtp server til printer","smtp indstillinger printer","smtp relay til printere","smtp til scanner","smtp server til scanner","smtp til kontorprinter","smtp server til multifunktionsprinter","printer smtp server","smtp relay til scan til e-mail","ekstern smtp til printer","smtp adgangsoplysninger til printer","smtp konto til printer","smtp server til kopimaskine","smtp opsætning til printer","smtp relay til scanner","smtp løsning til printere"],
+      "ad": {
+        "headlines": ["Tilmeld dig ScanInbox","SMTP til kontorprintere","SMTP-indstillinger til printer","Fra printer til e-mail","ScanInbox fra inbox.eu","Løsning til kontorscannere"],
+        "descriptions": ["Leder du efter SMTP til din printer? Tilmeld dig ScanInbox fra inbox.eu-teamet.","Scan til e-mail fra printer eller scanner. Lær ScanInbox at kende og tilmeld dig.","SMTP-løsning til kontorprintere fra inbox.eu-teamet. Tilmeld dig ScanInbox."]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": ["scan til e-mail opsætning","opsætning af scan til e-mail","scan til e-mail løsning","scan til mail printer","scanne fra printer til e-mail","sådan scanner man til e-mail","aktivere scan til e-mail","scan til e-mail kontor","scan til e-mail multifunktionsprinter","scanne dokumenter til e-mail","scan til e-mail uden egen mailserver","send scanninger på e-mail fra printer","scan til e-mail funktion","indstille scan til e-mail","scan til e-mail kopimaskine","scanner til e-mail opsætning"],
+      "ad": {
+        "headlines": ["Tilmeld dig ScanInbox","Scan til e-mail","Scan til e-mail fra printer","Dokumenter i din indbakke","Til hjem og kontor","ScanInbox fra inbox.eu"],
+        "descriptions": ["Interesseret i scan til e-mail fra printeren? Lær ScanInbox at kende og tilmeld dig.","SMTP-løsning til kontorprintere fra inbox.eu-teamet. Tilmeld dig ScanInbox.","Scan til e-mail for hjem og kontor. Tilmeld dig ScanInbox fra inbox.eu."]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": ["microsoft 365 smtp printer","office 365 smtp til printer","smtp auth microsoft 365 printer","exchange online smtp scanner","scan til e-mail microsoft 365","microsoft 365 scan til e-mail løsning","alternativ smtp til microsoft 365","smtp auth deaktiveret printer","smtp auth slået fra scanner","office 365 scan til e-mail","microsoft 365 smtp relay printer","exchange online scan til e-mail","microsoft 365 blokerer smtp auth","smtp til printer microsoft 365","alternativ smtp til scanning","office 365 smtp relay scanner"],
+      "ad": {
+        "headlines": ["Tilmeld dig ScanInbox","Printer-SMTP og Microsoft 365","SMTP til kontorprintere","Separat SMTP til printeren","Scan til e-mail","ScanInbox fra inbox.eu"],
+        "descriptions": ["Leder du efter en separat SMTP-løsning til printeren? Tilmeld dig ScanInbox.","Bruger du Microsoft 365? Lær ScanInbox at kende og tilmeld dig fra inbox.eu.","SMTP til printere fra inbox.eu-teamet. Tilmeld dig ScanInbox og bliv orienteret."]
+      }
+    }
+  ]
+}

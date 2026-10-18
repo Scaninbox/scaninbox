@@ -1,0 +1,112 @@
+{
+  "lang": "hu",
+  "language_name": "Hungarian",
+  "country": "Hungary",
+  "geo_id": 2348,
+  "campaign_name": "ScanInbox | HU | Hungary | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/hu/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "nyomtató smtp szerver",
+        "nyomtató smtp beállítások",
+        "szkenner smtp szerver",
+        "smtp szerver szkennerhez",
+        "smtp relay nyomtatóhoz",
+        "smtp irodai nyomtatóhoz",
+        "külső smtp szerver nyomtatóhoz",
+        "smtp fiók nyomtatóhoz",
+        "multifunkciós nyomtató smtp",
+        "smtp adatok nyomtatóhoz",
+        "smtp hitelesítés nyomtató",
+        "smtp szolgáltatás nyomtatóhoz",
+        "smtp szerver irodai szkenner",
+        "smtp szerver multifunkciós készülékhez"
+      ],
+      "ad": {
+        "headlines": [
+          "Feliratkozás: ScanInbox",
+          "SMTP irodai nyomtatókhoz",
+          "Nyomtató SMTP beállítások",
+          "Nyomtatóról e-mailbe",
+          "ScanInbox az inbox.eu-tól",
+          "Megoldás irodai szkennerekhez"
+        ],
+        "descriptions": [
+          "SMTP megoldást keres nyomtatóhoz? Iratkozzon fel a ScanInbox-ra az inbox.eu csapatától.",
+          "Szkennelés e-mailbe otthonra és irodába. Ismerje meg a ScanInbox-ot, és iratkozzon fel.",
+          "SMTP irodai nyomtatókhoz az inbox.eu-tól. Iratkozzon fel, és értesítjük az indulásról."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "szkennelés e-mailbe",
+        "szkennelés e-mailbe nyomtatóról",
+        "dokumentum szkennelése e-mailbe",
+        "hogyan állítsam be a szkennelést e-mailbe",
+        "szkennelés e-mailbe beállítása",
+        "scan to email beállítás",
+        "scan to email nyomtatóhoz",
+        "scan to email megoldás",
+        "beszkennelt dokumentum küldése e-mailben",
+        "szkennelés szkennerről e-mailbe",
+        "szkennelés e-mailbe engedélyezése",
+        "szkennelés e-mailbe irodában",
+        "scan to email irodai nyomtató",
+        "szkennelés email címre"
+      ],
+      "ad": {
+        "headlines": [
+          "Feliratkozás: ScanInbox",
+          "Szkennelés e-mailbe",
+          "Scan to Email nyomtatókhoz",
+          "Dokumentumok az e-mailjében",
+          "Otthonra és irodába",
+          "ScanInbox az inbox.eu-tól"
+        ],
+        "descriptions": [
+          "Érdekli a nyomtatóról e-mailbe szkennelés? Ismerje meg a ScanInbox-ot, és iratkozzon fel.",
+          "SMTP megoldás irodai nyomtatókhoz az inbox.eu-tól. Iratkozzon fel a ScanInbox-ra.",
+          "Az e-mailbe szkenneléshez megfelelő SMTP kell. Iratkozzon fel: ScanInbox, inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "microsoft 365 smtp nyomtatóhoz",
+        "office 365 smtp nyomtatóhoz",
+        "smtp auth microsoft 365 nyomtató",
+        "exchange online smtp szkenner",
+        "küldés nyomtatóról microsoft 365-tel",
+        "szkennelés e-mailbe microsoft 365",
+        "szkennelés e-mailbe office 365",
+        "alternatív smtp nyomtatóhoz",
+        "microsoft 365 smtp alternatíva",
+        "microsoft 365 letiltja az smtp auth-ot",
+        "smtp auth kikapcsolása microsoft 365",
+        "smtp relay microsoft 365 nyomtató",
+        "exchange online szkennelés e-mailbe",
+        "office 365 scan to email"
+      ],
+      "ad": {
+        "headlines": [
+          "Feliratkozás: ScanInbox",
+          "Nyomtató SMTP és Microsoft 365",
+          "SMTP irodai nyomtatókhoz",
+          "Külön SMTP a nyomtatónak",
+          "Szkennelés e-mailbe",
+          "ScanInbox az inbox.eu-tól"
+        ],
+        "descriptions": [
+          "Külön SMTP megoldást keres a nyomtatójához? Iratkozzon fel: ScanInbox az inbox.eu-tól.",
+          "Microsoft 365-öt használ? Ismerje meg a ScanInbox megoldását az e-mailes szkenneléshez.",
+          "Saját SMTP adatok a nyomtatónak? Ismerje meg a ScanInbox-ot az inbox.eu csapatától."
+        ]
+      }
+    }
+  ]
+}

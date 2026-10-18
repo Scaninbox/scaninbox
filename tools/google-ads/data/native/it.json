@@ -1,0 +1,113 @@
+{
+  "lang": "it",
+  "language_name": "Italian",
+  "country": "Italy",
+  "geo_id": 2380,
+  "campaign_name": "ScanInbox | IT | Italy | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/it/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "server smtp per stampante",
+        "relay smtp per stampante",
+        "impostazioni smtp stampante",
+        "smtp per scanner",
+        "server smtp per multifunzione",
+        "credenziali smtp stampante",
+        "server smtp esterno stampante",
+        "relay smtp stampante ufficio",
+        "configurare smtp stampante",
+        "smtp per stampante multifunzione",
+        "server smtp per scan to email",
+        "servizio smtp per stampante",
+        "relay smtp scanner",
+        "account smtp per stampante"
+      ],
+      "ad": {
+        "headlines": [
+          "Iscriviti a ScanInbox",
+          "SMTP per stampanti ufficio",
+          "Impostazioni SMTP stampante",
+          "Dalla stampante alla e-mail",
+          "ScanInbox di inbox.eu",
+          "Soluzione per scanner ufficio"
+        ],
+        "descriptions": [
+          "Cerchi un SMTP per la stampante? Iscriviti a ScanInbox del team di inbox.eu.",
+          "Scansione verso e-mail in ufficio. Scopri ScanInbox e iscriviti.",
+          "Soluzione SMTP per stampanti da ufficio dal team di inbox.eu. Iscriviti a ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "configurare scan to email",
+        "configurare scansione verso e-mail",
+        "scan to email stampante configurazione",
+        "inviare scansione via e-mail da stampante",
+        "soluzione scan to email",
+        "scan to email per ufficio",
+        "scansione verso e-mail stampante",
+        "attivare scan to mail stampante",
+        "inviare documenti scansionati via e-mail",
+        "scan to email stampante multifunzione",
+        "impostare scan to email smtp",
+        "scansione verso e-mail ufficio",
+        "scan to email piccola azienda",
+        "servizio scan to email"
+      ],
+      "ad": {
+        "headlines": [
+          "Iscriviti a ScanInbox",
+          "Scansione verso e-mail",
+          "Scan to Email per stampanti",
+          "Documenti nella tua e-mail",
+          "Per casa e ufficio",
+          "ScanInbox di inbox.eu"
+        ],
+        "descriptions": [
+          "Ti interessa scansionare dalla stampante alla e-mail? Scopri ScanInbox e iscriviti.",
+          "Soluzione SMTP per stampanti da ufficio dal team di inbox.eu. Iscriviti a ScanInbox.",
+          "Uno scan to email più semplice da impostare. ScanInbox di inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "stampante smtp microsoft 365",
+        "scan to email microsoft 365",
+        "smtp auth stampante microsoft 365",
+        "smtp office 365 stampante",
+        "exchange online smtp stampante",
+        "stampante scan to email office 365",
+        "alternativa smtp per stampante",
+        "relay smtp microsoft 365 stampante",
+        "alternativa smtp per scanner",
+        "scansione microsoft 365 smtp",
+        "exchange online scan to email",
+        "alternativa smtp office 365 stampante",
+        "relay smtp microsoft 365 scanner",
+        "autenticazione di base stampante microsoft 365",
+        "disattivazione smtp auth stampante"
+      ],
+      "ad": {
+        "headlines": [
+          "Iscriviti a ScanInbox",
+          "SMTP stampante e Microsoft 365",
+          "SMTP per stampanti ufficio",
+          "SMTP separato per stampante",
+          "Scansione verso e-mail",
+          "ScanInbox di inbox.eu"
+        ],
+        "descriptions": [
+          "Cerchi un SMTP separato per la tua stampante? Iscriviti a ScanInbox di inbox.eu.",
+          "Usi Microsoft 365? Scopri l'approccio di ScanInbox alla scansione verso e-mail.",
+          "SMTP dedicato per stampanti da ufficio dal team di inbox.eu. Iscriviti a ScanInbox."
+        ]
+      }
+    }
+  ]
+}

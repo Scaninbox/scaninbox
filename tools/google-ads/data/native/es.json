@@ -1,0 +1,113 @@
+{
+  "lang": "es",
+  "language_name": "Spanish",
+  "country": "Spain",
+  "geo_id": 2724,
+  "campaign_name": "ScanInbox | ES | Spain | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/es/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "servidor smtp para impresora",
+        "relay smtp para impresora",
+        "configuración smtp impresora",
+        "smtp para escáner",
+        "servidor smtp para multifunción",
+        "credenciales smtp impresora",
+        "servidor smtp externo impresora",
+        "relay smtp impresora oficina",
+        "configurar smtp impresora",
+        "smtp para impresora multifunción",
+        "servidor smtp para escanear a correo",
+        "servicio smtp para impresora",
+        "relay smtp escáner",
+        "cuenta smtp para impresora"
+      ],
+      "ad": {
+        "headlines": [
+          "Regístrate en ScanInbox",
+          "SMTP para impresoras",
+          "Ajustes SMTP de impresora",
+          "De la impresora al correo",
+          "ScanInbox de inbox.eu",
+          "Solución para escáneres"
+        ],
+        "descriptions": [
+          "¿Buscas SMTP para tu impresora? Regístrate en ScanInbox, del equipo de inbox.eu.",
+          "Escanear a correo electrónico en la oficina. Conoce ScanInbox y regístrate.",
+          "Solución SMTP para impresoras de oficina del equipo de inbox.eu. Regístrate."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "configurar escanear a correo",
+        "configurar escaneo a correo electrónico",
+        "scan to email impresora configuración",
+        "enviar escaneo por correo desde impresora",
+        "solución scan to email",
+        "scan to email para oficina",
+        "escanear a correo impresora",
+        "activar scan to mail impresora",
+        "enviar documentos escaneados por correo",
+        "scan to email impresora multifunción",
+        "configurar scan to email smtp",
+        "escaneo a correo electrónico oficina",
+        "scan to email pequeña empresa",
+        "servicio scan to email"
+      ],
+      "ad": {
+        "headlines": [
+          "Regístrate en ScanInbox",
+          "Escanear a correo",
+          "Scan to Email para impresoras",
+          "Documentos en tu correo",
+          "Para casa y oficina",
+          "ScanInbox de inbox.eu"
+        ],
+        "descriptions": [
+          "¿Te interesa escanear de la impresora al correo? Conoce ScanInbox y regístrate.",
+          "Solución SMTP para impresoras de oficina del equipo de inbox.eu. Regístrate.",
+          "Un scan to email más sencillo de configurar. ScanInbox, de inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "impresora smtp microsoft 365",
+        "scan to email microsoft 365",
+        "smtp auth impresora microsoft 365",
+        "smtp office 365 impresora",
+        "exchange online smtp impresora",
+        "impresora escanear a correo office 365",
+        "alternativa smtp para impresora",
+        "relay smtp microsoft 365 impresora",
+        "alternativa smtp para escáner",
+        "escaneo microsoft 365 smtp",
+        "exchange online scan to email",
+        "alternativa smtp office 365 impresora",
+        "relay smtp microsoft 365 escáner",
+        "autenticación básica impresora microsoft 365",
+        "desactivación smtp auth impresora"
+      ],
+      "ad": {
+        "headlines": [
+          "Regístrate en ScanInbox",
+          "SMTP de impresora y 365",
+          "SMTP para impresoras",
+          "SMTP aparte para impresora",
+          "Escanear a correo",
+          "ScanInbox de inbox.eu"
+        ],
+        "descriptions": [
+          "¿Buscas un SMTP aparte para tu impresora? Regístrate en ScanInbox, de inbox.eu.",
+          "¿Usas Microsoft 365? Conoce el enfoque de ScanInbox para escanear a correo.",
+          "SMTP independiente para impresoras de oficina del equipo de inbox.eu. Regístrate."
+        ]
+      }
+    }
+  ]
+}

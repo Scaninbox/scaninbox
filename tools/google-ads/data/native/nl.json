@@ -1,0 +1,112 @@
+{
+  "lang": "nl",
+  "language_name": "Dutch",
+  "country": "Netherlands",
+  "geo_id": 2528,
+  "campaign_name": "ScanInbox | NL | Netherlands | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/nl/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "smtp server voor printer",
+        "smtp instellingen printer",
+        "smtp relay voor printer",
+        "smtp server voor scanner",
+        "smtp voor kantoorprinter",
+        "printer smtp account",
+        "externe smtp server printer",
+        "smtp inloggegevens voor printer",
+        "smtp dienst voor printers",
+        "printer smtp oplossing",
+        "smtp server kopieerapparaat",
+        "smtp gegevens scanner",
+        "smtp relay voor scanner",
+        "smtp server voor multifunctional"
+      ],
+      "ad": {
+        "headlines": [
+          "Meld je aan voor ScanInbox",
+          "SMTP voor kantoorprinters",
+          "Printer SMTP-instellingen",
+          "Van printer naar e-mail",
+          "ScanInbox van inbox.eu",
+          "Oplossing voor kantoorscanners"
+        ],
+        "descriptions": [
+          "Op zoek naar een SMTP-oplossing voor je printer? Meld je aan voor ScanInbox van inbox.eu.",
+          "Scannen naar e-mail voor thuis en kantoor. Maak kennis met ScanInbox en meld je aan.",
+          "SMTP voor kantoorprinters van het inbox.eu-team. Meld je aan voor ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "scan to email instellen",
+        "scannen naar e-mail instellen",
+        "scan naar e-mail printer",
+        "scan to email oplossing",
+        "printer scannen naar e-mail",
+        "scannen naar mail kantoor",
+        "scan to email multifunctional",
+        "scan to email voor kantoor",
+        "scanner naar e-mail versturen",
+        "scan to email configureren",
+        "scan naar mail instellen",
+        "scan to email service",
+        "scan naar mail smtp server",
+        "scan naar e-mail oplossing kantoor"
+      ],
+      "ad": {
+        "headlines": [
+          "Meld je aan voor ScanInbox",
+          "Scannen naar e-mail",
+          "Scan to Email voor printers",
+          "Documenten in je mailbox",
+          "Voor thuis en kantoor",
+          "ScanInbox van inbox.eu"
+        ],
+        "descriptions": [
+          "Interesse in scannen van printer naar e-mail? Maak kennis met ScanInbox en meld je aan.",
+          "SMTP-oplossing voor kantoorprinters van het inbox.eu-team. Meld je aan voor ScanInbox.",
+          "Scan to Email instellen voor je kantoor? Ontdek ScanInbox van inbox.eu en meld je aan."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "microsoft 365 smtp voor printer",
+        "office 365 smtp printer scannen",
+        "smtp auth microsoft 365 printer",
+        "exchange online smtp printer",
+        "alternatief voor microsoft 365 smtp",
+        "microsoft 365 smtp auth uitgeschakeld printer",
+        "scan to email microsoft 365",
+        "scannen naar e-mail office 365",
+        "printer e-mail versturen microsoft 365",
+        "alternatieve smtp server scannen",
+        "smtp relay microsoft 365 printer",
+        "exchange online scan to email",
+        "office 365 smtp relay scanner",
+        "basic auth smtp printer microsoft 365"
+      ],
+      "ad": {
+        "headlines": [
+          "Meld je aan voor ScanInbox",
+          "Printer SMTP en Microsoft 365",
+          "SMTP voor kantoorprinters",
+          "Aparte SMTP voor je printer",
+          "Scannen naar e-mail",
+          "ScanInbox van inbox.eu"
+        ],
+        "descriptions": [
+          "Op zoek naar een aparte SMTP-oplossing voor je printer? Meld je aan voor ScanInbox.",
+          "Gebruik je Microsoft 365? Ontdek de ScanInbox-aanpak voor scannen naar e-mail.",
+          "ScanInbox van inbox.eu: SMTP voor printers naast Microsoft 365. Meld je aan."
+        ]
+      }
+    }
+  ]
+}

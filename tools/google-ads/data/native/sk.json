@@ -1,0 +1,112 @@
+{
+  "lang": "sk",
+  "language_name": "Slovak",
+  "country": "Slovakia",
+  "geo_id": 2703,
+  "campaign_name": "ScanInbox | SK | Slovakia | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/sk/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "smtp server pre tlačiareň",
+        "nastavenie smtp tlačiarne",
+        "smtp server pre skener",
+        "smtp relay pre tlačiareň",
+        "smtp pre kancelársku tlačiareň",
+        "smtp pre multifunkčnú tlačiareň",
+        "smtp údaje pre tlačiareň",
+        "externý smtp server pre tlačiareň",
+        "smtp server pre multifunkciu",
+        "smtp účet pre skener",
+        "smtp služba pre tlačiarne",
+        "smtp relay pre skenery",
+        "smtp prihlasovacie údaje tlačiareň",
+        "smtp brána pre tlačiareň"
+      ],
+      "ad": {
+        "headlines": [
+          "Zaregistrujte sa do ScanInbox",
+          "SMTP pre kancelárske tlačiarne",
+          "Nastavenie SMTP pre tlačiareň",
+          "Zo skenera do e-mailu",
+          "ScanInbox od inbox.eu",
+          "Riešenie pre firemné skenery"
+        ],
+        "descriptions": [
+          "Hľadáte SMTP pre tlačiareň? Zaregistrujte sa do ScanInbox od tímu inbox.eu.",
+          "Skenovanie do e-mailu pre domácnosti aj kancelárie. Zaregistrujte sa do ScanInbox.",
+          "SMTP riešenie pre kancelárske tlačiarne od tímu inbox.eu. Zaregistrujte sa do ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "skenovanie do e-mailu",
+        "nastavenie skenovania do e-mailu",
+        "scan to email tlačiareň",
+        "ako nastaviť skenovanie do e-mailu",
+        "skenovanie z tlačiarne do e-mailu",
+        "scan to email nastavenie",
+        "scan to email riešenie",
+        "odosielanie skenov e-mailom z tlačiarne",
+        "nastavenie scan to email v kancelárii",
+        "skenovanie z multifunkcie do e-mailu",
+        "skener odosielanie do e-mailu",
+        "ako zapnúť skenovanie do e-mailu",
+        "scan to email pre firmy",
+        "skenovanie dokumentov do e-mailu z tlačiarne"
+      ],
+      "ad": {
+        "headlines": [
+          "Zaregistrujte sa do ScanInbox",
+          "Skenovanie do e-mailu",
+          "Scan to Email pre tlačiarne",
+          "Dokumenty priamo do e-mailu",
+          "Pre domácnosti aj kancelárie",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Zaujíma vás skenovanie z tlačiarne do e-mailu? Spoznajte ScanInbox a zaregistrujte sa.",
+          "Scan to Email pre kancelárske tlačiarne od tímu inbox.eu. Zaregistrujte sa do ScanInbox.",
+          "Jednoduchšie nastavenie skenovania do e-mailu? Zaregistrujte sa do ScanInbox od inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "smtp pre tlačiareň microsoft 365",
+        "tlačiareň a microsoft 365 smtp",
+        "skenovanie do e-mailu microsoft 365",
+        "microsoft 365 smtp auth tlačiareň",
+        "office 365 smtp pre tlačiareň",
+        "exchange online smtp pre skener",
+        "alternatíva smtp pre skenovanie",
+        "scan to email microsoft 365",
+        "vypnutie smtp auth microsoft 365 tlačiareň",
+        "smtp relay pre microsoft 365 tlačiareň",
+        "odosielanie skenov cez microsoft 365",
+        "alternatívny smtp server pre tlačiareň",
+        "office 365 skenovanie do e-mailu",
+        "exchange online skener e-mail"
+      ],
+      "ad": {
+        "headlines": [
+          "Zaregistrujte sa do ScanInbox",
+          "SMTP tlačiarne a Microsoft 365",
+          "SMTP pre kancelárske tlačiarne",
+          "Samostatné SMTP pre tlačiareň",
+          "Skenovanie do e-mailu",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Hľadáte samostatné SMTP riešenie pre tlačiareň? Zaregistrujte sa do ScanInbox od inbox.eu.",
+          "Používate Microsoft 365? Spoznajte prístup ScanInbox ku skenovaniu do e-mailu.",
+          "Ďalšia možnosť popri SMTP Microsoft 365 pre tlačiarne. Zaregistrujte sa do ScanInbox."
+        ]
+      }
+    }
+  ]
+}

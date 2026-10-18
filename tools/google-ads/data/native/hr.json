@@ -1,0 +1,107 @@
+{
+  "lang": "hr",
+  "language_name": "Croatian",
+  "country": "Croatia",
+  "geo_id": 2191,
+  "campaign_name": "ScanInbox | HR | Croatia | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/hr/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "smtp poslužitelj za pisač",
+        "postavke smtp-a za pisač",
+        "smtp poslužitelj za skener",
+        "smtp relay za pisač",
+        "smtp za uredski pisač",
+        "smtp za multifunkcijski pisač",
+        "smtp podaci za pisač",
+        "vanjski smtp poslužitelj za pisač",
+        "smtp račun za skener",
+        "smtp usluga za pisače",
+        "smtp relay za skenere",
+        "smtp pristupni podaci pisač"
+      ],
+      "ad": {
+        "headlines": [
+          "Prijavite se za ScanInbox",
+          "SMTP za uredske pisače",
+          "Postavke SMTP-a za pisač",
+          "Sa skenera na e-poštu",
+          "ScanInbox od inbox.eu",
+          "Rješenje za uredske skenere"
+        ],
+        "descriptions": [
+          "Tražite SMTP za pisač? Prijavite se za ScanInbox tima inbox.eu.",
+          "Skeniranje na e-poštu za dom i ured. Upoznajte ScanInbox i prijavite se.",
+          "SMTP rješenje za uredske pisače tima inbox.eu. Prijavite se za ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "skeniranje na e-poštu",
+        "postavljanje skeniranja na e-poštu",
+        "scan to email pisač",
+        "kako postaviti skeniranje na e-poštu",
+        "skeniranje s pisača na e-poštu",
+        "scan to email postavke",
+        "scan to email rješenje",
+        "slanje skenova e-poštom s pisača",
+        "skeniranje s multifunkcijskog uređaja na e-poštu",
+        "kako uključiti skeniranje na e-poštu",
+        "scan to email za tvrtke",
+        "skeniranje dokumenata na e-poštu s pisača"
+      ],
+      "ad": {
+        "headlines": [
+          "Prijavite se za ScanInbox",
+          "Skeniranje na e-poštu",
+          "Scan to Email za pisače",
+          "Dokumenti izravno na e-poštu",
+          "Za dom i ured",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Zanima vas skeniranje s pisača na e-poštu? Upoznajte ScanInbox i prijavite se.",
+          "Scan to Email za uredske pisače tima inbox.eu. Prijavite se za ScanInbox.",
+          "Jednostavnije postavljanje skeniranja na e-poštu? Prijavite se za ScanInbox tima inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "smtp za pisač microsoft 365",
+        "pisač i microsoft 365 smtp",
+        "skeniranje na e-poštu microsoft 365",
+        "microsoft 365 smtp auth pisač",
+        "office 365 smtp za pisač",
+        "exchange online smtp za skener",
+        "alternativa smtp-u za skeniranje",
+        "scan to email microsoft 365",
+        "isključivanje smtp auth microsoft 365 pisač",
+        "smtp relay za microsoft 365 pisač",
+        "slanje skenova preko microsoft 365",
+        "alternativni smtp poslužitelj za pisač",
+        "office 365 skeniranje na e-poštu"
+      ],
+      "ad": {
+        "headlines": [
+          "Prijavite se za ScanInbox",
+          "SMTP pisača i Microsoft 365",
+          "SMTP za uredske pisače",
+          "Zaseban SMTP za pisač",
+          "Skeniranje na e-poštu",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Tražite zasebno SMTP rješenje za pisač? Prijavite se za ScanInbox tima inbox.eu.",
+          "Koristite Microsoft 365? Upoznajte pristup ScanInboxa skeniranju na e-poštu.",
+          "Dodatna mogućnost uz SMTP Microsoft 365 za pisače. Prijavite se za ScanInbox."
+        ]
+      }
+    }
+  ]
+}

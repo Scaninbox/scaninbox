@@ -1,0 +1,112 @@
+{
+  "lang": "cs",
+  "language_name": "Czech",
+  "country": "Czechia",
+  "geo_id": 2203,
+  "campaign_name": "ScanInbox | CS | Czechia | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/cs/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "smtp server pro tiskárnu",
+        "smtp nastavení tiskárny",
+        "smtp server pro skener",
+        "smtp relay pro tiskárnu",
+        "smtp pro kancelářskou tiskárnu",
+        "smtp pro multifunkční tiskárnu",
+        "smtp údaje pro tiskárnu",
+        "externí smtp server pro tiskárnu",
+        "smtp server pro multifunkci",
+        "smtp účet pro skener",
+        "smtp služba pro tiskárny",
+        "smtp relay pro skenery",
+        "smtp přihlašovací údaje tiskárna",
+        "smtp brána pro tiskárnu"
+      ],
+      "ad": {
+        "headlines": [
+          "Zaregistrujte se do ScanInbox",
+          "SMTP pro kancelářské tiskárny",
+          "Nastavení SMTP pro tiskárnu",
+          "Ze skeneru do e-mailu",
+          "ScanInbox od inbox.eu",
+          "Řešení pro kancelářské skenery"
+        ],
+        "descriptions": [
+          "Hledáte SMTP pro tiskárnu? Zaregistrujte se k ScanInbox od týmu inbox.eu.",
+          "Skenování do e-mailu pro domácnosti i kanceláře. Poznejte ScanInbox a zaregistrujte se.",
+          "SMTP řešení pro kancelářské tiskárny od týmu inbox.eu. Zaregistrujte se k ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "skenování do e-mailu",
+        "nastavení skenování do e-mailu",
+        "scan to email tiskárna",
+        "jak nastavit skenování do e-mailu",
+        "skenování z tiskárny do e-mailu",
+        "scan to email nastavení",
+        "scan to email řešení",
+        "odesílání skenů e-mailem z tiskárny",
+        "nastavení scan to email v kanceláři",
+        "skenování z multifunkce do e-mailu",
+        "skener odesílání do e-mailu",
+        "jak zapnout skenování do e-mailu",
+        "scan to email pro firmy",
+        "skenování dokumentů do e-mailu z tiskárny"
+      ],
+      "ad": {
+        "headlines": [
+          "Zaregistrujte se do ScanInbox",
+          "Skenování do e-mailu",
+          "Scan to Email pro tiskárny",
+          "Dokumenty rovnou do e-mailu",
+          "Pro domácnosti i kanceláře",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Zajímá vás skenování z tiskárny do e-mailu? Poznejte ScanInbox a zaregistrujte se.",
+          "Scan to Email pro kancelářské tiskárny od týmu inbox.eu. Zaregistrujte se k ScanInbox.",
+          "Jednodušší nastavení skenování do e-mailu? Zaregistrujte se k ScanInbox od inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "smtp pro tiskárnu microsoft 365",
+        "tiskárna a microsoft 365 smtp",
+        "skenování do e-mailu microsoft 365",
+        "microsoft 365 smtp auth tiskárna",
+        "office 365 smtp pro tiskárnu",
+        "exchange online smtp pro skener",
+        "alternativa smtp pro skenování",
+        "scan to email microsoft 365",
+        "vypnutí smtp auth microsoft 365 tiskárna",
+        "smtp relay pro microsoft 365 tiskárna",
+        "odesílání skenů přes microsoft 365",
+        "alternativní smtp server pro tiskárnu",
+        "office 365 skenování do e-mailu",
+        "exchange online skener e-mail"
+      ],
+      "ad": {
+        "headlines": [
+          "Zaregistrujte se do ScanInbox",
+          "SMTP tiskárny a Microsoft 365",
+          "SMTP pro kancelářské tiskárny",
+          "Samostatné SMTP pro tiskárnu",
+          "Skenování do e-mailu",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Hledáte samostatné SMTP řešení pro tiskárnu? Zaregistrujte se k ScanInbox od inbox.eu.",
+          "Používáte Microsoft 365? Poznejte přístup ScanInbox ke skenování do e-mailu.",
+          "Další možnost vedle SMTP Microsoft 365 pro tiskárny. Zaregistrujte se k ScanInbox."
+        ]
+      }
+    }
+  ]
+}

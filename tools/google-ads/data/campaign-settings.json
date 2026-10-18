@@ -1,0 +1,344 @@
+[
+  {
+    "lang": "it",
+    "campaign_name": "ScanInbox | IT | Italy | Desktop | EUR50",
+    "country": "Italy",
+    "geo_id": 2380,
+    "language_ids": [
+      1004,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/it/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 43,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-IT-197-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "fr",
+    "campaign_name": "ScanInbox | FR | France | Desktop | EUR50",
+    "country": "France",
+    "geo_id": 2250,
+    "language_ids": [
+      1002,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/fr/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 43,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-FR-197-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "de",
+    "campaign_name": "ScanInbox | DE | Germany | Desktop | EUR50",
+    "country": "Germany",
+    "geo_id": 2276,
+    "language_ids": [
+      1001,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/de/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 43,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-DE-197-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "bg",
+    "campaign_name": "ScanInbox | BG | Bulgaria | Desktop | EUR50",
+    "country": "Bulgaria",
+    "geo_id": 2100,
+    "language_ids": [
+      1020,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/bg/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 43,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-BG-197-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "cs",
+    "campaign_name": "ScanInbox | CS | Czechia | Desktop | EUR50",
+    "country": "Czechia",
+    "geo_id": 2203,
+    "language_ids": [
+      1021,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/cs/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-CS-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "da",
+    "campaign_name": "ScanInbox | DA | Denmark | Desktop | EUR50",
+    "country": "Denmark",
+    "geo_id": 2208,
+    "language_ids": [
+      1009,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/da/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 48,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-DA-202-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "el",
+    "campaign_name": "ScanInbox | EL | Greece | Desktop | EUR50",
+    "country": "Greece",
+    "geo_id": 2300,
+    "language_ids": [
+      1022,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/el/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-EL-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "es",
+    "campaign_name": "ScanInbox | ES | Spain | Desktop | EUR50",
+    "country": "Spain",
+    "geo_id": 2724,
+    "language_ids": [
+      1003,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/es/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 43,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-ES-197-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "fi",
+    "campaign_name": "ScanInbox | FI | Finland | Desktop | EUR50",
+    "country": "Finland",
+    "geo_id": 2246,
+    "language_ids": [
+      1011,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/fi/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 48,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-FI-202-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "hr",
+    "campaign_name": "ScanInbox | HR | Croatia | Desktop | EUR50",
+    "country": "Croatia",
+    "geo_id": 2191,
+    "language_ids": [
+      1039,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/hr/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 37,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-HR-191-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "hu",
+    "campaign_name": "ScanInbox | HU | Hungary | Desktop | EUR50",
+    "country": "Hungary",
+    "geo_id": 2348,
+    "language_ids": [
+      1024,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/hu/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-HU-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "lt",
+    "campaign_name": "ScanInbox | LT | Lithuania | Desktop | EUR50",
+    "country": "Lithuania",
+    "geo_id": 2440,
+    "language_ids": [
+      1026,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/lt/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-LT-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "nl",
+    "campaign_name": "ScanInbox | NL | Netherlands | Desktop | EUR50",
+    "country": "Netherlands",
+    "geo_id": 2528,
+    "language_ids": [
+      1010,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/nl/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-NL-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "pl",
+    "campaign_name": "ScanInbox | PL | Poland | Desktop | EUR50",
+    "country": "Poland",
+    "geo_id": 2616,
+    "language_ids": [
+      1030,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/pl/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-PL-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "pt",
+    "campaign_name": "ScanInbox | PT | Portugal | Desktop | EUR50",
+    "country": "Portugal",
+    "geo_id": 2620,
+    "language_ids": [
+      1014,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/pt/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-PT-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "ro",
+    "campaign_name": "ScanInbox | RO | Romania | Desktop | EUR50",
+    "country": "Romania",
+    "geo_id": 2642,
+    "language_ids": [
+      1032,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/ro/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-RO-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "sk",
+    "campaign_name": "ScanInbox | SK | Slovakia | Desktop | EUR50",
+    "country": "Slovakia",
+    "geo_id": 2703,
+    "language_ids": [
+      1033,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/sk/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 42,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-SK-196-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "sl",
+    "campaign_name": "ScanInbox | SL | Slovenia | Desktop | EUR50",
+    "country": "Slovenia",
+    "geo_id": 2705,
+    "language_ids": [
+      1034,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/sl/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 37,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-SL-191-Keywords-and-Ads.csv"
+  },
+  {
+    "lang": "sv",
+    "campaign_name": "ScanInbox | SV | Sweden | Desktop | EUR50",
+    "country": "Sweden",
+    "geo_id": 2752,
+    "language_ids": [
+      1015,
+      1000
+    ],
+    "final_url": "https://scaninbox.me/sv/",
+    "english_keywords_exact": 154,
+    "native_keywords_phrase": 48,
+    "total_budget_eur": 50,
+    "max_cpc_eur": 0.25,
+    "start": "2026-10-19",
+    "end": "2026-11-18",
+    "csv": "campaigns/ScanInbox-SV-202-Keywords-and-Ads.csv"
+  }
+]

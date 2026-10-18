@@ -1,0 +1,34 @@
+{
+  "lang": "fi",
+  "language_name": "Finnish",
+  "country": "Finland",
+  "geo_id": 2246,
+  "campaign_name": "ScanInbox | FI | Finland | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/fi/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": ["tulostimen smtp palvelin","smtp asetukset tulostin","smtp relay tulostimelle","skannerin smtp palvelin","smtp toimistotulostimelle","smtp palvelin skannerille","smtp tunnukset tulostimelle","smtp tili tulostimelle","tulostimen smtp asetukset","smtp monitoimitulostimelle","smtp relay skannerille","ulkoinen smtp tulostimelle","smtp ratkaisu tulostimelle","kopiokoneen smtp palvelin","smtp palvelin skannaus sähköpostiin","smtp skannaus sähköpostiin"],
+      "ad": {
+        "headlines": ["Ilmoittaudu ScanInboxiin","SMTP toimistotulostimille","Tulostimen SMTP-asetukset","Tulostimesta sähköpostiin","ScanInbox inbox.eu-tiimiltä","Ratkaisu toimistoskannereille"],
+        "descriptions": ["Etsitkö SMTP-ratkaisua tulostimelle? Ilmoittaudu ScanInboxiin inbox.eu-tiimiltä.","Skannaus sähköpostiin tulostimesta tai skannerista. Tutustu ScanInboxiin ja ilmoittaudu.","SMTP-ratkaisu toimistotulostimille inbox.eu-tiimiltä. Ilmoittaudu ScanInboxiin."]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": ["skannaus sähköpostiin asetukset","skannaus sähköpostiin käyttöönotto","skannaa tulostimesta sähköpostiin","skannaus sähköpostiin tulostimella","scan to email asetukset","scan to email ratkaisu","miten skannata sähköpostiin","skannaus sähköpostiin toimisto","skannaus sähköpostiin monitoimitulostin","ota käyttöön skannaus sähköpostiin","skannerista sähköpostiin","skannaus sähköpostiin ilman omaa palvelinta","lähetä skannaukset sähköpostiin tulostimesta","scan to email kopiokone","skannaus sähköpostiin ratkaisu","skannaus sähköpostiin määritys"],
+      "ad": {
+        "headlines": ["Ilmoittaudu ScanInboxiin","Skannaus sähköpostiin","Scan to Email -tulostimille","Asiakirjat sähköpostiisi","Kotiin ja toimistoon","ScanInbox inbox.eu-tiimiltä"],
+        "descriptions": ["Kiinnostaako skannaus tulostimesta sähköpostiin? Tutustu ScanInboxiin ja ilmoittaudu.","SMTP-ratkaisu toimistotulostimille inbox.eu-tiimiltä. Ilmoittaudu ScanInboxiin.","Skannaus sähköpostiin kotiin ja toimistoon. Ilmoittaudu ScanInboxiin, inbox.eu."]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": ["microsoft 365 smtp tulostin","office 365 smtp tulostimelle","smtp auth microsoft 365 tulostin","exchange online smtp skanneri","skannaus sähköpostiin microsoft 365","vaihtoehto microsoft 365 smtp tulostimelle","smtp auth pois käytöstä tulostin","smtp auth estetty skanneri","office 365 skannaus sähköpostiin","microsoft 365 smtp relay tulostin","exchange online skannaus sähköpostiin","microsoft 365 estää smtp authin","tulostimen smtp microsoft 365","vaihtoehtoinen smtp skannaukseen","office 365 smtp relay skanneri","microsoft 365 smtp auth tulostimelle"],
+      "ad": {
+        "headlines": ["Ilmoittaudu ScanInboxiin","Tulostin-SMTP ja Microsoft 365","SMTP toimistotulostimille","Erillinen SMTP tulostimelle","Skannaus sähköpostiin","ScanInbox inbox.eu-tiimiltä"],
+        "descriptions": ["Etsitkö erillistä SMTP-ratkaisua tulostimelle? Ilmoittaudu ScanInboxiin, inbox.eu.","Käytätkö Microsoft 365:tä? Tutustu ScanInboxin tapaan skannata sähköpostiin.","SMTP tulostimille inbox.eu-tiimiltä. Ilmoittaudu ScanInboxiin ja pysy ajan tasalla."]
+      }
+    }
+  ]
+}

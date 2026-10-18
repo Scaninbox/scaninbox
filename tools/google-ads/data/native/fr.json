@@ -1,0 +1,113 @@
+{
+  "lang": "fr",
+  "language_name": "French",
+  "country": "France",
+  "geo_id": 2250,
+  "campaign_name": "ScanInbox | FR | France | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/fr/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "serveur smtp pour imprimante",
+        "relais smtp pour imprimante",
+        "paramètres smtp imprimante",
+        "smtp pour scanner",
+        "serveur smtp pour copieur",
+        "identifiants smtp imprimante",
+        "serveur smtp externe imprimante",
+        "relais smtp imprimante bureau",
+        "configurer smtp imprimante",
+        "smtp pour imprimante multifonction",
+        "serveur smtp pour scan to email",
+        "service smtp pour imprimante",
+        "relais smtp scanner",
+        "compte smtp pour imprimante"
+      ],
+      "ad": {
+        "headlines": [
+          "Inscrivez-vous à ScanInbox",
+          "SMTP pour imprimantes bureau",
+          "Paramètres SMTP imprimante",
+          "De l'imprimante vers l'e-mail",
+          "ScanInbox par inbox.eu",
+          "Solution scanners de bureau"
+        ],
+        "descriptions": [
+          "Un SMTP pour votre imprimante ? Inscrivez-vous à ScanInbox de l'équipe inbox.eu.",
+          "Scanner vers e-mail au bureau. Découvrez ScanInbox et inscrivez-vous.",
+          "Solution SMTP pour imprimantes de bureau, par l'équipe inbox.eu. Inscrivez-vous."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "configurer scan to email",
+        "configurer numérisation vers e-mail",
+        "scan to email imprimante configuration",
+        "envoyer scan par e-mail imprimante",
+        "solution scan to email",
+        "scan to email pour entreprise",
+        "numériser vers e-mail imprimante",
+        "activer scan to mail imprimante",
+        "envoyer documents scannés par e-mail",
+        "scan to email imprimante multifonction",
+        "paramétrer scan to email smtp",
+        "numérisation vers e-mail bureau",
+        "scan to email petite entreprise",
+        "service scan to email"
+      ],
+      "ad": {
+        "headlines": [
+          "Inscrivez-vous à ScanInbox",
+          "Numérisation vers e-mail",
+          "Scan to Email imprimantes",
+          "Documents dans votre e-mail",
+          "Pour la maison et le bureau",
+          "ScanInbox par inbox.eu"
+        ],
+        "descriptions": [
+          "Scanner de l'imprimante vers l'e-mail ? Découvrez ScanInbox et inscrivez-vous.",
+          "Solution SMTP pour imprimantes de bureau, par l'équipe inbox.eu. Inscrivez-vous.",
+          "Un scan to email plus simple à mettre en place. ScanInbox par inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "imprimante smtp microsoft 365",
+        "scan to email microsoft 365",
+        "smtp auth imprimante microsoft 365",
+        "smtp office 365 imprimante",
+        "exchange online smtp imprimante",
+        "imprimante scan to email office 365",
+        "alternative smtp pour imprimante",
+        "relais smtp microsoft 365 imprimante",
+        "alternative smtp pour scanner",
+        "numérisation microsoft 365 smtp",
+        "exchange online scan to email",
+        "alternative smtp office 365 imprimante",
+        "relais smtp microsoft 365 scanner",
+        "authentification de base imprimante microsoft 365",
+        "désactivation smtp auth imprimante"
+      ],
+      "ad": {
+        "headlines": [
+          "Inscrivez-vous à ScanInbox",
+          "SMTP imprimante, Microsoft 365",
+          "SMTP pour imprimantes bureau",
+          "SMTP dédié à l'imprimante",
+          "Numérisation vers e-mail",
+          "ScanInbox par inbox.eu"
+        ],
+        "descriptions": [
+          "Un SMTP dédié à votre imprimante ? Inscrivez-vous à ScanInbox par inbox.eu.",
+          "Vous utilisez Microsoft 365 ? Découvrez l'approche ScanInbox du scan vers e-mail.",
+          "SMTP séparé pour imprimantes de bureau, par l'équipe inbox.eu. Inscrivez-vous."
+        ]
+      }
+    }
+  ]
+}

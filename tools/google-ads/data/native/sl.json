@@ -1,0 +1,107 @@
+{
+  "lang": "sl",
+  "language_name": "Slovenian",
+  "country": "Slovenia",
+  "geo_id": 2705,
+  "campaign_name": "ScanInbox | SL | Slovenia | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/sl/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "smtp strežnik za tiskalnik",
+        "nastavitve smtp za tiskalnik",
+        "smtp strežnik za skener",
+        "smtp relay za tiskalnik",
+        "smtp za pisarniški tiskalnik",
+        "smtp za večfunkcijski tiskalnik",
+        "smtp podatki za tiskalnik",
+        "zunanji smtp strežnik za tiskalnik",
+        "smtp račun za skener",
+        "smtp storitev za tiskalnike",
+        "smtp relay za skenerje",
+        "smtp prijavni podatki tiskalnik"
+      ],
+      "ad": {
+        "headlines": [
+          "Prijavite se na ScanInbox",
+          "SMTP za pisarniške tiskalnike",
+          "Nastavitve SMTP za tiskalnik",
+          "Iz tiskalnika v e-pošto",
+          "ScanInbox od inbox.eu",
+          "Rešitev za pisarniške skenerje"
+        ],
+        "descriptions": [
+          "Iščete SMTP za tiskalnik? Prijavite se na ScanInbox ekipe inbox.eu.",
+          "Skeniranje v e-pošto za dom in pisarno. Spoznajte ScanInbox in se prijavite.",
+          "SMTP rešitev za pisarniške tiskalnike ekipe inbox.eu. Prijavite se na ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "skeniranje v e-pošto",
+        "nastavitev skeniranja v e-pošto",
+        "scan to email tiskalnik",
+        "kako nastaviti skeniranje v e-pošto",
+        "skeniranje iz tiskalnika v e-pošto",
+        "scan to email nastavitev",
+        "scan to email rešitev",
+        "pošiljanje skenov po e-pošti iz tiskalnika",
+        "skeniranje iz večfunkcijske naprave v e-pošto",
+        "kako vklopiti skeniranje v e-pošto",
+        "scan to email za podjetja",
+        "skeniranje dokumentov v e-pošto iz tiskalnika"
+      ],
+      "ad": {
+        "headlines": [
+          "Prijavite se na ScanInbox",
+          "Skeniranje v e-pošto",
+          "Scan to Email za tiskalnike",
+          "Dokumenti naravnost v e-pošto",
+          "Za dom in pisarno",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Vas zanima skeniranje iz tiskalnika v e-pošto? Spoznajte ScanInbox in se prijavite.",
+          "Scan to Email za pisarniške tiskalnike ekipe inbox.eu. Prijavite se na ScanInbox.",
+          "Enostavnejša nastavitev skeniranja v e-pošto? Prijavite se na ScanInbox ekipe inbox.eu."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "smtp za tiskalnik microsoft 365",
+        "tiskalnik in microsoft 365 smtp",
+        "skeniranje v e-pošto microsoft 365",
+        "microsoft 365 smtp auth tiskalnik",
+        "office 365 smtp za tiskalnik",
+        "exchange online smtp za skener",
+        "alternativa smtp za skeniranje",
+        "scan to email microsoft 365",
+        "izklop smtp auth microsoft 365 tiskalnik",
+        "smtp relay za microsoft 365 tiskalnik",
+        "pošiljanje skenov prek microsoft 365",
+        "alternativni smtp strežnik za tiskalnik",
+        "office 365 skeniranje v e-pošto"
+      ],
+      "ad": {
+        "headlines": [
+          "Prijavite se na ScanInbox",
+          "SMTP in Microsoft 365",
+          "SMTP za pisarniške tiskalnike",
+          "Ločen SMTP za tiskalnik",
+          "Skeniranje v e-pošto",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Iščete ločeno SMTP rešitev za tiskalnik? Prijavite se na ScanInbox ekipe inbox.eu.",
+          "Uporabljate Microsoft 365? Spoznajte pristop ScanInbox k skeniranju v e-pošto.",
+          "Dodatna možnost ob SMTP-ju Microsoft 365 za tiskalnike. Prijavite se na ScanInbox."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "lang": "ro",
+  "language_name": "Romanian",
+  "country": "Romania",
+  "geo_id": 2642,
+  "campaign_name": "ScanInbox | RO | Romania | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/ro/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "server smtp pentru imprimantă",
+        "setări smtp imprimantă",
+        "smtp relay pentru imprimantă",
+        "server smtp pentru scaner",
+        "smtp pentru imprimante de birou",
+        "cont smtp pentru imprimantă",
+        "server smtp extern imprimantă",
+        "date smtp pentru scaner",
+        "serviciu smtp pentru imprimante",
+        "smtp pentru multifuncțională",
+        "server smtp pentru scanare",
+        "soluție smtp pentru imprimantă",
+        "smtp pentru copiator",
+        "credențiale smtp imprimantă"
+      ],
+      "ad": {
+        "headlines": [
+          "Înscrie-te la ScanInbox",
+          "SMTP pentru imprimante",
+          "Setări SMTP pentru imprimantă",
+          "De la imprimantă la e-mail",
+          "ScanInbox de la inbox.eu",
+          "Soluție pentru scanere"
+        ],
+        "descriptions": [
+          "Cauți o soluție SMTP pentru imprimantă? Înscrie-te la ScanInbox de la inbox.eu.",
+          "Scanare la e-mail pentru acasă și birou. Descoperă ScanInbox și înscrie-te.",
+          "SMTP pentru imprimante de birou de la echipa inbox.eu. Înscrie-te la ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "configurare scan to email",
+        "scanare la e-mail imprimantă",
+        "cum activez scanarea la e-mail",
+        "scan to email pentru birou",
+        "scanare la e-mail birou",
+        "soluție scan to email",
+        "trimitere scanări pe e-mail",
+        "scan to email multifuncțională",
+        "scanare de la imprimantă la email",
+        "configurare scaner pentru e-mail",
+        "serviciu scan to email",
+        "scan to email server smtp",
+        "scanare pe email",
+        "scanare pe email smtp"
+      ],
+      "ad": {
+        "headlines": [
+          "Înscrie-te la ScanInbox",
+          "Scanare la e-mail",
+          "Scan to Email imprimante",
+          "Documente în e-mailul tău",
+          "Pentru acasă și birou",
+          "ScanInbox de la inbox.eu"
+        ],
+        "descriptions": [
+          "Te interesează scanarea de la imprimantă la e-mail? Descoperă ScanInbox și înscrie-te.",
+          "Soluție SMTP pentru imprimante de birou de la echipa inbox.eu. Înscrie-te la ScanInbox.",
+          "Configurezi scan to email în birou? Descoperă ScanInbox de la inbox.eu și înscrie-te."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "microsoft 365 smtp pentru imprimantă",
+        "office 365 smtp imprimantă scanare",
+        "smtp auth dezactivat microsoft 365 imprimantă",
+        "exchange online smtp imprimantă",
+        "alternativă smtp microsoft 365",
+        "scan to email microsoft 365",
+        "scanare la e-mail office 365",
+        "trimitere scanări prin microsoft 365",
+        "server smtp alternativ pentru scanare",
+        "smtp relay microsoft 365 imprimantă",
+        "exchange online scan to email",
+        "autentificare de bază smtp imprimantă",
+        "smtp office 365 pentru scaner",
+        "microsoft 365 blochează smtp auth imprimantă"
+      ],
+      "ad": {
+        "headlines": [
+          "Înscrie-te la ScanInbox",
+          "Imprimantă și Microsoft 365",
+          "SMTP pentru imprimante",
+          "SMTP separat pentru imprimantă",
+          "Scanare la e-mail",
+          "ScanInbox de la inbox.eu"
+        ],
+        "descriptions": [
+          "Cauți un SMTP separat pentru imprimantă? Înscrie-te la ScanInbox de la inbox.eu.",
+          "Folosești Microsoft 365? Descoperă abordarea ScanInbox pentru scanare la e-mail.",
+          "ScanInbox de la inbox.eu: SMTP pentru imprimante lângă Microsoft 365. Înscrie-te."
+        ]
+      }
+    }
+  ]
+}

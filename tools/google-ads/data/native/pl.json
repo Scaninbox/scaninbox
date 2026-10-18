@@ -1,0 +1,112 @@
+{
+  "lang": "pl",
+  "language_name": "Polish",
+  "country": "Poland",
+  "geo_id": 2616,
+  "campaign_name": "ScanInbox | PL | Poland | Desktop | EUR50",
+  "final_url": "https://scaninbox.me/pl/",
+  "ad_groups": [
+    {
+      "name": "Printer SMTP",
+      "native_keywords": [
+        "serwer smtp dla drukarki",
+        "ustawienia smtp drukarki",
+        "smtp relay dla drukarki",
+        "serwer smtp dla skanera",
+        "smtp dla drukarek biurowych",
+        "konto smtp dla drukarki",
+        "zewnętrzny serwer smtp drukarka",
+        "dane smtp do skanera",
+        "usługa smtp dla drukarek",
+        "smtp dla urządzenia wielofunkcyjnego",
+        "serwer smtp do skanowania",
+        "rozwiązanie smtp dla drukarki",
+        "smtp do kserokopiarki",
+        "dane logowania smtp drukarka"
+      ],
+      "ad": {
+        "headlines": [
+          "Zapisz się na ScanInbox",
+          "SMTP dla drukarek biurowych",
+          "Ustawienia SMTP drukarki",
+          "Z drukarki na adres e-mail",
+          "ScanInbox od inbox.eu",
+          "Rozwiązanie dla skanerów"
+        ],
+        "descriptions": [
+          "Szukasz rozwiązania SMTP dla drukarki? Zapisz się na ScanInbox od zespołu inbox.eu.",
+          "Skanowanie do e-maila w domu i w biurze. Poznaj ScanInbox i zapisz się.",
+          "SMTP dla drukarek biurowych od zespołu inbox.eu. Zapisz się na ScanInbox."
+        ]
+      }
+    },
+    {
+      "name": "Scan-to-Email Setup",
+      "native_keywords": [
+        "skanowanie do e-maila konfiguracja",
+        "skanowanie do e-mail z drukarki",
+        "jak włączyć skanowanie do e-maila",
+        "scan to email konfiguracja",
+        "scan to email dla biura",
+        "skanowanie do maila w biurze",
+        "rozwiązanie scan to email",
+        "wysyłanie skanów na e-mail",
+        "scan to email urządzenie wielofunkcyjne",
+        "skanowanie z drukarki na e-mail",
+        "konfiguracja skanera do e-mail",
+        "usługa scan to email",
+        "scan to email serwer smtp",
+        "skanowanie na pocztę e-mail"
+      ],
+      "ad": {
+        "headlines": [
+          "Zapisz się na ScanInbox",
+          "Skanowanie do e-maila",
+          "Scan to Email dla drukarek",
+          "Dokumenty w Twojej skrzynce",
+          "W domu i w biurze",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Interesuje Cię skanowanie z drukarki do e-maila? Poznaj ScanInbox i zapisz się.",
+          "Rozwiązanie SMTP dla drukarek biurowych od zespołu inbox.eu. Zapisz się na ScanInbox.",
+          "Konfiguracja scan to email w biurze? Poznaj ScanInbox od inbox.eu i zapisz się."
+        ]
+      }
+    },
+    {
+      "name": "Microsoft 365 Alternative",
+      "native_keywords": [
+        "microsoft 365 smtp dla drukarki",
+        "office 365 smtp drukarka skanowanie",
+        "smtp auth wyłączone microsoft 365 drukarka",
+        "exchange online smtp drukarka",
+        "alternatywa dla smtp microsoft 365",
+        "scan to email microsoft 365",
+        "skanowanie do e-maila office 365",
+        "wysyłanie skanów przez microsoft 365",
+        "alternatywny serwer smtp do skanowania",
+        "smtp relay microsoft 365 drukarka",
+        "exchange online scan to email",
+        "basic auth smtp drukarka microsoft 365",
+        "smtp office 365 dla skanera",
+        "microsoft 365 blokuje smtp auth drukarka"
+      ],
+      "ad": {
+        "headlines": [
+          "Zapisz się na ScanInbox",
+          "SMTP drukarki i Microsoft 365",
+          "SMTP dla drukarek biurowych",
+          "Osobny SMTP dla drukarki",
+          "Skanowanie do e-maila",
+          "ScanInbox od inbox.eu"
+        ],
+        "descriptions": [
+          "Szukasz osobnego rozwiązania SMTP dla drukarki? Zapisz się na ScanInbox od inbox.eu.",
+          "Używasz Microsoft 365? Poznaj podejście ScanInbox do skanowania do e-maila.",
+          "ScanInbox od inbox.eu: SMTP dla drukarek obok Microsoft 365. Zapisz się."
+        ]
+      }
+    }
+  ]
+}

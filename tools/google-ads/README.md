@@ -15,6 +15,7 @@ the public website build.
 | [CAMPAIGN-LV.md](CAMPAIGN-LV.md) | Latvia settings, comparison with Ireland, import caveats and measurement status. |
 | `data/latvian-keywords.json` | Latvia keyword records with explicit ad groups, match type, bids and status. |
 | `data/Latvian-Ad-Drafts.json` | Three Latvian ads, with six headlines and two descriptions each. |
+| [CAMPAIGNS-EUROPE.md](CAMPAIGNS-EUROPE.md) | The other 19 site languages: settings, files and caveats (prepared, not yet created in Google Ads). Data in `data/native/`, CSVs in `campaigns/`, generator `build_native_campaigns.js`. |
 | `ads_research.py` | Read-only account checks, language/location lookup and keyword ideas. |
 | `prepare_eng_campaign.py` | Validates campaign operations; the `create` command saves a paused campaign. |
 | `launch_eng_campaign.py` | Checks the original experiment and enables its specific campaign. |
