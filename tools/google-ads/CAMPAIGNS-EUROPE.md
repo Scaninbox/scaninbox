@@ -1,9 +1,42 @@
 # Campaigns for the other 19 site languages
 
 Prepared on **19 October 2026** for the 19 site languages that had no campaign
-yet (Latvian and English/Ireland already exist). **Status: prepared in this
-repository, not yet created in Google Ads.** Account **821-195-4796**. Nothing
-here was imported or enabled; check the live account before relying on it.
+yet (Latvian and English/Ireland already exist). Account **821-195-4796**.
+
+**Status (19 October 2026):** only **Germany** is created in Google Ads —
+`ScanInbox | DE | Germany | Desktop | EUR50`, campaign ID **24364014411**,
+published and enabled that day, built by hand in the Google Ads web UI. The
+other 18 are prepared in this repository only; check the live account before
+relying on any of this.
+
+For Germany, all three ad groups exist with their ads. Keywords left out
+because the Google Ads form flagged them under *Third Party Consumer
+Technical Support* (an exemption request is an attestation to Google, so none
+was made): `scan to email service for printers`, and in the Scan-to-Email
+Setup / Microsoft 365 groups the nine "not working" / "authentication
+error/failed" phrases (brother, canon, hp, kyocera, ricoh and xerox
+`scan to email not working`, `microsoft 365 scan to email not working`,
+`office 365 scan to email not working`, `failed smtp authentication toshiba
+gmail`, `printer smtp authentication error`, `scanner smtp authentication
+failed`). The Ireland and Latvia campaigns include them via exemption requests.
+
+## Traps found while building Germany by hand
+
+- **Switching to Manual CPC resets each ad group's default max CPC to €0.01.**
+  The wizard cannot pick Manual CPC: it creates the campaign with *Maximize
+  clicks* (cap €0.25); afterwards pick *Manual CPC* in Campaign settings →
+  Bidding → "choose a bidding strategy directly", then **set €0.25 on every
+  ad group** (Ad groups → Default max. CPC, confirm the "large increase"
+  prompt). Left at €0.01 the ads effectively never serve.
+- **Devices are not limited by the wizard.** Set Mobile phones and Tablets to
+  −100% under Insights & reports → Devices (`/aw/devices?campaignId=…`).
+- **The wizard's review page shows "All countries and territories"** even
+  though the location was saved; verify in Campaign settings after publishing.
+- The wizard pre-fills ads with text from the landing page (English, with the
+  "first 50 get a year free" claim) and carries the previous ad group's ad into
+  a new one: overwrite every headline and description.
+- A campaign takes roughly 100 UI actions by hand; typing 60+ keywords into the
+  text box times out the browser tool but the text still arrives.
 
 ## Settings (one campaign per language)
 
