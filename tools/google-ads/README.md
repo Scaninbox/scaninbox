@@ -202,3 +202,7 @@ campaign script runs on import or through the website build.
 - [CSV columns](https://support.google.com/google-ads/editor/answer/57747?hl=en)
 - [Campaign total budgets](https://support.google.com/google-ads/answer/10486938?hl=en)
 - [Policy exemption review requests](https://developers.google.com/google-ads/api/docs/policy-exemption/overview)
+
+## Live expansion: 2 November 2026
+
+The remaining 18 site-language campaigns were enabled with EUR50 total campaign budgets each (EUR900 combined). See the [launch record, localized ads and exact keyword CSVs](launches/2026-11-02/README.md). Do not reimport historical Add rows without checking the live account.

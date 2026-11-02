@@ -1,5 +1,7 @@
 # Campaigns for the other 19 site languages
 
+**Update, 2 November 2026:** the remaining 18 language campaigns have now been created and enabled, each with a EUR50 total budget for 2 November–2 December. The actual launch used a smaller focused keyword set (216 keywords across the 18 markets). See [the launch record and exact import files](launches/2026-11-02/README.md). The 19 October settings and large keyword files below are historical preparation, not the current state of the new campaigns.
+
 Prepared on **19 October 2026** for the 19 site languages that had no campaign
 yet (Latvian and English/Ireland already exist). Account **821-195-4796**.
 
